@@ -1,0 +1,17 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// ここから paddingやborderの設定を行っても、要素の大きさがwidthやheightで指定したサイズのまま変わらなくするため固定。
+* {
+  box-sizing: border-box;
+}
+// ここまで
+
+
+// こちら実験中5/7
+.toptytle {
+  color: red;
+  font-size: 38px;
+  font-weight: bold;
+} 
