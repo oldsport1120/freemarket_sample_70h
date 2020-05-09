@@ -13,7 +13,32 @@ $WhiteColor: #ffffff;
 $GrayColor: #f8f8f8;
 $DarkColor: #272727;
 $Btn_BG_Color: #3ccace;
+$TextShadow: 0 0 5px rgba(0,0,0,0.4);
 // ここまで
+
+// mixin
+@mixin WhiteShadow {
+  color: $WhiteColor;
+  text-shadow: $TextShadow;
+}
+
+// バッジのためのmixin
+@mixin link_pointer {
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+// @mixin Badge {
+//   width: 180px;
+//   cursor: pointer;
+// }
+// ここまで
+
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
 
 header {
   height: 110px;
@@ -24,6 +49,76 @@ header {
   height: 550px;
   background-image: url(pict/bg-mainVisual-pict_pc.jpg);
   background-size: cover;
+  // containerを上下中央寄せにするために以下２行記述
+  display: flex;
+  align-items: center;
+  .Container {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 35px;
+    max-width: 1280px;
+    // 仮の背景色↓
+    background-color: yellowgreen;
+    .AppCatchphrase  {
+      font-size: 60px;
+      // color: $WhiteColor;
+      // text-shadow: $TextShadow;
+      @include WhiteShadow;
+      line-height: 1.2;
+    }
+    .TopPhrase {
+      // text-shadow: $TextShadow;
+      font-size: 18px;
+      // color: $WhiteColor;
+      @include WhiteShadow;
+      line-height: 1.77778;
+      margin: 16px 0 0 0;
+    }
+    // .Container__Btn {
+    //   margin-top: 24px;
+    //   // .Container__Btn--Left {
+    //   //   @include Badge;
+    //   // }
+    //   // .Container__Btn--Right {
+    //   //   @include Badge;
+    //   // }
+    //   a {
+    //     // width: 180px;
+    //     // cursor: pointer;
+    //   }
+    //   img {
+    //     width: 180px;
+    //     cursor: pointer;
+    //     // height: 53.33px
+    //   }
+    //   // .Container__Btn--Right {
+    //   //   width: 180px;
+    //   //   height: 53.33px
+    //   // }
+    // }
+    .Container__Btn {
+      // width: 180px;
+      margin-top: 24px;
+      padding: 0;
+      display: flex;
+      // justify-content: flex-end;
+      vertical-align: bottom;
+      a {
+        @include link_pointer;
+        margin-left: 5px;
+        img {
+          width: 180px;
+        }
+        .Apple {
+          height: 47px;
+          width: 163px;
+          // padding-top: 7px;
+          margin-top: 11px;
+          border-radius: 7px;
+        }
+      }
+    }
+  }
 }
 
 .InfoWrapper {
@@ -35,6 +130,86 @@ header {
   height: 400px;
   background-image: url(pict/bg-topMiddleDl-pict.jpg);
   background-size: cover;
+  // containerを上下中央寄せにするために以下２行記述
+  display: flex;
+  align-items: center;
+  .Container {
+    width: 100%;
+    margin: 0 auto;
+    // padding-top: 35px;
+    max-width: 1040px;
+    text-align: left;
+    // 仮の背景色↓
+    background-color: yellowgreen;
+    .AppMessage {
+      font-size: 27px;
+      font-weight: bold;
+      line-height: 1.4;
+      @include WhiteShadow;
+    }
+    .AppPhrase {
+      font-size: 18px;
+      line-height: 1.5;
+      @include WhiteShadow;
+      // margin: 20px 0 30px;
+      // .AppPhrase1 {
+      //   margin-top: 20px;
+      // }
+      // .AppPhrase3 {
+      //   margin-bottom: 30px;
+      // }
+    }
+    .AppPhrase1 {
+      margin-top: 20px;
+    }
+    .AppPhrase3 {
+      margin-bottom: 30px;
+    }
+    // .Container__Btn {
+    //   margin-top: 24px;
+    //   // .Container__Btn--Left {
+    //   //   @include Badge;
+    //   // }
+    //   // .Container__Btn--Right {
+    //   //   @include Badge;
+    //   // }
+    //   a {
+    //     // width: 180px;
+    //     // cursor: pointer;
+    //   }
+    //   img {
+    //     width: 180px;
+    //     cursor: pointer;
+    //     // height: 53.33px
+    //   }
+    //   // .Container__Btn--Right {
+    //   //   width: 180px;
+    //   //   height: 53.33px
+    //   // }
+    // }
+    .Container__Btn {
+      // width: 180px;
+      margin-top: 24px;
+      padding: 0;
+      display: flex;
+      // justify-content: flex-end;
+      vertical-align: bottom;
+      a {
+        @include link_pointer;
+        margin-left: 5px;
+        img {
+          width: 180px;
+        }
+        .Apple {
+          height: 47px;
+          width: 163px;
+          // padding-top: 7px;
+          margin-top: 11px;
+          border-radius: 7px;
+        }
+      }
+    }
+  }
 }
 
 .FeaturesWrapper {
@@ -56,6 +231,53 @@ header {
   height: 350px;
   background-image: url(pict/bg-appBanner-pict.jpg);
   background-size: cover;
+  padding: 100px 40px;
+  .Container {
+    width: 100%;
+    margin: 0 auto;
+    // padding-top: 35px;
+    // max-width: 1040px;
+    text-align: center;
+    // 仮の背景色↓
+    background-color: yellowgreen;
+    .DownLoadMessage {
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+      @include WhiteShadow;
+    }
+    .DownLoadPhrase  {
+      font-size: 35px;
+      @include WhiteShadow;
+    }
+    .Container__Btn {
+      // width: 180px;
+      // margin-top: 24px;
+      // margin: 24px 0 auto;
+      padding: 0;
+      display: flex;
+      // text-align: center;
+      // justify-content: flex-end;
+      vertical-align: bottom;
+      width: 100%;
+      justify-content: center;
+      margin: 20px auto 0;
+      a {
+        @include link_pointer;
+        margin-left: 5px;
+        img {
+          width: 180px;
+        }
+        .Apple {
+          height: 47px;
+          width: 163px;
+          // padding-top: 7px;
+          margin-top: 11px;
+          border-radius: 7px;
+        }
+      }
+    }
+  }
 }
 
 footer {
@@ -76,5 +298,53 @@ footer {
   }
   .icon_camera {
     color: $WhiteColor;
+  }
+}
+
+
+// 実験
+// .SideHeaderItems {
+//   height: 20px;
+//   width: 260px;
+//   display: flex;
+//   justify-content: space-between;
+//   p {
+//     line-height: 20px;
+//     font-size: 16px;
+//     font-weight: bold;
+//     color: $white_color;
+//   }
+//   ul {
+//     width: 60px;
+//     margin: 0;
+//     padding: 0;
+//     display: flex;
+//     justify-content: flex-end;
+//     a {
+//       @include link_pointer;
+//       margin-left: 5px;
+//     }
+//   }
+// }
+
+.Container3__Btn {
+  // width: 180px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  // justify-content: flex-end;
+  vertical-align: bottom;
+  a {
+    @include link_pointer;
+    margin-left: 5px;
+    img {
+      width: 180px;
+    }
+    .Apple {
+      height: 47px;
+      width: 163px;
+      // padding-top: 7px;
+      margin-top: 11px;
+    }
   }
 }
