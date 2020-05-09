@@ -5,7 +5,7 @@
 |------|----|-------|
 |nickname|string|null: false|
 |email|string|null: false,unique: true|
-|password|string||
+|password|string|null: false|
 |password_confirmation|string|null: false|
 |family_name|string|null: false|
 |first_name|string|null: false|
@@ -30,7 +30,7 @@
 |city|string|null: false|
 |street|integer|null: false|
 |room_number|integer||
-|tel|integer||
+|tel|integer|null: false|
 |user_id|integer|foreign_key: true|
 ### Association
 - belongs_to: user
