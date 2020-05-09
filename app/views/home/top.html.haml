@@ -1,12 +1,25 @@
-
-
-%h1(class="toptytle") Home#top
-%p Find me in app/views/home/top.html.haml
-%p Topページになるよ？
-
-%p logo実験
-= image_tag "logo/logo.png", alt: "ロゴ写真"
-
-%p 仮置きpicture
--# = image_tag "icon-01.png", size: "120x100", alt: "男性の写真"
-= image_tag "icon/icon-01.png", alt: "男性の写真"
+%body
+  %header
+    %p header color: 白#ffffff
+  %div.TopWrapper
+    %p TopWrapper background-image
+  %div.InfoWrapper
+    %p color: 白#ffffff
+  %div.AppWrapper
+    %p background-image
+  %div.FeaturesWrapper
+    %p color: 白#ffffff
+  %div.CategoryWrapper
+    %p color: グレー#f8f8f8
+  %div.BrandWrapper
+    %p color: グレー#f8f8f8
+  %div.DownloadWrapper
+    %p background-image
+  %footer
+    %p color: ダーク#272727
+  %div.SellerButton
+    = link_to root_path 
+    %span 
+      出品する
+    %img.icon_camera
+      = image_tag "icon/icon_camera.png", alt: "出品アイコン"
