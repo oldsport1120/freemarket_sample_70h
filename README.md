@@ -14,6 +14,8 @@
 |date_of_birth|integer|null: false|
 ### Association
 - has_many: products
+- has_many: likes
+- has_many: comments
 - has_one: shipment
 - has_one: payment
 
@@ -64,6 +66,7 @@
 |category_id|integer|foreign_key: true|
 ### Association
 - has_many: pictures
+- has_one: category
 - belongs_to: user
 
 
