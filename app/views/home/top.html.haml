@@ -1,12 +1,33 @@
 %body
   %header
-    %p header color: 白#ffffff
+    %p header color: 白#ffffff 
   %div.TopWrapper
-    %p TopWrapper background-image
+    %div.Container
+      %h2.AppCatchphrase 人生を変えるフリマアプリ
+      %p.TopPhrase  FURIMAはだれでもかんたんに出品・購入できる
+      %p.TopPhrase  フリマアプリです
+      %ul.Container__Btn
+        %li(class="Container__Btn--Left") 
+          = link_to root_path, class:"Left" do
+            = image_tag "logo/AnyConv.App_Store_Badge.png", alt: "AppStore", class: "Apple"
+        %li(class="Container__Btn--Right")
+          = link_to root_path, class:"Right" do
+            = image_tag "logo/google-play-badge.png", alt: "GooglePlay"
   %div.InfoWrapper
     %p color: 白#ffffff
   %div.AppWrapper
-    %p background-image
+    %div.Container
+      %h2.AppMessage 会員数日本一位
+      %p.AppPhrase.AppPhrase1 FURIMAは、フリマアプリで最も人気。
+      %p.AppPhrase.AppPhrase2 出品・購入回数も業界最多です！
+      %p.AppPhrase.AppPhrase3  ほしかったあの商品に出会えるかもしれません。
+      %ul.Container__Btn
+        %li(class="Container__Btn--Left") 
+          = link_to root_path, class:"Left" do
+            = image_tag "logo/AnyConv.App_Store_Badge.png", alt: "AppStore", class: "Apple"
+        %li(class="Container__Btn--Right")
+          = link_to root_path, class:"Right" do
+            = image_tag "logo/google-play-badge.png", alt: "GooglePlay"
   %div.FeaturesWrapper
     %p color: 白#ffffff
   %div.CategoryWrapper
@@ -14,7 +35,16 @@
   %div.BrandWrapper
     %p color: グレー#f8f8f8
   %div.DownloadWrapper
-    %p background-image
+    %div.Container
+      %h2.DownLoadMessage だれでもかんたん、人生を変えるフリマアプリ
+      %p.DownLoadPhrase 今すぐ無料ダウンロード！
+      %ul.Container__Btn
+        %li(class="Container__Btn--Left") 
+          = link_to root_path, class:"Left" do
+            = image_tag "logo/AnyConv.App_Store_Badge.png", alt: "AppStore", class: "Apple"
+        %li(class="Container__Btn--Right")
+          = link_to root_path, class:"Right" do
+            = image_tag "logo/google-play-badge.png", alt: "GooglePlay"
   %footer
     %p color: ダーク#272727
   %div.SellerButton
@@ -23,3 +53,12 @@
       出品する
     %img.icon_camera
       = image_tag "icon/icon_camera.png", alt: "出品アイコン"
+
+  %ul.Container3__Btn
+    %li(class="Container3__Btn--Left") 
+      =link_to root_path, class:"Left" do
+        = image_tag "logo/AnyConv.App_Store_Badge.png", alt: "AppStore", class: "Apple"
+    %li(class="Container3__Btn--Right")
+      =link_to root_path, class:"Right" do
+        = image_tag "logo/google-play-badge.png", alt: "GooglePlay"
+
