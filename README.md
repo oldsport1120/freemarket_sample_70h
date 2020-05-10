@@ -82,7 +82,6 @@
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|integer|foreign_key: true|
 |name|string|null: false|
 ### Association
 - has_many: products
