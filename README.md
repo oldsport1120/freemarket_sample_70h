@@ -32,7 +32,7 @@
 |city|string|null: false|
 |street|integer|null: false|
 |room_number|integer||
-|tel|integer|null: false|
+|tel|integer||
 |user_id|integer|foreign_key: true|
 ### Association
 - belongs_to: user
