@@ -23,10 +23,10 @@
 ## shipmentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|ship_family_name|string|null: false|
-|ship_first_name|string|null: false|
-|ship_family_name_kana|string|null: false|
-|ship_first_name_kana|string|null: false|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
 |zip_code|integer|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
