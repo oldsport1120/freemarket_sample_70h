@@ -46,9 +46,11 @@ header {
 }
 
 .TopWrapper {
-  height: 550px;
+  height: 560px;
   background-image: url(pict/bg-mainVisual-pict_pc.jpg);
   background-size: cover;
+  background-position: top center;
+  padding: 0 60px;
   // containerを上下中央寄せにするために以下２行記述
   display: flex;
   align-items: center;
@@ -58,7 +60,7 @@ header {
     padding-top: 35px;
     max-width: 1280px;
     // 仮の背景色↓
-    background-color: yellowgreen;
+    // background-color: yellowgreen;
     .AppCatchphrase  {
       font-size: 60px;
       // color: $WhiteColor;
@@ -124,12 +126,91 @@ header {
 .InfoWrapper {
   height: 650px;
   background-color: $WhiteColor;
+  padding: 60px 20px;
+  .InfoSectionTitle {
+    font-size: 26px;
+    text-align: center;
+    line-height: 1.4;
+    font-weight: bold;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    position: relative;
+    &::after {
+      // position: relative;
+      // bottom:1.1em;
+      content: "";
+      width: 70px;
+      height: 4px;
+      background-color: $Btn_BG_Color;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .Info__Ul {
+    text-align: center;
+    display: flex;
+    max-width: 1020px;
+    width: 100%;
+    margin: 0 auto;
+    // 仮の背景色
+    // background-color: yellowgreen;
+   .Info__List {
+    width: 30%;
+    margin: 16px 5% 0 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // 仮の背景色
+    // background-color: yellowgreen;
+    .Info__Div {
+      position: relative;
+      margin-bottom: 20px;
+      .Info__Span {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 4%;
+        font-size: 30px;
+        text-align: center;
+        margin: 0 5px 0 0;
+        padding: 10px 20px;
+        background-color: $Btn_BG_Color;
+        color: $WhiteColor;
+      }
+      img {
+        width: 100%;
+        vertical-align: bottom;
+      }
+    }
+    .Info__h3 {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 50px;
+      margin: 0 0 0 2px;
+      span {
+        color: $Btn_BG_Color;
+      }
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin: 16px 0 0;
+    }
+   }
+  }
 }
 
 .AppWrapper {
   height: 400px;
   background-image: url(pict/bg-topMiddleDl-pict.jpg);
   background-size: cover;
+  background-position: bottom right;
+  display: flex;
+  align-items: center;
   // containerを上下中央寄せにするために以下２行記述
   display: flex;
   align-items: center;
@@ -140,7 +221,7 @@ header {
     max-width: 1040px;
     text-align: left;
     // 仮の背景色↓
-    background-color: yellowgreen;
+    // background-color: yellowgreen;
     .AppMessage {
       font-size: 27px;
       font-weight: bold;
@@ -215,7 +296,67 @@ header {
 .FeaturesWrapper {
   height: 730px;
   background-color: $WhiteColor;
+  padding: 60px 100px;
+  .FeaturesSectionTitle {
+    font-size: 27px;
+    text-align: center;
+    margin: 0 0 40px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    position: relative;
+    &::after {
+      content: "";
+      width: 70px;
+      height: 4px;
+      background-color: $Btn_BG_Color;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .Features__Ul {
+    max-width: calc(1040px + 20px);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    .Features__List {
+      display: flex;
+      flex-direction: column;
+      width: calc(1 / 3 * 100%);
+      text-align: center;
+      padding: 0 20px;
+      .Features__Div {
+        width: 70%;
+        margin: 0 auto;
+        line-height: 120px;
+        img {
+          width: 100%;
+          vertical-align: bottom;
+        }
+      }
+      .Info__h3  {
+        margin: 38px 0 10px;
+        font-size: 19px;
+        font-weight: bold;
+      }
+      p {
+        margin: 0 0 40px;
+        font-size: 17px;
+        font-weight: 200;
+        text-align: left;
+      }
+    }
+    // .Info__h3  {
+    //   margin: 38px 0 10px;
+    //   font-size: 19px;
+    //   font-weight: bold;
+    // }
+  }
 }
+
 
 .CategoryWrapper {
   height: 500px;
@@ -232,6 +373,8 @@ header {
   background-image: url(pict/bg-appBanner-pict.jpg);
   background-size: cover;
   padding: 100px 40px;
+  position: relative;
+  background-position: center;
   .Container {
     width: 100%;
     margin: 0 auto;
@@ -239,7 +382,7 @@ header {
     // max-width: 1040px;
     text-align: center;
     // 仮の背景色↓
-    background-color: yellowgreen;
+    // background-color: yellowgreen;
     .DownLoadMessage {
       font-size: 24px;
       font-weight: bold;
