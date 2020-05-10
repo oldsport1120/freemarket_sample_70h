@@ -13,11 +13,11 @@
 |first_name_kana|string|null: false|
 |date_of_birth|integer|null: false|
 ### Association
-- has_many: products
-- has_many: likes
-- has_many: comments
-- has_one: shipment
-- has_one: payment
+- has_many: products, dependent: :destroy
+- has_many: likes, dependent: :destroy
+- has_many: comments, dependent: :destroy
+- has_one: shipment, dependent: :destroy
+- has_one: payment, dependent: :destroy
 
 
 ## shipmentsテーブル
@@ -65,8 +65,8 @@
 |user_id|integer|foreign_key: true|
 |category_id|integer|foreign_key: true|
 ### Association
-- has_many: pictures
-- has_one: category
+- has_many: pictures, dependent: :destroy
+- belongs_to: category
 - belongs_to: user
 
 
@@ -76,16 +76,17 @@
 |picture|string|null:false|
 |product_id|integer|foreign_key: true|
 ### Association
-- belongs_to: products
+- belongs_to: product
 
 
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product_id|integer|foreign_key: true|
-|category|string|null: false|
+|name|string|null: false|
 ### Association
 - has_many: products
+- has_ancestry
 
 
 ## likesテーブル
