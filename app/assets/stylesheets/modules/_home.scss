@@ -74,6 +74,79 @@ header {
       div {
         margin-left: auto;
         width: 100%;
+        form {
+          // height: 90px;
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+          // background-color: yellowgreen;
+          justify-content: space-between;
+          .NewMessage__InputBox {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            .NewMessage__Input {
+              width: calc(100% - 26px);
+              height: 36px;
+              padding: 0 0 0 5px;
+              width: 100%;
+              display: flex;
+              align-items: center;
+            }
+            .Button {
+              width: 36px;
+              border: 0;
+              cursor: pointer;
+              background-color: #3CCACE;
+              padding: 8px;
+              height: 36px;
+              div {
+                img {
+                  width: 100%;
+                  vertical-align: bottom;
+                  // background-color: $Btn_BG_Color;
+                  color:  $WhiteColor;
+                  border: 0;
+                  // cursor: pointer;
+                  // padding: 8px;
+                  // width: 36px;
+                  // height: 36px;
+                  // vertical-align: bottom;
+                }
+              }
+            }
+          }
+          // .NewMessage__Input {
+          //   width: calc(100% - 26px);
+          //   height: 36px;
+          //   padding: 0 0 0 5px;
+          //   width: 100%;
+          //   display: flex;
+          //   align-items: center;
+          // }
+          // .Button {
+          //   width: 36px;
+          //   border: 0;
+          //   cursor: pointer;
+          //   background-color: #3CCACE;
+          //   padding: 8px;
+          //   height: 36px;
+          //   div {
+          //     img {
+          //       width: 100%;
+          //       vertical-align: bottom;
+          //       // background-color: $Btn_BG_Color;
+          //       color:  $WhiteColor;
+          //       border: 0;
+          //       // cursor: pointer;
+          //       // padding: 8px;
+          //       // width: 36px;
+          //       // height: 36px;
+          //       // vertical-align: bottom;
+          //     }
+          //   }
+          // }
+        }
       }
     }
     .HeaderNav {
@@ -789,49 +862,3 @@ footer {
 
 
 
-// 実験
-// .SideHeaderItems {
-//   height: 20px;
-//   width: 260px;
-//   display: flex;
-//   justify-content: space-between;
-//   p {
-//     line-height: 20px;
-//     font-size: 16px;
-//     font-weight: bold;
-//     color: $white_color;
-//   }
-//   ul {
-//     width: 60px;
-//     margin: 0;
-//     padding: 0;
-//     display: flex;
-//     justify-content: flex-end;
-//     a {
-//       @include link_pointer;
-//       margin-left: 5px;
-//     }
-//   }
-// }
-
-.Container3__Btn {
-  // width: 180px;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  // justify-content: flex-end;
-  vertical-align: bottom;
-  a {
-    @include link_pointer;
-    margin-left: 5px;
-    img {
-      width: 180px;
-    }
-    .Apple {
-      height: 47px;
-      width: 163px;
-      // padding-top: 7px;
-      margin-top: 11px;
-    }
-  }
-}

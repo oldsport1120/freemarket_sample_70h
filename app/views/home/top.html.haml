@@ -5,7 +5,13 @@
         %h1
           = link_to root_path, class:"HeaderLogo" do
             = image_tag "logo/logo.png", alt: "FURIMALogo", class: "FURIMALogo"
-        %div
+        %div.MainChat__Form
+          %form(class="NewMessage")
+            .NewMessage__InputBox
+              %input(class="NewMessage__Input" type="text" placeholder="キーワードから探す")
+              %button.Button
+                %div
+                  = image_tag "icon/icon-search 2.png", alt: "Search", value: "Send", type: "submit", class: "NewMessage__SubmitBtn"
         %ul
       %div.HeaderNav
         %ul.Nav__Left
@@ -189,6 +195,11 @@
     = link_to root_path , class:"TopButton" do
       %span  出品する
       = image_tag "icon/icon_camera.png", alt: "出品アイコン"
-
-
-
+  
+  %div.MainChat__Form
+    %form(class="NewMessage")
+      .NewMessage__InputBox
+        %input(class="NewMessage__Input" type="text" placeholder="キーワードから探す")
+          %button.Button
+            %div
+              = image_tag "icon/icon-search 2.png", alt: "Search", value: "Send", type: "submit", class: "NewMessage__SubmitBtn"
