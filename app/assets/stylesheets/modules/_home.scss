@@ -226,6 +226,9 @@ header {
   background-size: cover;
   background-position: top center;
   padding: 0 60px;
+  width: 100%;
+  background-repeat: no-repeat;
+  position: relative;
   // containerを上下中央寄せにするために以下２行記述
   display: flex;
   align-items: center;
@@ -532,12 +535,16 @@ header {
   }
 }
 
+.wrappers {
+  background-color: $GrayColor;
+}
 
 .CategoryWrapper {
   padding: 80px 0 0;
-  height: 500px;
+  // height: 500px;
   // height: 100%;
   background-color: $GrayColor;
+  height: 100%;
   .CategoryTitle {
     text-align: center;
     font-size: 28px;
@@ -561,12 +568,12 @@ header {
       margin: 26px auto;
       display: flex;
       justify-content: space-around;
-      height: 100%;
+      // height: 100%;
       // 仮の背景色↓
-      background-color: yellowgreen;
+      // background-color: yellowgreen;
       .CategoryPics__Pic {
         width: 220px;
-        height: 245px;
+        // height: 245px;
         display: inline-block;
         float: left;
         // background-color: pink;
@@ -574,11 +581,12 @@ header {
           background-color: $WhiteColor;
           display: inline-block;
           text-decoration: none;
-          div {
+          position: relative;
+          .Pic {
             width: 220px;
             height: 150px;
             position: relative;
-            // overflow: hidden;
+            overflow: hidden;
             margin: 0;
             z-index: auto;
             display: block;
@@ -597,7 +605,7 @@ header {
           }
           .CategoryPic__Text {
             background-color: $WhiteColor;
-            background-color: pink;
+            // background-color: pink;
             color: $TextColor;
             padding: 16px;
             h3 {
@@ -636,11 +644,12 @@ header {
 
 
 .BrandWrapper {
-  height: 500px;
+  // height: 500px;
   background-color: $GrayColor;
   padding: 80px 0 0;
-  background-color: #f8f8f8;
-  // height: 100%;
+  // background-color: #f8f8f8;
+  padding-bottom: 80px;
+  height: 100%;
   .BrandTitle {
     text-align: center;
     font-size: 28px;
@@ -671,12 +680,17 @@ header {
         width: 220px;
         display: inline-block;
         float: left;
+        background-color: pink;
         a {
-          background-color: #fff;
+          background-color: $WhiteColor;
           display: inline-block;
           text-decoration: none;
           position: relative;
           .Pic {
+            // margin-block-start: 1em;
+            // margin-block-end: 1em;
+            // margin-inline-start: 40px;
+            // margin-inline-end: 40px;
             width: 220px;
             height: 150px;
             position: relative;
@@ -684,10 +698,6 @@ header {
             margin: 0;
             z-index: auto;
             display: block;
-            margin-block-start: 1em;
-            margin-block-end: 1em;
-            margin-inline-start: 40px;
-            margin-inline-end: 40px;
             img {
               position: absolute;
               top: 0;
@@ -701,32 +711,47 @@ header {
               vertical-align: bottom;
             }
           }
-          .Text {
-            background-color: white;
-            color: #333;
+          .BrandPic__Text {
+            background-color: $WhiteColor;
+            // background-color: pink;
+            color: $TextColor;
             padding: 16px;
             h3 {
+              font-weight: normal;
               overflow: hidden;
               line-height: 1.5;
               font-size: 16px;
               text-align: left;
-              font-weight: normal;
             }
-            div {
+            .Text {
               font-size: 16px;
+              // ul {
+              //   display: flex;
+              //   align-items: center;
+              //   justify-content: space-between;
+              //   list-style: none;
+              //   li {
+              //     display: list-item;
+              //     text-align: -webkit-match-parent;
+              //   }
+              // }
               ul {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                list-style: none;
+                // justify-content: space-around;
                 li {
                   display: list-item;
-                  text-align: -webkit-match-parent;
                 }
               }
               p {
                 font-size: 10px;
                 text-align: left;
+                display: block;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
               }
             }
           }
