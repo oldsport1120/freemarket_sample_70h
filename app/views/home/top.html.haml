@@ -191,7 +191,47 @@
           = link_to root_path, class:"Right" do
             = image_tag "logo/google-play-badge.png", alt: "GooglePlay"
   %footer
-    %p color: ダーク#272727
+    %ul.Container
+      %li.List
+        %h2  FURIMAについて
+        %ul
+          %li
+            = link_to root_path do 
+              会社概要（運営会社）
+          %li
+            = link_to root_path do
+              プライバシーポリシー
+          %li
+            = link_to root_path do
+              FURIMA利用規約
+          %li
+            = link_to root_path do
+              ポイントに関する特約
+      %li.List
+        %h2  FURIMAを見る
+        %ul
+          %li
+            = link_to root_path do
+              カテゴリー一覧
+          %li
+            = link_to root_path do
+              ブランド一覧
+      %li.List
+        %h2  ヘルプ＆ガイド
+        %ul
+          %li
+            = link_to root_path do
+              FURIMAガイド
+          %li
+            = link_to root_path do
+              FURIMAロゴ利用ガイドライン
+          %li
+            = link_to root_path do
+              お知らせ
+    %div.Footer__Logo
+      = link_to root_path, class:"Logo" do
+        = image_tag "logo/logo-white.png", alt: "LogoWhite"
+    %p  © FURIMA
   %div.SellerButton
     = link_to root_path , class:"TopButton" do
       %span  出品する

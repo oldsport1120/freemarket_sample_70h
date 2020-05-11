@@ -31,18 +31,39 @@ $TextShadow: 0 0 5px rgba(0,0,0,0.4);
     opacity: 0.5;
   }
 }
-// @mixin Badge {
-//   width: 180px;
-//   cursor: pointer;
-// }
-// ここまで
+
+// AppleBadgeのためのmixin
+@mixin Apple {
+  height: 47px;
+  width: 163px;
+  margin-top: 11px;
+  border-radius: 7px;
+}
+
+// Navリンクのmixin
+@mixin NavLink {
+  color: $TextColor;
+  text-decoration: none;
+  line-height: 32px;
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  padding-right: 30px;
+}
+
+// containerを上下中央寄せにするためのmixin
+@mixin ContainerCenter {
+  display: flex;
+  align-items: center;
+}
+
 
 body {
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
 }
 
+
 header {
-  // height: 110px;
   background-color: $WhiteColor;
   padding: 0 60px;
   .HeaderContainer {
@@ -62,7 +83,6 @@ header {
         font-size: 100%;
         font-weight: normal;
         a {
-          // width: 140px;
           display: block;
           cursor: pointer;
           img {
@@ -75,11 +95,9 @@ header {
         margin-left: auto;
         width: 100%;
         form {
-          // height: 90px;
           width: 100%;
           display: flex;
           margin-bottom: 5px;
-          // background-color: yellowgreen;
           justify-content: space-between;
           .NewMessage__InputBox {
             width: 100%;
@@ -97,55 +115,19 @@ header {
               width: 36px;
               border: 0;
               cursor: pointer;
-              background-color: #3CCACE;
+              background-color: $Btn_BG_Color;
               padding: 8px;
               height: 36px;
               div {
                 img {
                   width: 100%;
                   vertical-align: bottom;
-                  // background-color: $Btn_BG_Color;
                   color:  $WhiteColor;
                   border: 0;
-                  // cursor: pointer;
-                  // padding: 8px;
-                  // width: 36px;
-                  // height: 36px;
-                  // vertical-align: bottom;
                 }
               }
             }
           }
-          // .NewMessage__Input {
-          //   width: calc(100% - 26px);
-          //   height: 36px;
-          //   padding: 0 0 0 5px;
-          //   width: 100%;
-          //   display: flex;
-          //   align-items: center;
-          // }
-          // .Button {
-          //   width: 36px;
-          //   border: 0;
-          //   cursor: pointer;
-          //   background-color: #3CCACE;
-          //   padding: 8px;
-          //   height: 36px;
-          //   div {
-          //     img {
-          //       width: 100%;
-          //       vertical-align: bottom;
-          //       // background-color: $Btn_BG_Color;
-          //       color:  $WhiteColor;
-          //       border: 0;
-          //       // cursor: pointer;
-          //       // padding: 8px;
-          //       // width: 36px;
-          //       // height: 36px;
-          //       // vertical-align: bottom;
-          //     }
-          //   }
-          // }
         }
       }
     }
@@ -163,13 +145,7 @@ header {
           display: flex;
           line-height: 38px;
           a {
-            color: #333;
-            text-decoration: none;
-            line-height: 32px;
-            background-position: center right;
-            background-repeat: no-repeat;
-            background-size: 18px;
-            padding-right: 30px;
+            @include NavLink;
           }
         }
         .Nav__Left--right {
@@ -177,13 +153,7 @@ header {
           line-height: 38px;
           padding-left: 16px;
           a {
-            color: #333;
-            text-decoration: none;
-            line-height: 32px;
-            background-position: center right;
-            background-repeat: no-repeat;
-            background-size: 18px;
-            padding-right: 30px;
+            @include NavLink;
           }
         }
       }
@@ -198,19 +168,19 @@ header {
           a {
             display: flex;
             align-items: center;
-            color: #333;
+            color: $TextColor;
             text-decoration: none;
             line-height: 32px;
           }
         }
         .Nav__Right--right {
-          color: #333;
+          color: $TextColor;
           line-height: 38px;
           padding: 0 0 0 16px;
           a {
             display: flex;
             align-items: center;
-            color: #333;
+            color: $TextColor;
             text-decoration: none;
             line-height: 32px;
           }
@@ -229,59 +199,27 @@ header {
   width: 100%;
   background-repeat: no-repeat;
   position: relative;
-  // containerを上下中央寄せにするために以下２行記述
-  display: flex;
-  align-items: center;
+  @include ContainerCenter;
   .Container {
     width: 100%;
     margin: 0 auto;
     padding-top: 35px;
     max-width: 1280px;
-    // 仮の背景色↓
-    // background-color: yellowgreen;
     .AppCatchphrase  {
       font-size: 60px;
-      // color: $WhiteColor;
-      // text-shadow: $TextShadow;
       @include WhiteShadow;
       line-height: 1.2;
     }
     .TopPhrase {
-      // text-shadow: $TextShadow;
       font-size: 18px;
-      // color: $WhiteColor;
       @include WhiteShadow;
       line-height: 1.77778;
       margin: 16px 0 0 0;
     }
-    // .Container__Btn {
-    //   margin-top: 24px;
-    //   // .Container__Btn--Left {
-    //   //   @include Badge;
-    //   // }
-    //   // .Container__Btn--Right {
-    //   //   @include Badge;
-    //   // }
-    //   a {
-    //     // width: 180px;
-    //     // cursor: pointer;
-    //   }
-    //   img {
-    //     width: 180px;
-    //     cursor: pointer;
-    //     // height: 53.33px
-    //   }
-    //   // .Container__Btn--Right {
-    //   //   width: 180px;
-    //   //   height: 53.33px
-    //   // }
-    // }
     .Container__Btn {
-      // width: 180px;
       margin-top: 24px;
       padding: 0;
       display: flex;
-      // justify-content: flex-end;
       vertical-align: bottom;
       a {
         @include link_pointer;
@@ -290,11 +228,7 @@ header {
           width: 180px;
         }
         .Apple {
-          height: 47px;
-          width: 163px;
-          // padding-top: 7px;
-          margin-top: 11px;
-          border-radius: 7px;
+          @include Apple;
         }
       }
     }
@@ -314,8 +248,6 @@ header {
     padding-bottom: 15px;
     position: relative;
     &::after {
-      // position: relative;
-      // bottom:1.1em;
       content: "";
       width: 70px;
       height: 4px;
@@ -332,8 +264,6 @@ header {
     max-width: 1020px;
     width: 100%;
     margin: 0 auto;
-    // 仮の背景色
-    // background-color: yellowgreen;
    .Info__List {
     width: 30%;
     margin: 16px 5% 0 0;
@@ -341,8 +271,6 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    // 仮の背景色
-    // background-color: yellowgreen;
     .Info__Div {
       position: relative;
       margin-bottom: 20px;
@@ -389,17 +317,12 @@ header {
   background-position: bottom right;
   display: flex;
   align-items: center;
-  // containerを上下中央寄せにするために以下２行記述
-  display: flex;
-  align-items: center;
+  @include ContainerCenter;
   .Container {
     width: 100%;
     margin: 0 auto;
-    // padding-top: 35px;
     max-width: 1040px;
     text-align: left;
-    // 仮の背景色↓
-    // background-color: yellowgreen;
     .AppMessage {
       font-size: 27px;
       font-weight: bold;
@@ -410,13 +333,6 @@ header {
       font-size: 18px;
       line-height: 1.5;
       @include WhiteShadow;
-      // margin: 20px 0 30px;
-      // .AppPhrase1 {
-      //   margin-top: 20px;
-      // }
-      // .AppPhrase3 {
-      //   margin-bottom: 30px;
-      // }
     }
     .AppPhrase1 {
       margin-top: 20px;
@@ -424,34 +340,10 @@ header {
     .AppPhrase3 {
       margin-bottom: 30px;
     }
-    // .Container__Btn {
-    //   margin-top: 24px;
-    //   // .Container__Btn--Left {
-    //   //   @include Badge;
-    //   // }
-    //   // .Container__Btn--Right {
-    //   //   @include Badge;
-    //   // }
-    //   a {
-    //     // width: 180px;
-    //     // cursor: pointer;
-    //   }
-    //   img {
-    //     width: 180px;
-    //     cursor: pointer;
-    //     // height: 53.33px
-    //   }
-    //   // .Container__Btn--Right {
-    //   //   width: 180px;
-    //   //   height: 53.33px
-    //   // }
-    // }
     .Container__Btn {
-      // width: 180px;
       margin-top: 24px;
       padding: 0;
       display: flex;
-      // justify-content: flex-end;
       vertical-align: bottom;
       a {
         @include link_pointer;
@@ -460,11 +352,7 @@ header {
           width: 180px;
         }
         .Apple {
-          height: 47px;
-          width: 163px;
-          // padding-top: 7px;
-          margin-top: 11px;
-          border-radius: 7px;
+          @include Apple;
         }
       }
     }
@@ -527,11 +415,6 @@ header {
         text-align: left;
       }
     }
-    // .Info__h3  {
-    //   margin: 38px 0 10px;
-    //   font-size: 19px;
-    //   font-weight: bold;
-    // }
   }
 }
 
@@ -541,8 +424,6 @@ header {
 
 .CategoryWrapper {
   padding: 80px 0 0;
-  // height: 500px;
-  // height: 100%;
   background-color: $GrayColor;
   height: 100%;
   .CategoryTitle {
@@ -568,15 +449,10 @@ header {
       margin: 26px auto;
       display: flex;
       justify-content: space-around;
-      // height: 100%;
-      // 仮の背景色↓
-      // background-color: yellowgreen;
       .CategoryPics__Pic {
         width: 220px;
-        // height: 245px;
         display: inline-block;
         float: left;
-        // background-color: pink;
         a {
           background-color: $WhiteColor;
           display: inline-block;
@@ -605,7 +481,6 @@ header {
           }
           .CategoryPic__Text {
             background-color: $WhiteColor;
-            // background-color: pink;
             color: $TextColor;
             padding: 16px;
             h3 {
@@ -620,7 +495,6 @@ header {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                // justify-content: space-around;
                 li {
                   display: list-item;
                 }
@@ -644,10 +518,8 @@ header {
 
 
 .BrandWrapper {
-  // height: 500px;
   background-color: $GrayColor;
   padding: 80px 0 0;
-  // background-color: #f8f8f8;
   padding-bottom: 80px;
   height: 100%;
   .BrandTitle {
@@ -680,17 +552,12 @@ header {
         width: 220px;
         display: inline-block;
         float: left;
-        background-color: pink;
         a {
           background-color: $WhiteColor;
           display: inline-block;
           text-decoration: none;
           position: relative;
           .Pic {
-            // margin-block-start: 1em;
-            // margin-block-end: 1em;
-            // margin-inline-start: 40px;
-            // margin-inline-end: 40px;
             width: 220px;
             height: 150px;
             position: relative;
@@ -713,7 +580,6 @@ header {
           }
           .BrandPic__Text {
             background-color: $WhiteColor;
-            // background-color: pink;
             color: $TextColor;
             padding: 16px;
             h3 {
@@ -725,21 +591,10 @@ header {
             }
             .Text {
               font-size: 16px;
-              // ul {
-              //   display: flex;
-              //   align-items: center;
-              //   justify-content: space-between;
-              //   list-style: none;
-              //   li {
-              //     display: list-item;
-              //     text-align: -webkit-match-parent;
-              //   }
-              // }
               ul {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                // justify-content: space-around;
                 li {
                   display: list-item;
                 }
@@ -773,11 +628,7 @@ header {
   .Container {
     width: 100%;
     margin: 0 auto;
-    // padding-top: 35px;
-    // max-width: 1040px;
     text-align: center;
-    // 仮の背景色↓
-    // background-color: yellowgreen;
     .DownLoadMessage {
       font-size: 24px;
       font-weight: bold;
@@ -789,13 +640,8 @@ header {
       @include WhiteShadow;
     }
     .Container__Btn {
-      // width: 180px;
-      // margin-top: 24px;
-      // margin: 24px 0 auto;
       padding: 0;
       display: flex;
-      // text-align: center;
-      // justify-content: flex-end;
       vertical-align: bottom;
       width: 100%;
       justify-content: center;
@@ -807,11 +653,7 @@ header {
           width: 180px;
         }
         .Apple {
-          height: 47px;
-          width: 163px;
-          // padding-top: 7px;
-          margin-top: 11px;
-          border-radius: 7px;
+          @include Apple;
         }
       }
     }
@@ -819,36 +661,55 @@ header {
 }
 
 footer {
-  height: 350px;
   background-color: $DarkColor;
+  padding: 60px 0;
+  color: $WhiteColor;
+  text-align: center;
+  .Container {
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    .List {
+      display: flex;
+      flex-direction: column;
+      width: calc(1 / 3 * 100%);
+      margin: 0 2% 0 0;
+      h2 {
+        margin: 0 0 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      ul {
+        list-style: none;
+        li {
+          display: list-item;
+          a {
+            color: $WhiteColor;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 32px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  .Footer__Logo {
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+    a {
+      cursor: pointer;
+      img {
+        width: 100%;
+        vertical-align: bottom;
+      }
+    }
+  }
+  p {
+    font-size: 14px;
+  }
 }
-
-// .SellerButton {
-//   cursor: pointer;
-//   text-align: center;
-  
-//     width: 120px;
-//     background: $Btn_BG_Color;
-//     text-align: center;
-//     border-radius: 4%;
-//     bottom: 32px;
-//     right: 32px;
-//     position: fixed;
-//     padding: 15px;
-//     span {
-//       color: #fff;
-//       display: block;
-//       font-size: 18px;
-//       text-decoration: none;
-//       margin-bottom: 5px;
-//       // text-align: center;
-//     }
-//     img {
-//       color: $WhiteColor;
-//       width: 60%;
-//       vertical-align: bottom;
-//     }
-// }
 
 .SellerButton {
   a {
@@ -866,11 +727,8 @@ footer {
       color: $WhiteColor;
       font-size: 18px;
       margin-bottom: 5px;
-      // color: #fff;
       display: block;
-      // font-size: 18px;
       text-decoration: none;
-      // margin-bottom: 5px;
     }
     img {
       color: $WhiteColor;
