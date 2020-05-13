@@ -1,4 +1,7 @@
-class ProductController < ApplicationController
-  def show
+
+class ProductsController < ApplicationController
+
+  def buy
   end
+  
 end

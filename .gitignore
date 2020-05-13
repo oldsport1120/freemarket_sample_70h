@@ -28,3 +28,6 @@
 
 # 画像が保管されるpublic/uploadsディレクトリを.gitignoreに追加。画像がGithubにコミットされないようにしています nonaka。
 public/uploads/*
+
+# .DS_Storeを.gitignoreに追加。nonaka
+.DS_Store
