@@ -3,6 +3,9 @@
 class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
+      # 追加カラム nonaka
+      t.string :nickname,               null: false
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -10,6 +13,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
+
+      # 追加カラム nonaka
+      t.string  :family_name,                   null: false
+      t.string  :first_name,                    null: false
+      t.string  :family_name_kana,              null: false
+      t.string  :first_name_kana,               null: false
+      t.integer :date_of_birth,                 null: false
+
 
       ## Rememberable
       t.datetime :remember_created_at
