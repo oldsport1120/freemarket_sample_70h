@@ -22,12 +22,17 @@
             = link_to root_path do 
               ブランド
         %ul.Nav__Right
-          %li.Nav__Right--left
-            = link_to root_path do 
-              ログイン
-          %li.Nav__Right--right
-            = link_to root_path do 
-              新規会員登録
+          - if user_signed_in?
+            %li.Nav__Right--left
+              = link_to root_path do 
+                マイページ
+          - else
+            %li.Nav__Right--left
+              = link_to new_user_session_path do 
+                ログイン
+            %li.Nav__Right--right
+              = link_to new_user_registration_path do 
+                新規会員登録
   %div.TopWrapper
     %div.Container
       %h2.AppCatchphrase 人生を変えるフリマアプリ
