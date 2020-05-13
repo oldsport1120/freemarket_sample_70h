@@ -1,0 +1,36 @@
+-# = render "layouts/header"
+.buy-wrapper
+  .buy-wrapper__header
+    = link_to root_path, class:"HeaderLogo" do
+      = image_tag "logo/logo.png", alt: "FURIMALogo", class: "FURIMALogo"
+    .buy-wrapper__main
+      .buy-wrapper__main__title
+        .buy-wrapper__main__title__text.center
+          購入内容の確認
+      .border
+      .buy-wrapper__main__contents
+        = image_tag "pict/product3.png", class: "buy-wrapper__main__contents__left"
+        .buy-wrapper__main__contents__right
+          商品名
+          %br
+          ¥30,000(税込)送料込み
+          %br
+      .border
+      .buy-wrapper__main__title
+        .buy-wrapper__main__title__text
+          支払い金額
+        .buy-wrapper__main__title__text
+          ¥30,000
+      .buy-wrapper__main__title
+        .buy-wrapper__main__title__text
+          支払い方法
+          .buy-wrapper__main__title__text.light.space
+            登録して下さい
+      .buy-wrapper__main__title
+        .buy-wrapper__main__title__text
+          配送先
+        .buy-wrapper__main__title__text.light.width
+          登録してください
+        = link_to root_path, class: "buy-wrapper__main__pay-btn" do
+          購入する
+-# = render "layouts/footer"
