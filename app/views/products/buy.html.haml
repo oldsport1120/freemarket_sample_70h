@@ -2,7 +2,7 @@
 .buy-wrapper
   .buy-wrapper__header
     = link_to root_path, class:"HeaderLogo" do
-      = image_tag "logo/logo.png", alt: "FURIMALogo", class: "FURIMALogo"
+      = image_tag "logo/logo.png", class: "FURIMALogo"
     .buy-wrapper__main
       .buy-wrapper__main__title
         .buy-wrapper__main__title__text.center
@@ -21,16 +21,30 @@
           支払い金額
         .buy-wrapper__main__title__text
           ¥30,000
+      .border
       .buy-wrapper__main__title
         .buy-wrapper__main__title__text
           支払い方法
           .buy-wrapper__main__title__text.light.space
             登録して下さい
+      .border
       .buy-wrapper__main__title
         .buy-wrapper__main__title__text
           配送先
-        .buy-wrapper__main__title__text.light.width
-          登録してください
+          .buy-wrapper__main__title__text.light.width
+            登録してください
+      .border
+      .buy-wapper__main__pay-btn
         = link_to root_path, class: "buy-wrapper__main__pay-btn" do
           購入する
+  .buy-wrapper__footer
+    .buy-wrapper__footer__text
+      = link_to root_path, class:"Policy" do
+        プライバシーポリシー
+      = link_to root_path, class:"TermsOfService" do
+        FURIMA利用規約
+      = link_to root_path, class:"SpecificCommerce" do
+        特定商取引に関する表記
+    .buy-wrapper__footer__logo
+      = image_tag "logo/logo-white.png", class: "WhiteLogo"
 -# = render "layouts/footer"
