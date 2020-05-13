@@ -1,0 +1,107 @@
+.body{
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+.header{
+  padding-right: 0 60px 0 60px;
+}
+
+.headerInner{
+  max-width: 1040px;
+  width: 100%;
+  min-height: 82px;
+  margin: 0 auto;
+  padding: 15px 0 0; 
+}
+
+.mainHeader{
+  position: relative;
+  display: flex;
+  align-items: center; 
+}
+
+.nav{
+  font-size: 14px;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.icon{
+  font-size: 100%;
+  font-weight: normal;
+}
+
+.searchBox{
+  margin-left: auto;
+  width: 100%;
+}
+
+.form{
+  width: 100%;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.input{
+  width: calc(100% - 26px);
+  height: 36px;
+  padding: 0 0 0 5px;
+}
+
+.button{
+  width: 36px;
+  border: 0;
+  cursor: pointer;
+  background-color: #3CCACE;
+  padding: 8px;
+}
+
+.img{
+  width: 100%;
+  vertical-align: bottom;
+}
+
+.resultLists{
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 36px;
+  z-index: 2;
+}
+
+.nav{
+  font-size: 14px;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.listsLeft{
+  position: relative;
+  display: flex; 
+}
+
+.listsLeft__item--first{
+  text-decoration: none;
+  padding: 0;
+}
+
+.catBtn{
+  color: #333;
+  text-decoration: none;
+  line-height: 32px;
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  padding-right: 30px;
+}
+
+.treedisplayNone{
+  display: none;
+}
+
+.categoryTree{
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
