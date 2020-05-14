@@ -13,6 +13,7 @@ $GrayColor: #f8f8f8;
 $DarkColor: #272727;
 $TextColor: #333333;
 $Btn_BG_Color: #3ccace;
+$Required: tomato;
 $TextShadow: 0 0 5px rgba(0,0,0,0.4);
 // ここまで
 
@@ -21,21 +22,54 @@ body {
 }
 
 
-// 実験用
+// 新規登録・ログインの文字の装飾/共通
 .Devise__Header {
   background-color: $GrayColor;
 }
 
 .Devise-Header {
-  color: red;
+  color: $Required;
   font-size: 30px;
   text-align: center;
   font-weight: bold;
   margin-bottom: 80px;
 }
+
+.field {
+  font-size: 20px;
+}
 // ここまで
 
-// 新規登録画面・ログイン画面用のfooter
+// 必須アイコン（共通）
+.Devise__Field--required {
+  display: inline;
+  background-color: $Required;
+  color: $WhiteColor;
+  font-size: 20px;
+  border-radius: 3px;
+  border: 1px solid red;
+}
+// ここまで
+
+// 任意アイコン（共通）
+.Devise__Field--optional {
+  display: inline;
+  color: $TextColor;
+  font-size: 20px;
+  border-radius: 3px;
+  border: 1px solid $DarkColor;
+}
+// ここまで
+
+.Devise__Main {
+  background-color:  $GrayColor;
+  width: 80%;
+  margin: 0 auto;
+  // footer固定分のpadding-bottom 100px
+  padding: 10px 10px 100px 10px;
+}
+
+// 新規登録画面・ログイン画面用の共通footer
 // footerは最下部に固定 nonaka
 .Devise__Footer {
   background-color: $DarkColor;
@@ -45,7 +79,11 @@ body {
   position: absolute;
   display: block;
   bottom: 0px;
+  // 以下footerを固定するため記述
+  height: 100px;
+  position: fixed;
   width: 100%;
+  z-index: 10;
   .Devise__Footer__Logo {
     max-width: 160px;
     width: 100%;
@@ -62,3 +100,20 @@ body {
     font-size: 14px;
   }
 }
+
+// 新規登録画面app/views/devise/registration/new.html.hamlのためのScss
+.Devise__Main__Info {
+  color: $Required;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 0 15px 7px;
+}
+
+.Devise__Main__Info--2 {
+  color: $Required;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 20px 0 15px 7px;
+}
+// ログイン画面app/views/devise/sessions/new.html.hamlのためのScss
+
