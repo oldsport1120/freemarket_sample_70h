@@ -13,6 +13,7 @@ $GrayColor: #f8f8f8;
 $DarkColor: #272727;
 $TextColor: #333333;
 $Btn_BG_Color: #3ccace;
+$Required: tomato;
 $TextShadow: 0 0 5px rgba(0,0,0,0.4);
 // ここまで
 
@@ -27,20 +28,35 @@ body {
 }
 
 .Devise-Header {
-  color: red;
+  color: $Required;
   font-size: 30px;
   text-align: center;
   font-weight: bold;
   margin-bottom: 80px;
 }
+
+.field {
+  font-size: 20px;
+}
+// ここまで
+
+// 必須アイコン（共通）
+.Devise__Field--required{
+  display: inline;
+  background-color: $Required;
+  color: $WhiteColor;
+  font-size: 20px;
+  border-radius: 3px;
+  border: 1px solid red;
+}
 // ここまで
 
 .Devise__Main {
-  // 仮の背景色 
-  background-color: greenyellow;
-
-  width: 75%;
+  background-color:  $GrayColor;
+  width: 80%;
   margin: 0 auto;
+  // footer固定分のpadding
+  padding-bottom: 100px;
 }
 
 // 新規登録画面・ログイン画面用の共通footer
@@ -53,7 +69,11 @@ body {
   position: absolute;
   display: block;
   bottom: 0px;
+  // 以下footerを固定するため記述
+  height: 100px;
+  position: fixed;
   width: 100%;
+  z-index: 10;
   .Devise__Footer__Logo {
     max-width: 160px;
     width: 100%;
