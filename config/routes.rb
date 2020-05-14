@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root "products#buy"
+  root "home#top"
 end

@@ -40,10 +40,18 @@
       }
       .space{
         padding-right: 56px;
+        .Pay{
+          text-decoration: none;
+          color: rgb(50, 185, 238);
+        }
       }
       .width{
         width: 170px;
         font-size: 12px;
+        .ShippingAddress{
+          text-decoration: none;
+          color: rgb(50, 185, 238);
+        }
       }
       .center{
         margin: 0 auto;
@@ -56,7 +64,7 @@
       }
     }
     &__contents{
-      width: 300px;
+      width: 400px;
       margin: 0 auto;
       padding: 20px 0;
       display: flex;
@@ -68,7 +76,7 @@
         object-fit: cover;
       }
       &__right{
-        width: 140px;
+        width: 160px;
         font-size: 14px;
         line-height: 24px;
       }

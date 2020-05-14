@@ -26,13 +26,15 @@
         .buy-wrapper__main__title__text
           支払い方法
           .buy-wrapper__main__title__text.light.space
-            登録してください
+            = link_to root_path, class:"Pay" do
+              登録してください
       .border
       .buy-wrapper__main__title
         .buy-wrapper__main__title__text
           配送先
           .buy-wrapper__main__title__text.light.width
-            登録してください
+            = link_to root_path, class:"ShippingAddress" do
+              登録してください
       .border
       .buy-wapper__main__pay-btn
         = link_to root_path, class: "buy-wrapper__main__pay-btn" do
