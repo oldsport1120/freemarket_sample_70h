@@ -1,4 +1,11 @@
-%h2.Devise__header 新規登録画面
+%header
+  %header
+    %div.HeaderContainer
+      %div.HeaderMain.Devise__Header
+        %h1
+          = link_to root_path, class:"HeaderLogo" do
+            = image_tag "logo/logo.png", alt: "FURIMALogo", class: "FURIMALogo"
+      %h2.Devise-Header 新規登録
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render "devise/shared/error_messages", resource: resource
   .field
@@ -19,3 +26,8 @@
   .actions
     = f.submit "Sign up"
 = render "devise/shared/links"
+%footer.Devise__Footer
+  %div.Devise__Footer__Logo
+    = link_to root_path, class:"Logo" do
+      = image_tag "logo/logo-white.png", alt: "LogoWhite"
+  %p  © FURIMA   

@@ -1,9 +1,41 @@
 // devise で作成中の
 // app/views/devise以下のhamlのためのscssを記述 nonaka
 
+// 変数 イメージ統一用
+$GrayColor: #f8f8f8;
+
 // 実験用
-.Devise__header {
+.Devise__Header {
+  background-color: $GrayColor;
+}
+
+.Devise-Header {
   color: red;
   font-size: 30px;
+  text-align: center;
+  font-weight: bold;
 }
 // ここまで
+
+// 新規登録画面・ログイン画面用のfooter
+.Devise__Footer {
+  background-color: $DarkColor;
+  padding: 10px 0;
+  color: $WhiteColor;
+  text-align: center;
+  .Devise__Footer__Logo {
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+    a {
+      cursor: pointer;
+      img {
+        width: 100%;
+        vertical-align: bottom;
+      }
+    }
+  }
+  p {
+    font-size: 14px;
+  }
+}
