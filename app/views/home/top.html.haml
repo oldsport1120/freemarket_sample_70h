@@ -26,6 +26,9 @@
             %li.Nav__Right--left
               = link_to root_path do 
                 マイページ
+            %li.Nav__Right--right
+              = link_to root_path do 
+                ログアウト
           - else
             %li.Nav__Right--left
               = link_to new_user_session_path do 
