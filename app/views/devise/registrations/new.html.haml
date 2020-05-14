@@ -24,7 +24,7 @@
         = f.label :password
         - if @minimum_password_length
           %em
-            (#{@minimum_password_length} characters minimum)
+            (#{@minimum_password_length} 文字以上)
         %br/
         = f.password_field :password, autocomplete: "new-password"
       .field
@@ -32,25 +32,25 @@
         %br/
         = f.password_field :password_confirmation, autocomplete: "new-password"
       .field
-        = f.label '名前(性)'
+        = f.label 'お名前(姓)'
         %br/
         = f.text_field :family_name, autofocus: true
       .field
-        = f.label '名前(名)'
+        = f.label 'お名前(名)'
         %br/
         = f.text_field :first_name, autofocus: true
       .field
-        = f.label :family_name_kana
+        = f.label '姓(ふりがな)'
         %br/
         = f.text_field :family_name_kana, autofocus: true
       .field
-        = f.label :first_name_kana
+        = f.label '名(ふりがな)'
         %br/
         = f.text_field :first_name_kana, autofocus: true
       .field
-        = f.label :date_of_birth
+        = f.label '生年月日'
         %br/
-        = f.number_field :date_of_birth, autofocus: true
+        = f.date_select :date_of_birth, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 5), default: Date.new(1989, 1, 1), autofocus: true
     %h2.Devise__Main__Info--2 配送先登録
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = render "devise/shared/error_messages", resource: resource
@@ -79,7 +79,9 @@
   %div.Devise__Footer__Logo
     = link_to root_path, class:"Logo" do
       = image_tag "logo/logo-white.png", alt: "LogoWhite"
-  %p  © FURIMA   
+  %p  © FURIMA  
+
+  
 
   
   
