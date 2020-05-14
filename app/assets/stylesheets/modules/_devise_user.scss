@@ -21,7 +21,7 @@ body {
 }
 
 
-// 実験用
+// 新規登録・ログインの文字の装飾/共通
 .Devise__Header {
   background-color: $GrayColor;
 }
@@ -35,7 +35,15 @@ body {
 }
 // ここまで
 
-// 新規登録画面・ログイン画面用のfooter
+.Devise__Main {
+  // 仮の背景色 
+  background-color: greenyellow;
+
+  width: 75%;
+  margin: 0 auto;
+}
+
+// 新規登録画面・ログイン画面用の共通footer
 // footerは最下部に固定 nonaka
 .Devise__Footer {
   background-color: $DarkColor;
@@ -62,3 +70,7 @@ body {
     font-size: 14px;
   }
 }
+
+// 新規登録画面app/views/devise/registration/new.html.hamlのためのScss
+// ログイン画面app/views/devise/sessions/new.html.hamlのためのScss
+
