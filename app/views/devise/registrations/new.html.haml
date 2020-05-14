@@ -7,13 +7,14 @@
             = image_tag "logo/logo.png", alt: "FURIMALogo", class: "FURIMALogo"
       %h2.Devise-Header 新規登録
   %div.Devise__Main
+    %h2.Devise__Main__Info ユーザー登録
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = render "devise/shared/error_messages", resource: resource
       .field
         %p.Devise__Field--required 必須
         = f.label 'ニックネーム'
         %br/
-      %div.Devise__Input
+        %div.Devise__Input
         = f.text_field :nickname, autofocus: true
       .field
         = f.label 'Eメールアドレス'
@@ -50,6 +51,27 @@
         = f.label :date_of_birth
         %br/
         = f.number_field :date_of_birth, autofocus: true
+    %h2.Devise__Main__Info--2 配送先登録
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        %p.Devise__Field--required 必須
+        = f.label 'ニックネーム'
+        %br/
+        %div.Devise__Input
+        = f.text_field :nickname, autofocus: true
+      .field
+        %p.Devise__Field--optional 任意
+        = f.label 'ニックネーム'
+        %br/
+        %div.Devise__Input
+        = f.text_field :nickname, autofocus: true
+      .field
+        %p.Devise__Field--required 必須
+        = f.label 'ニックネーム'
+        %br/
+        %div.Devise__Input
+        = f.text_field :nickname, autofocus: true
       .actions
         = f.submit "Sign up"
       = render "devise/shared/links"
