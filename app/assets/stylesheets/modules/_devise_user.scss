@@ -1,0 +1,64 @@
+// devise で作成中の
+// app/views/devise以下のhamlのためのscssを記述 nonaka
+
+// ここから paddingやborderの設定を行っても、要素の大きさがwidthやheightで指定したサイズのまま変わらなくするため固定。
+* {
+  box-sizing: border-box;
+}
+// ここまで
+
+// 新規登録画面・ログイン画面のための変数一覧 イメージ統一用
+$WhiteColor: #ffffff;
+$GrayColor: #f8f8f8;
+$DarkColor: #272727;
+$TextColor: #333333;
+$Btn_BG_Color: #3ccace;
+$TextShadow: 0 0 5px rgba(0,0,0,0.4);
+// ここまで
+
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+
+// 実験用
+.Devise__Header {
+  background-color: $GrayColor;
+}
+
+.Devise-Header {
+  color: red;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 80px;
+}
+// ここまで
+
+// 新規登録画面・ログイン画面用のfooter
+// footerは最下部に固定 nonaka
+.Devise__Footer {
+  background-color: $DarkColor;
+  padding: 10px 0;
+  color: $WhiteColor;
+  text-align: center;
+  position: absolute;
+  display: block;
+  bottom: 0px;
+  width: 100%;
+  .Devise__Footer__Logo {
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+    a {
+      cursor: pointer;
+      img {
+        width: 100%;
+        vertical-align: bottom;
+      }
+    }
+  }
+  p {
+    font-size: 14px;
+  }
+}
