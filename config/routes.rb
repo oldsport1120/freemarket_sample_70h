@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   # トップページ用ルーティング nonaka
   root "home#top"
   resources :home, only:[:top]
-  
+  resources :products, only:[:buy,:show,:new]
 end

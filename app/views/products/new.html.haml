@@ -1,0 +1,70 @@
+%div.header
+
+%div.main
+  = form_for('#') do |f|
+    %div.main__block
+      %div.picture-block
+        %div.picture-block__label
+          %div.name 出品画像
+          %div.essential-label 必須
+        %p.picture-block__explain　
+        %div.picture-block__form
+          = f.file_field '#',class:"",placeholder:""
+      %div.destinction-block
+        %div.destinction-block__name__label
+          %div.name 商品名
+          %div.essential-label 必須
+        %div.destinction-block__form
+          = f.text_field '#'
+        %div.destinction-block__destinction__label
+          %div.name 商品の説明
+          %div.essential-label 必須
+        %div.destinction-block__destinction__form
+          = f.text_area '#',placeholder:""
+      %div.detail-block
+        %div.detail-block-category
+          %div.detail-block-category__label
+            %div.name カテゴリー
+            %div.essential-label 必須
+          %div.detail-block-category__form
+            = f.text_area '#'
+        %div.detail-block-bland
+          %div.detail-block-bland__label
+            %div.name ブランド
+            %div.non-essential-label 任意
+          %div.detail-block-bland_form
+            = f.text_area '#'
+        %div.detail-block-product_condition
+          %div.detail-block-product_condition__label
+            %div.name 商品の状態
+            %div.essential-label 必須
+          %div.detail-block-product_condition__form
+            = f.text_area '#'
+      %div.shipment-block
+        %div.shipment-block-fee
+          %div.shipment-block-fee__label
+            %div.name 配送料の負担
+            %div.essential-label 必須
+          %div.shipment-block-fee__form
+            = f.select '#',calss:""
+        %div.shipment-block-place
+          %div.shipment-block-place__label
+            %div.name 発送元の地域
+            %div.essential-label 必須
+          %div.shipment-block-place__form
+            = f.select '#',class:"",placeholder:"選択してください"
+        %div.shipment-block-period
+          %div.shipment-block-period__label
+            %div.name 発送までの日数
+            %div.essential-label 必須
+          %div.shipment-block-period__form
+            = f.select '#',placeholder:"選択してください"
+      %div.price-block
+        %div.price-block__label
+          %div.name
+          %div.essential-label
+        %div.price-block__form
+          = f.number_field '#',min:300,max:1000000,class:""
+      %div.btn-block
+        = f.submit '出品する'
+  %div.footer
