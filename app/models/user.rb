@@ -6,10 +6,16 @@ class User < ApplicationRecord
   
   # validatesをかける nonaka
   # null規制
-  validates :nickname, :email,                         presence: true
-  validates :family_name, :first_name,                 presence: true
-  validates :family_name_kana, :first_name_kana,       presence: true
-  validates :date_of_birth,                            presence: true
+  validates :nickname, :email,                                  presence: true
+  validates :family_name, :first_name,                          presence: true
+  validates :family_name_kana, :first_name_kana,                presence: true
+  validates :date_of_birth,                                     presence: true
+
+  # validatesをかける nonaka
+  # shipments用のバリデーション
+  validates :ship_family_name, :ship_first_name,                 presence: true
+  validates :ship_family_name_kana, :ship_first_name_kana,       presence: true
+  validates :zip_code, :prefecture, :city, :street,              presence: true
 
 end
 
