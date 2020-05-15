@@ -74,3 +74,6 @@ gem 'haml-rails'
 
 # ユーザー管理機能のためインストール nonaka
 gem 'devise'
+
+gem 'carrierwave'
+gem 'mini_magick'
