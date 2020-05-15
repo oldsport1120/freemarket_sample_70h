@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2020_05_13_125135) do
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
     t.integer "date_of_birth", null: false
+    t.string "ship_family_name", null: false
+    t.string "ship_first_name", null: false
+    t.string "ship_family_name_kana", null: false
+    t.string "ship_first_name_kana", null: false
+    t.integer "zip_code", null: false
+    t.string "prefecture", null: false
+    t.string "city", null: false
+    t.string "street", null: false
+    t.string "room_number"
+    t.integer "tel"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -38,6 +38,8 @@ body {
 .field {
   font-size: 20px;
 }
+
+
 // ここまで
 
 // 必須アイコン（共通）
@@ -61,12 +63,23 @@ body {
 }
 // ここまで
 
+// 入力蘭
+.Devise__Main {
+  form {
+    input {
+      width: 450px;
+      padding: 3px 0;
+      margin-bottom: 4px;
+    }
+  }
+}
+
 .Devise__Main {
   background-color:  $GrayColor;
   width: 80%;
   margin: 0 auto;
-  // footer固定分のpadding-bottom 100px
-  padding: 10px 10px 100px 10px;
+  // footer固定分のpadding-bottom 100px以上
+  padding: 10px 10px 120px 40px;
 }
 
 // 新規登録画面・ログイン画面用の共通footer
@@ -115,5 +128,27 @@ body {
   font-weight: bold;
   margin: 20px 0 15px 7px;
 }
+
+// 登録ボタン
+.actions {
+  input {
+    display: block;
+    cursor: pointer;
+    margin: 30px 0 15px 0px;
+    background-color: $Btn_BG_Color;
+    color: $WhiteColor;
+    font-size: 30px;
+    border-radius: 5px;
+    border: 2px solid $TextColor;
+    padding: 4px;
+  }
+}
+
 // ログイン画面app/views/devise/sessions/new.html.hamlのためのScss
 
+.field-float {
+  display: flex;
+  .field-checkbox {
+    width: 30px;
+  }
+}
