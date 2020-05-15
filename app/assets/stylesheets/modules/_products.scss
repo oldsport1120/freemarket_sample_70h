@@ -1,139 +1,109 @@
-// Place all the styles related to the products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 
-* {
-  box-sizing: border-box;
+.body{
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
 }
 
-.buy-wrapper{
-  background-color: #eee;
-  padding: 40px 0;
-  &__header{
-    align-items: center;
-    .FurimaLogo{
-      height: 60px;
-      width: 200px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-  &__main{
-    width: 720px;
-    padding-bottom: 30px;
-    background-color: white;
-    margin: 20px auto 0;
-    &__title{
-      margin: 0 auto;
-      font-size: 20px;
-      font-weight: bold;
-      padding: 20px 0px;
-      width: 300px;
-      display: flex;
-      justify-content: space-between;
-      .light{
-        font-size: 12px;
-        padding-top: 6px;
-        position: relative;
-        font-weight: normal;
-      }
-      .space{
-        padding-right: 56px;
-        .Pay{
-          text-decoration: none;
-          color: rgb(50, 185, 238);
-        }
-      }
-      .width{
-        width: 170px;
-        font-size: 12px;
-        .ShippingAddress{
-          text-decoration: none;
-          color: rgb(50, 185, 238);
-        }
-      }
-      .center{
-        margin: 0 auto;
-      }
-      img{
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 30px;
-      }
-    }
-    &__contents{
-      width: 400px;
-      margin: 0 auto;
-      padding: 20px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      &__left{
-        width: 140px;
-        height: 100px;
-        object-fit: cover;
-      }
-      &__right{
-        width: 160px;
-        font-size: 14px;
-        line-height: 24px;
-      }
-    }
-    &__pay-btn{
-      display: block;
-      margin: 30px auto 0;
-      text-align: center;
-      color: white;
-      padding: 10px;
-      width: 300px;
-      background-color: gray;
-      text-decoration: none;
-    }
-    .border{
-      border-bottom: 1px solid #eee;
-    }
-  }
-  &__footer{
-    align-items: center;
+.header{
+  padding-right: 0 60px 0 60px;
+}
 
-    &__text{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      .Policy{
-      font-size: 10px;
-      text-decoration: none;
-      color: darkgray;
-      text-decoration: none;
-      margin: 30px 10px auto;
-      }
-      .TermsOfService{
-        font-size: 10px;
-        text-decoration: none;
-        color: darkgray;
-        text-decoration: none;
-        margin: 30px 10px auto;
-      }
-      .SpecificCommerce{
-        font-size: 10px;
-        text-decoration: none;
-        color: darkgray;
-        text-decoration: none;
-        margin: 30px 10px auto;
-      }
-    }
-    &__logo{
-      align-items: center;
-      .WhiteLogo{
-        height: 50px;
-        width: 150px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 20px;
-      }
-    }
-  }
+.headerInner{
+  max-width: 1040px;
+  width: 100%;
+  min-height: 82px;
+  margin: 0 auto;
+  padding: 15px 0 0; 
+}
+
+.mainHeader{
+  position: relative;
+  display: flex;
+  align-items: center; 
+}
+
+.nav{
+  font-size: 14px;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.icon{
+  font-size: 100%;
+  font-weight: normal;
+}
+
+.searchBox{
+  margin-left: auto;
+  width: 100%;
+}
+
+.form{
+  width: 100%;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.input{
+  width: calc(100% - 26px);
+  height: 36px;
+  padding: 0 0 0 5px;
+}
+
+.button{
+  width: 36px;
+  border: 0;
+  cursor: pointer;
+  background-color: #3CCACE;
+  padding: 8px;
+}
+
+.img{
+  width: 100%;
+  vertical-align: bottom;
+}
+
+.resultLists{
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 36px;
+  z-index: 2;
+}
+
+.nav{
+  font-size: 14px;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.listsLeft{
+  position: relative;
+  display: flex; 
+}
+
+.listsLeft__item--first{
+  text-decoration: none;
+  padding: 0;
+}
+
+.catBtn{
+  color: #333;
+  text-decoration: none;
+  line-height: 32px;
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  padding-right: 30px;
+}
+
+.treedisplayNone{
+  display: none;
+}
+
+.categoryTree{
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
 }

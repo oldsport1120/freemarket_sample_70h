@@ -1,5 +1,9 @@
 @import "reset";
+@import "modules/flash";
 
 @import "modules/home";
 
-@import "modules/products"
+@import "modules/products";
+@import "modules/devise_user";
+
+@import "modules/products_buy";
