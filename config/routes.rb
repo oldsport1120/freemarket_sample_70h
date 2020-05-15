@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   
   # トップページ用ルーティング nonaka
-  root "home#top"
+  root "top#home"
   resources :home, only:[:top]
   
 end
