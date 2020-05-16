@@ -1,0 +1,7 @@
+.wrapper
+  = render "side_bar"
+  .mypage__sign-out
+    %form.mypage__sign-out__form(action="")
+      %button.mypage__sign-out__form--btn
+        = link_to "#" , class: "mypage__sign-out__form--btn--text" do
+          ログアウト

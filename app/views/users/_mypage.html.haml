@@ -1,0 +1,45 @@
+.mypage
+  .mypage__content
+    .mypage__content__upper
+      .mypage__content__upper__user-icon
+        = link_to '#' do
+          %figure
+            = image_tag 'icon/member_photo_noimage_thumb.png', size: '60x60'
+          %h2.mypage__content__upper__user-icon__user-name
+            Test User
+          .mypage__content__upper__user-icon__status
+            .mypage__content__upper__user-icon__status__reviews
+              評価&nbsp
+              %span.mypage-content__reviews.bold<>
+                9
+            .mypage__content__upper__user-icon__status__sell
+              出品数
+              %span.mypage-content__sell.bold<>
+                7
+      .mypage__content__upper__tab-container
+        %ul.mypage-content__upper__tab-container__tabs
+          %li
+            %h3
+              = link_to '#', class: 'mypage-content__upper__tab-container__tabs--information' do
+                お知らせ
+          %li
+            %h3
+              = link_to '#', class: 'mypage-content__upper__tab-container__tabs--todo' do
+                やることリスト
+        .mypage__content__upper__tab-container__tab-content
+          現在、お知らせはありません
+    .mypage__content__lower
+      .mypage__content__lower__tab-container
+        %h2.mypage__content__lower__tab-container__head
+          購入した商品
+        %ul.mypage-content__lower__tab-container__tabs
+          %li
+            %h3
+              = link_to '#', class: 'mypage-content__lower__tab-container__tabs--transaction-now' do
+                取引中
+          %li
+            %h3
+              = link_to '#', class: 'mypage-content__lower__tab-container__tabs--transaction-old' do
+                過去の取引
+        .mypage__content__lower__tab-container__tab-content
+          取引中の商品はありません
