@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :home, only:[:top]
 
   # マイページ用のルーティング　ito
-  get 'users/index'
-  get 'users/signout'
-  get 'users/card'
+  # get 'users/index'
+  # get 'users/signout'
+  # get 'users/card'
   
 end 
