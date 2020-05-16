@@ -1,0 +1,180 @@
+
+$WhiteColor: #ffffff;
+$GrayColor: #f8f8f8;
+$DarkColor: #272727;
+$TextColor: #333333;
+$Btn_BG_Color: #3ccace;
+$Required: tomato;
+$TextShadow: 0 0 5px rgba(0,0,0,0.4);
+
+body{
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+.name{
+  font-weight: bold;
+  font-size:15px;
+}
+.essential-label{
+  display: inline;
+  background-color: $Required;
+  color: $WhiteColor;
+  font-size: 12px;
+  border-radius: 3px;
+  border: 1px solid red;
+  margin-left:10px;
+}
+.new-header{
+  height:128px;
+  background-color: rgb(245,245,245);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.new-header__logo{
+  align-content: center;
+  justify-content: center;
+}
+.HeaderLogo{
+  width:185px;
+  height:49px;
+}
+.main{
+  background-color: rgb(245,245,245);
+  &__block{
+    //height:2286px;
+    width:700px;
+    background-color: rgb(255, 255, 255);
+    margin:0 auto;
+  }
+}
+.input-area{
+  height:48px;
+  width:620px;
+  border:1px solid #ccc;
+  border-radius:4px;
+  margin-top:16px;
+  padding:0 16px;
+  background-color: #fff;
+  &__number{
+    height:48px;
+    width:258px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    background-color: #fff;
+
+  }
+}
+.picture-block{
+  width:700px;
+  height:300px;
+  padding:40px;
+  border-bottom:solid 1px rgb(245,245,245);
+  &__label{
+    display:flex;
+  }
+  &__form{
+    width:620px;
+    height:150px;
+    background-color: rgb(245,245,245);
+    border: 1px dashed rgb(204,204,204);
+  }
+}
+.destinction-block{
+  width:700px;
+  height:416px;
+  padding:40px;
+  border-bottom:solid 1px rgb(245,245,245);
+  &__name{
+    height:118px;
+    &__label{
+      display:flex;
+    }
+  }
+  &__destinction{
+    height:207px;
+    margin-top:32px;
+    &__label{
+      display: flex;
+    }
+    &__form__area{
+      height:154px;
+      width:620px;
+      border:1px solid #ccc;
+      border-radius:4px;
+      margin-top:16px;
+    }
+  }
+}
+.detail-block{
+  width:700px;
+  height:444px;
+  padding:40px;
+  border-bottom:solid 1px rgb(245,245,245);
+  &__category__label{
+    display:flex;
+  }
+  &__bland__label{
+    display:flex;
+    margin-top:32px;
+  }
+  &__product-condition__label{
+    display:flex;
+    margin-top:32px;
+  }
+}
+.shipment-block{
+  width:700px;
+  height:444px;
+  padding:40px;
+  border-bottom:solid 1px rgb(245,245,245);
+  &__fee__label{
+    display:flex;
+  }
+  &__place__label{
+    display:flex;
+    margin-top:32px;
+  }
+  &__period__label{
+    display:flex;
+    margin-top:32px;
+  }
+}
+.price-block{
+  width:700px;
+  height:270px;
+  padding:40px 40px 0;
+  &__text{
+    font-size:14px;
+    color:rgb(136,136,136);
+    margin-bottom:24px;
+  }
+  &__name{
+    display:flex;
+    align-items: center;
+    &__label{
+      width: 96px;
+      height:19px;
+      display:flex;
+      margin-right:auto;
+    }
+    &__yen-mark{
+      margin-right:8px;
+      font-size:14px;
+    }
+  }
+  
+}
+.btn-block{
+  height:164px;
+  width:360px;
+  margin:0 auto;
+}
+.submit-btn{
+  width:360px;
+  height:48px;
+  background-color: $Btn_BG_Color;
+  border-radius:4px;
+  font-weight:bold;
+  font-size:17px;
+  color:$WhiteColor;
+}
