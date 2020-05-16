@@ -65,9 +65,7 @@
         %br/
         %div.Devise__Input
         = f.date_select :date_of_birth, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 5), default: Date.new(1989, 1, 1), autofocus: true
-    %h2.Devise__Main__Info--2 配送先登録
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = render "devise/shared/error_messages", resource: resource
+      %h2.Devise__Main__Info--2 配送先登録
       .field
         %p.Devise__Field--required 必須
         = f.label '送付先お名前(姓)'

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_05_15_143213) do
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.integer "date_of_birth", null: false
+    t.string "date_of_birth", null: false
     t.string "ship_family_name", null: false
     t.string "ship_first_name", null: false
     t.string "ship_family_name_kana", null: false
