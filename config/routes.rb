@@ -6,5 +6,10 @@ Rails.application.routes.draw do
   # トップページ用ルーティング nonaka
   root "home#top"
   resources :home, only:[:top]
+
+  # マイページ用のルーティング　ito
+  get 'users/index'
+  get 'users/signout'
+  get 'users/card'
   
 end 
