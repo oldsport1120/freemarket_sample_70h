@@ -75,3 +75,8 @@ gem "font-awesome-sass"
 
 # ユーザー管理機能のためインストール nonaka
 gem 'devise'
+
+gem 'carrierwave'
+gem 'mini_magick'
+
+gem 'fog-aws'
