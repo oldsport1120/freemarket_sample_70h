@@ -13,8 +13,8 @@
           %p.picture-block__explain　
           %div.picture-block__form
             = f.label '#',class:"picture-block__form__image" do
-              /=icon('fas','fa-camera')
-              = f.file_field '#',class:"",placeholder:""
+              %p.picture-block__form__image__info クリックして画像をアップロード
+              = f.file_field '#',class:"picture-block__form__image__tag"
 
         %div.destinction-block
           %div.destinction-block__name
@@ -29,7 +29,7 @@
               %div.name 商品の説明
               %div.essential-label 必須
             %div.destinction-block__destinction__form
-              = f.text_area '#',class:"destinction-block__destinction__form__area",placeholder:""
+              = f.text_area '#',class:"destinction-block__destinction__form__area",placeholder:"商品の説明（必須）（色、素材、重さ、定価、注意点　など）"
 
         %div.detail-block
           %div.detail-block__category
@@ -37,7 +37,7 @@
               %div.name カテゴリー
               %div.essential-label 必須
             %div.detail-block-category__form
-              = f.text_area '#',class:"input-area"
+              = f.text_field '#',class:"input-area"
 
           %div.detail-block__bland
             %div.detail-block__bland__label
@@ -51,7 +51,7 @@
               %div.name 商品の状態
               %div.essential-label 必須
             %div.detail-block__product-condition__form
-              = f.text_area '#',class:"input-area"
+              = f.select '#',[],{},class:"input-area"
 
         %div.shipment-block
           %div.shipment-block__fee
@@ -83,22 +83,25 @@
               %div.essential-label 必須
             %span.price-block__name__yenn-mark ¥
             %div.price-block__form
-              = f.number_field '#',min:300,max:1000000,class:"input-area__number",placeholder:""
+              = f.number_field '#',min:300,max:1000000,class:"input-area__number",placeholder:"0"
 
         %div.btn-block
-          = f.submit '出品する',class:"submit-btn"
-          = link_to root_path do
+          = f.submit '出品する',class:"btn-block__submit"
+          = link_to root_path,class:"btn-block__return"do
             もどる
 
-    %div.footer
-      %ul
-        %li
-          = link_to '#' do
-            プライバシーポリシー
-        %li
-          = link_to '#' do
-            利用規約
-        %li
-          = link_to '#' do
-            特定商取引に関する表記
+  %div.footer
+    %ul.footer__list
+      %li
+        = link_to '#',class:"footer__list__link" do
+          プライバシーポリシー
+      %li
+        = link_to '#',class:"footer__list__link" do
+          利用規約
+      %li
+        = link_to '#',class:"footer__list__link" do
+          特定商取引に関する表記
+    %div      
+    = link_to '#' do
+      = image_tag"logo/logo-white.png",class:"footer__Logo"
 
