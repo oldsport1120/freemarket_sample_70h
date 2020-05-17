@@ -14,12 +14,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
 
-      # 追加カラム users nonaka
+      # 追加カラム users date_of_birthのデータは date型で記述中 stringでも行ける nonaka
       t.string  :family_name,                   null: false
       t.string  :first_name,                    null: false
       t.string  :family_name_kana,              null: false
       t.string  :first_name_kana,               null: false
-      t.string :date_of_birth,                 null: false
+      t.date    :date_of_birth,                 null: false
 
       # 追加カラム shipments nonaka 
       t.string  :ship_family_name,              null: false
