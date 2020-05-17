@@ -2,7 +2,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :validatable, password_length: 7..128
+         #password_length１行追加中実験成功
   
   # validatesをかける nonaka
   # null規制
@@ -24,6 +26,7 @@ class User < ApplicationRecord
   validates :email,                                            uniqueness: true
   # 文字数 nonaka
   # validates :password,            length: { minimum: 7 } この１行を入れると登録できなくなるdevice初期設定とかんしょうか？
+  # password文字数はconfig/devise.rbでのバリデーションが効いているエラーメッセージも出る
   # validates :zip_code,            length: { is: 7 }
   validates :zip_code, format: { with: /\A[a-zA-Z0-9]+\z/, message: "半角英数字のみが使えます" } 
   # ↑ 現在これが効いていない データには0になって入るので、少しは効いているがエラ〜扱いにならない
