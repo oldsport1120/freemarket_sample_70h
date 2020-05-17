@@ -22,9 +22,11 @@ class User < ApplicationRecord
   # 一意 nonaka
   validates :email,                                            uniqueness: true
   # 文字数 nonaka
-  validates :password,            length: { minimum: 7 } 
+  # validates :password,            length: { minimum: 7 } この１行を入れると登録できなくなるdevice初期設定とかんしょうか？
   # validates :zip_code,            length: { is: 7 }
-  validates :zip_code, format: { with: /\A[a-zA-Z0-9]+\z/, message: "半角英数字のみが使えます" }
+  validates :zip_code, format: { with: /\A[a-zA-Z0-9]+\z/, message: "半角英数字のみが使えます" } 
+  # ↑ 現在これが効いていない
+
   
 
   # 以下検討・実験中nonaka
