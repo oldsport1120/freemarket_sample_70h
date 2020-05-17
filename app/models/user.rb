@@ -16,6 +16,7 @@ class User < ApplicationRecord
   validates :ship_family_name, :ship_first_name,                 presence: true
   validates :ship_family_name_kana, :ship_first_name_kana,       presence: true
   validates :zip_code, :prefecture, :city, :street,              presence: true
+  validates :zip_code, :prefecture, :city, :street,              presence: true
 
   # deviseはconfig/initializer/devise.rb にvalidation初期設定あり nonaka
 
@@ -25,7 +26,7 @@ class User < ApplicationRecord
   # validates :password,            length: { minimum: 7 } この１行を入れると登録できなくなるdevice初期設定とかんしょうか？
   # validates :zip_code,            length: { is: 7 }
   validates :zip_code, format: { with: /\A[a-zA-Z0-9]+\z/, message: "半角英数字のみが使えます" } 
-  # ↑ 現在これが効いていない
+  # ↑ 現在これが効いていない データには0になって入るので、少しは効いているがエラ〜扱いにならない
 
   
 

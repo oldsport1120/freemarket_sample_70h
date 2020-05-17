@@ -19,7 +19,7 @@
     first_name: "きやん#{n + 1}",
     family_name_kana: "てく#{n + 1}",
     first_name_kana: "きやん#{n + 1}", 
-    date_of_birth: "1999123#{n + 1}",
+    date_of_birth: "1999-12-31",
     ship_family_name: "手区#{n + 1}",
     ship_first_name: "きやん#{n + 1}",
     ship_family_name_kana: "てく#{n + 1}",
