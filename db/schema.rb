@@ -10,11 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_15_143213) do
+ActiveRecord::Schema.define(version: 2020_05_18_171824) do
 
   create_table "pictures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "picture", null: false
     t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "products_name", null: false
+    t.text "descreption", null: false
+    t.integer "price", null: false
+    t.string "brand"
+    t.string "product_condition", null: false
+    t.string "shipment_fee", null: false
+    t.string "shipping_place", null: false
+    t.integer "shipping_period", null: false
+    t.integer "user_id"
+    t.integer "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_05_15_143213) do
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.date "date_of_birth", null: false
+    t.integer "date_of_birth", null: false
     t.string "ship_family_name", null: false
     t.string "ship_first_name", null: false
     t.string "ship_family_name_kana", null: false
