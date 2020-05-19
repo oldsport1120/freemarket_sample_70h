@@ -24,7 +24,7 @@
         %ul.Nav__Right
           - if user_signed_in?
             %li.Nav__Right--left
-              = link_to root_path do 
+              = link_to  users_index_path do 
                 マイページ
             %li.Nav__Right--right
               = link_to destroy_user_session_path method: :delete do 
