@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'users/signout'
   get 'users/card'
+
+  resources :products, only: [:show, :buy, :new]
+
   
 end 
 
