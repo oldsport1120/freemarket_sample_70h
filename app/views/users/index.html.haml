@@ -1,3 +1,14 @@
+%header
+  %div.HeaderContainer
+    %div.HeaderMain.Devise__Header
+      %h1
+        = link_to root_path, class:"HeaderLogo" do
+          = image_tag "logo/logo.png", alt: "FURIMALogo", class: "FURIMALogo"
 .wrapper
   = render "side_bar"
   = render "mypage"
+%footer.Devise__Footer
+  %div.Devise__Footer__Logo
+    = link_to root_path, class:"Logo" do
+      = image_tag "logo/logo-white.png", alt: "LogoWhite"
+  %p  © FURIMA   

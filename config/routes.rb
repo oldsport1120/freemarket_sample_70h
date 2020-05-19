@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  # deviseのルーティングが先に読み取られる必要があるので、通常のルーティング追記は下部に追加でお願いします。nonaka
   # ユーザー管理用ルーティング nonaka
   devise_for :users
   
