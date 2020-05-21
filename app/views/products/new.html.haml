@@ -59,21 +59,21 @@
               %div.name 配送料の負担
               %div.essential-label 必須
             %div.shipment-block__fee__form
-              = f.select '#',[],{},class:"input-area"
+              = f.select :shipment_fee, ["送料込み(出品者負担)", "着払い(購入者負担)"], {include_blank: '選択してください'},class:"input-area"
 
           %div.shipment-block__place
             %div.shipment-block__place__label
               %div.name 発送元の地域
               %div.essential-label 必須
             %div.shipment-block__place__form
-              = f.select '#',[],{},class:"input-area"
+              = f.collection_select :shipping_place, Prefecture.all, :id, :name, {prompt: "選択してください"},class:"input-area"
 
           %div.shipment-block__period
             %div.shipment-block__period__label
               %div.name 発送までの日数
               %div.essential-label 必須
             %div.shipment-block__period__form
-              = f.select '#',[],{},class:"input-area"
+              = f.select :shipping_period, ["1~2日で発送", "2~3日で発送", "4~7日で発送"], {include_blank: '選択してください'},class:"input-area"
 
         %div.price-block
           %p.price-block__text 価格（¥300〜9,999,999）
