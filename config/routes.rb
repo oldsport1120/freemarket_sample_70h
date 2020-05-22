@@ -19,5 +19,4 @@ Rails.application.routes.draw do
 
   resources :products, only: [:show, :buy, :new]
 
-  
 end 

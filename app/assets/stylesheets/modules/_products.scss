@@ -1,7 +1,5 @@
-.body{
-  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-}
 
+body
 header{
   padding-right: 0 60px;
   .headerInner{
@@ -274,7 +272,6 @@ header{
     a{
       color: #3CCACE;
     }
-    
   }
 }
 
@@ -422,7 +419,7 @@ header{
         }
       }
     }
-  }
+  } 
 }
 
 .footer{
