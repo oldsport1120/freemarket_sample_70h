@@ -1,4 +1,17 @@
 @import "reset";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+@import "modules/side_bar";
+@import "modules/mypage";
+@import "modules/index";
+@import "modules/signout";
+@import "modules/card";
+@import "modules/flash";
 
 @import "modules/home";
+
 @import "modules/products";
+@import "modules/devise_user";
+@import "modules/products_buy";
+@import "modules/products_new";

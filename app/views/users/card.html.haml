@@ -1,0 +1,17 @@
+.wrapper
+  = render "side_bar"
+  .mypage__card
+    .mypage__card__content
+      %h2.mypage__card__content--title
+        支払い方法
+      .mypage__card__content__inner
+        .mypage__card__content__inner__title
+          クレジットカード一覧
+        .mypage__card__content__inner__submitbutton
+          = link_to '#', class: 'mypage__card__content__inner__submitbutton--text' do
+            = icon 'fas', 'credit-card'
+            クレジットカードを追加する
+      %h2
+        = link_to '#', class: 'mypage__card__content--method' do
+          支払い方法について
+          = icon 'fas', 'chevron-right'

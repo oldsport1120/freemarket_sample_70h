@@ -162,7 +162,7 @@ header {
         display: flex;
         list-style: none;
         .Nav__Right--left {
-          color: #333;
+          color: $TextColor;
           line-height: 38px;
           padding-left: 16px;
           a {

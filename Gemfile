@@ -44,6 +44,8 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  # テストのためのインストール nonaka
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -71,3 +73,17 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'haml-rails'
+
+gem "font-awesome-sass"
+
+# ユーザー管理機能のためインストール nonaka
+gem 'devise'
+
+gem 'carrierwave'
+gem 'mini_magick'
+
+gem 'fog-aws'
+
+gem 'payjp'
+
+gem 'active_hash'
