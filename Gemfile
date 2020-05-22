@@ -87,3 +87,5 @@ gem 'fog-aws'
 gem 'payjp'
 
 gem 'active_hash'
+
+gem 'ancestry'
