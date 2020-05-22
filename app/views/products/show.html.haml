@@ -1,78 +1,209 @@
 %body
   %header
-    %div headerInner
-      %div mainHeader
-        %h1.icon
-        %div searchBox
-          %form(action="#")
-            %input
-            %input--searchBox キーワードから探す
-            %button
-              %div searchaBox__icon
-                %img
-    %ul resultLists
-  %div nav
-    %ul listsLeft
-      %li listsLeft__item--first カテゴリー
-      %a catBtn
-      %div tree displayNone
-        %ul categoryTree
-          %li categoryTree--item レディース
-          %li categoryTree--item メンズ
-          %li categoryTree--item  ベビー・キッズ
-          %li categoryTree--item  インテリア・住まい・小物
-          %li categoryTree--item  本・音楽・ゲーム
-          %li categoryTree--item  おもちゃ・ホビー・グッズ
-          %li categoryTree--item  コスメ・香水・美容
-          %li categoryTree--item  家電・スマホ・カメラ
-          %li categoryTree--item  スポーツ・レジャー
-          %li categoryTree--item  ハンドメイド
-          %li categoryTree--item  チケット
-          %li categoryTree--item  自動車・オートバイ
-          %li categoryTree--item  その他
-      %li listLeft__item
-        %a(href="#")ブランド
-        %ul brandsPulldown displayNone
-    %ul listsRight
-      %li listsRight__item listsRight__item--login
-        %a(href="/users/sign in")ログイン
-      %li listsRight__item listsRight__item--new
-        %a(href="users/sign up")新規会員登録
-  %nav breadrumbs
+    %div.headerInner
+      %div.Main
+        %h1
+          = link_to root_path, class:"HeaderLogo" do
+            = image_tag "logo/logo.png", alt: "FURIMALogo", class: "FURIMALogo"
+        %div.InputBox
+          %form(class="NewMessage")
+            %input(class="NewMessage__Input" type="text" placeholder="キーワードから探す")
+            %button.Button
+              %div
+                = image_tag "icon/icon-search 2.png", alt: "Search", value: "Send", type: "submit", class: "NewMessage__SubmitBtn"
+        %ul.resoult
+      %div.HeaderNav
+        %ul.Nav__Left
+          %li.Nav__Left--left
+            = link_to root_path do 
+              カテゴリー
+            %div.treedisplayNone
+              %ul.brandsPulldowndisplayNone
+          %li.Nav__Left__right
+            = link_to root_path do 
+              ブランド
+        %ul.Nav__Right
+          %li.Nav__Right__left
+            = link_to root_path do 
+              ログイン
+          %li.Nav__Right__right
+            = link_to root_path do 
+              新規会員登録
+  %nav.breadCrumbs
     %ul
       %li
-  %div main
-    %div showMain
-      %div contentLeft
-      %dev contentRight
-        %div Topcontent
-          %div itemBox
-            %h2 itemBox__name
-           %div itemBox__body
-              %ul
-                %li
-                %li
-                %li
-            %div itemBox__price
-            %div itemDetail
-            %div table
-            %div optionalArea
-          %div commentBox
-        %ul links
-        %div relatedItems
-  %div appanner
-    %div inner
-      %h2 inner__title だれでもかんたん、人生を変えるフリマアプリ
-      %p inner__text 今すぐ無料ダウンロード！
-      %div inner__icon
-        %li
-        %li
-      
-  %footer
-    %ul contents
-    %dib footer__logo
+        = link_to root_path do 
+          FURIMA
+      %li
+        %i.fa
+      %li
+        = link_to root_path do 
+          メンズ
+      %li
+        %i.fa
+      %li 
+        = link_to root_path do 
+          ジャケット/アウター
+      %li
+        %i.fa
+      %li 
+        = link_to root_path do 
+          ノーカラージャケット
+        %i.fa
+      %li.last
+        %p product2
+  %div.main
+    %div.showMain
+      %div.contentLeft
+      %div.contentRight
+        %div.topcontent
+          %div.itemBox
+            %h2.itemBox__name
+              product2
+            %div.itemBox__body
+              %ul.itemBox__ul
+                %li.itemBox__li
+                  = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
+                  %ul.img__new
+                    %li.image2
+                      = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png" 
+                    %li.image2
+                      = image_tag"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/11/a005.png" 
+                    %li.image2
+                      = image_tag"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/12/a006.png"
+            %div.itemBox__price 
+              %span.itemBox__price__span  ¥20000
+              %div.item__price__Detail
+                %span（税込）
+                %span 送料込み
+            %div.itemDetail
+              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+              %div.table
+                %table.table__table
+                  %tbody
+                    %tr.tr
+                      %th.th  出品者
+                      %td.td hoge
+                    %tr.tr
+                      %th.th カテゴリー
+                      %td.td
+                        = link_to root_path do 
+                          メンズ
+                        %br
+                        = link_to root_path do  
+                          ジャケット/アウター
+                        %br
+                        = link_to root_path do 
+                          ノーカラージャケット
+                    %tr.tr
+                      %th.th ブランド
+                      %td.td
+                    %tr.tr
+                      %th.th 商品サイズ
+                      %td.td
+                    %tr.tr
+                      %th.th 商品の状態
+                      %td.td   新品/未使用
+                    %tr.tr
+                      %th.th 配送料の負担
+                      %td.td 着払い（購入者負担）
+                    %tr.tr
+                      %th.th
+                        発送元の地域
+                      %td.td
+                        %a(href="#") 青森県
+                    %tr.tr
+                      %th.th
+                        発送日の目安
+                      %td.td
+                        1-2日で発送
+              %div.optionalArea
+                %ul.Area1
+                  %li.optionalgoodBtn 
+                    お気に入り  ０
+                    %i.fa 
+                %ul.Area2
+                  %li.optionalBtn 
+                    = link_to root_path do
+                      不適切な商品の通報
+                      %i.fa
+            %div.commentBox
+              %ul.commentContents
+              %form(action="#")
+                %textarea.comment_body
+                %p.noticeMsg
+                  相手のことを考え丁寧なコメントを心がけましょう。
+                  %br
+                  不快な言葉遣いなどは利用制限や退会処分となることがあります。
+                %button.commentBtn
+                  %i.fa 
+                    コメントする
+          %ul.links
+            %li.flont1
+              = link_to root_path do 
+                %i.fa
+                %i.font:before
+                %span
+                  前の商品
+            %li.flont2
+              = link_to root_path do
+                %i.fa
+                %i.font:after
+                %span 
+                  後ろの商品
+          %div.relatedItems
+            = link_to root_path do
+              %span 
+                メンズをもっと見る
+  %div.appanner
+    %div.inner
+      %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
+      %p.inner__text 今すぐ無料ダウンロード！
+      %div.inner__icon
+        = link_to root_path, class:"Left" do
+          = image_tag "logo/AnyConv.App_Store_Badge.png", alt: "AppStore", class: "Apple"
+        = link_to root_path, class:"Right" do
+          = image_tag "logo/google-play-badge.png", alt: "GooglePlay"
+  %div.footer
+    %ul.contents
+      %li.content
+        %h2.content__head FURIMAについて
+        %ul
+          %li
+            = link_to root_path do  
+              会社概要（運営会社）
+          %li
+            = link_to root_path do
+              プライバシーポリシー
+          %li
+            = link_to root_path do 
+              FURIMA利用規約
+      %li.content
+        %h2.content__head FURIMAに見る
+        %ul
+          %li
+            = link_to root_path do 
+              カテゴリー一覧
+          %li
+            = link_to root_path do  
+              ブランドー一覧
+      %li.content
+        %h2.content__head ヘルプ＆ガイド
+        %ul
+          %li
+            = link_to root_path do
+              FURIMAガイド
+          %li
+            = link_to root_path do  
+              FURIMAロゴ利用ガイドライン
+          %li
+            = link_to root_path do  
+              お知らせ
+    %div.footer__logo
+      = link_to root_path, class:"Logo" do
+        = image_tag "logo/logo-white.png", alt: "LogoWhite"
     %p ©︎  FURIMA
-  %a(href="#")
-    %div purchaseBtn
-      %span purchaseaabtn__text
-      %img purchaseaBtn__icon
+  %div.purchaseBtn
+    = link_to root_path , class:"TopButton" do
+      %span 出品する
+      = image_tag "icon/icon_camera.png", alt: "出品アイコン"
