@@ -4,7 +4,7 @@
       = image_tag"logo/logo.png",class:"HeaderLogo"
 
   %div.main
-    = form_for('#') do |f|
+    = form_for "@product" do |f|
       %div.main__block
         %div.picture-block
           %div.picture-block__label
@@ -12,9 +12,9 @@
             %div.essential-label 必須
           %p.picture-block__explain　
           %div.picture-block__form
-            = f.label '#',class:"picture-block__form__image" do
+            = f.label :pictures,class:"picture-block__form__image" do
               %p.picture-block__form__image__info クリックして画像をアップロード
-              = f.file_field '#',class:"picture-block__form__image__tag"
+              = f.file_field :picture,class:"picture-block__form__image__tag"
 
         %div.destinction-block
           %div.destinction-block__name
