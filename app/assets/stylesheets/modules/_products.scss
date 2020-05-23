@@ -360,17 +360,17 @@ header{
     text-decoration: none;
     color: #3CCACE;
   }
-  .fa{
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    .flont1{
-      display: flex;
-      .flont2{
-        display: flex;
-      }
+  .flont1{
+    display: flex;
+  }
+  .flont2{
+    display: flex;
+    .fa{
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
     }
   }
 }
@@ -423,10 +423,11 @@ header{
 }
 
 .footer{
-  background-color: #272727;
+  background-color: black;
   color:#fff;
   padding: 60px 0;
   text-align: center;
+  height:180px;
   .contents{
     max-width: 840px;
     margin: 0 auto;
@@ -456,23 +457,23 @@ header{
       }
     }
   }
-}
-.footer__logo{
-  max-width: 160px;
-  width: 100%;
-  margin: 0 auto;
-  a{
-    cursor: pointer;
-    img{
-      vertical-align: bottom;
-      width: 100%;
+  .footer__logo{
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+    a{
+      cursor: pointer;
+      img{
+        vertical-align: bottom;
+        width: 100%;
+        background-color: ;
+      }
+    }
+    p {
+      font-size: 14px;
     }
   }
-  p {
-    font-size: 14px;
-  }
 }
-
 .purchaseBtn{
   a{
     text-decoration: none;
