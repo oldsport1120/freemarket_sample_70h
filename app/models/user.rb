@@ -38,6 +38,7 @@ class User < ApplicationRecord
   # validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   # validates :email, format: { with: [a-zA-Z0-9].+@.+[a-zA-Z0-9].+..+[a-zA-Z0-9] }
   
+  has_one :card
 
 end
 

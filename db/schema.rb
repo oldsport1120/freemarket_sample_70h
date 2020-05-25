@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_171824) do
+ActiveRecord::Schema.define(version: 2020_05_23_060627) do
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "pictures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "picture", null: false
@@ -44,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_171824) do
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.date "date_of_birth", null: false
+    t.integer "date_of_birth", null: false
     t.string "ship_family_name", null: false
     t.string "ship_first_name", null: false
     t.string "ship_family_name_kana", null: false
