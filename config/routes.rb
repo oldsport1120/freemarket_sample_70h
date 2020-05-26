@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   get 'users/signout'
   get 'users/card'
 
-  resources :products, only: [:show, :buy, :new]
+  resources :products, only: [:show, :buy, :new, :create]
 
 end 
