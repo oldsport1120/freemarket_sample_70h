@@ -53,7 +53,7 @@
               %div.name 商品の状態
               %div.essential-label 必須
             %div.detail-block__product-condition__form
-              = f.select :product_condition,[],{},class:"input-area"
+              = f.select :product_condition,["新品、未使用", "未使用に近い", "目立った傷や汚れなし", "やや傷や汚れあり", "傷や汚れあり", "全体的に状態が悪い"],{include_blank: '選択してください'},class:"input-area"
 
         %div.shipment-block
           %div.shipment-block__fee
