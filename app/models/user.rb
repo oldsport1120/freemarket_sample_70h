@@ -7,7 +7,7 @@ class User < ApplicationRecord
          #password_length１行追加中実験成功
 
   # 正規表現 半角英数のみ
-  SMALL_LETTERS_REGEX = /\A[a-z0-9]+\z/i
+  # SMALL_LETTERS_REGEX = /\A[a-z0-9]+\z/i
   # validates :password, format: { with: SMALL_LETTERS_REGEX }
   # validates :zip_code, format: { with: SMALL_LETTERS_REGEX }
   
@@ -23,7 +23,9 @@ class User < ApplicationRecord
   validates :ship_family_name, :ship_first_name,                 presence: true
   validates :ship_family_name_kana, :ship_first_name_kana,       presence: true
   # validates :zip_code, format: { with: SMALL_LETTERS_REGEX },  presence: true
-  validates :zip_code,                                           presence: true
+  # zip_codeの数字７桁とハイフンはOK
+  validates :zip_code, presence: true, format: {with: /\A[0-9-]{,7}\z/}
+  # validates :zip_code,                                         presence: true
   validates :prefecture, :city, :street,                         presence: true
   
   # deviseはconfig/initializer/devise.rb にvalidation初期設定あり nonaka
