@@ -14,7 +14,9 @@ class User < ApplicationRecord
   # validatesをかける nonaka
   # null規制
   validates :nickname, :email,                                  presence: true
-  validates :family_name, :first_name,                          presence: true
+  # validates :family_name, :first_name,                          presence: true
+  validates :family_name, presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/}
+  validates :first_name, presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/}
   # validates :family_name_kana, :first_name_kana,                presence: true
   validates :family_name_kana, presence: true, format: {with: /\A[ぁ-んー－]+\z/}
   validates :first_name_kana, presence: true, format: {with: /\A[ぁ-んー－]+\z/}
