@@ -11,10 +11,10 @@
             %div.name 出品画像
             %div.essential-label 必須
           %p.picture-block__explain
-          %div.picture-block__form
+          %label.picture-block__form__image
             %p.picture-block__form__image__info クリックして画像をアップロード
             = f.fields_for :pictures do |picture|
-              = picture.file_field :image ,class:"picture-block__form__image"
+              = picture.file_field :image ,class:"picture-block__form__image__tag"
               
 
 
