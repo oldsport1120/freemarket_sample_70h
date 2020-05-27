@@ -11,7 +11,7 @@
             %div.name 出品画像
             %div.essential-label 必須
           %p.picture-block__explain
-          = fields_for :pictures do |picture|
+          = f.fields_for :pictures do |picture|
             %div.picture-block__form
               = picture.label :picture,class:"picture-block__form__image" do
                 %p.picture-block__form__image__info クリックして画像をアップロード
