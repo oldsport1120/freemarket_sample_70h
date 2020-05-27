@@ -15,13 +15,17 @@ class User < ApplicationRecord
   # null規制
   validates :nickname, :email,                                  presence: true
   validates :family_name, :first_name,                          presence: true
-  validates :family_name_kana, :first_name_kana,                presence: true
+  # validates :family_name_kana, :first_name_kana,                presence: true
+  validates :family_name_kana, presence: true, format: {with: /\A[ぁ-んー－]+\z/}
+  validates :first_name_kana, presence: true, format: {with: /\A[ぁ-んー－]+\z/}
   validates :date_of_birth,                                     presence: true
 
   # validatesをかける nonaka
   # shipments用のバリデーション
   validates :ship_family_name, :ship_first_name,                 presence: true
-  validates :ship_family_name_kana, :ship_first_name_kana,       presence: true
+  # validates :ship_family_name_kana, :ship_first_name_kana,       presence: true
+  validates :ship_family_name_kana,  presence: true, format: {with: /\A[ぁ-んー－]+\z/}
+  validates :ship_first_name_kana,  presence: true, format: {with: /\A[ぁ-んー－]+\z/}
   # validates :zip_code, format: { with: SMALL_LETTERS_REGEX },  presence: true
   # zip_codeの数字７桁とハイフンはOK
   validates :zip_code, presence: true, format: {with: /\A[0-9-]{,7}\z/}
