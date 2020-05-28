@@ -4,17 +4,19 @@
       = image_tag"logo/logo.png",class:"HeaderLogo"
 
   %div.main
-    = form_for "@product" do |f|
+    = form_for @product do |f|
       %div.main__block
         %div.picture-block
           %div.picture-block__label
             %div.name 出品画像
             %div.essential-label 必須
           %p.picture-block__explain
-          %div.picture-block__form
-            = f.label :pictures,class:"picture-block__form__image" do
-              %p.picture-block__form__image__info クリックして画像をアップロード
-              = f.file_field :picture,class:"picture-block__form__image__tag"
+          %label.picture-block__form__image
+            %p.picture-block__form__image__info クリックして画像をアップロード
+            = f.fields_for :pictures do |picture|
+              = picture.file_field :image ,class:"picture-block__form__image__tag"
+              
+
 
         %div.destinction-block
           %div.destinction-block__name
@@ -22,14 +24,14 @@
               %div.name 商品名
               %div.essential-label 必須
             %div.destinction-block__form
-              = f.text_field '#',class:"input-area",placeholder:"40文字まで"
+              = f.text_field :products_name, class:"input-area",placeholder:"40文字まで"
 
           %div.destinction-block__destinction
             %div.destinction-block__destinction__label
               %div.name 商品の説明
               %div.essential-label 必須
             %div.destinction-block__destinction__form
-              = f.text_area '#',class:"destinction-block__destinction__form__area",placeholder:"商品の説明（必須）（色、素材、重さ、定価、注意点　など）"
+              = f.text_area :descreption, class:"destinction-block__destinction__form__area",placeholder:"商品の説明（必須）（色、素材、重さ、定価、注意点　など）"
 
         %div.detail-block
           %div.detail-block__category
@@ -37,21 +39,21 @@
               %div.name カテゴリー
               %div.essential-label 必須
             %div.detail-block-category__form
-              = f.text_field '#',class:"input-area"
+              -# = f.text_field '#',class:"input-area"
 
           %div.detail-block__bland
             %div.detail-block__bland__label
               %div.name ブランド
               %div.non-essential-label 任意
             %div.detail-block__bland__form
-              = f.select '#',[],{},class:"input-area"
+              = f.text_field :brand,class:"input-area"
 
           %div.detail-block-product_condition
             %div.detail-block__product-condition__label
               %div.name 商品の状態
               %div.essential-label 必須
             %div.detail-block__product-condition__form
-              = f.select '#',[],{},class:"input-area"
+              = f.select :product_condition,["新品、未使用", "未使用に近い", "目立った傷や汚れなし", "やや傷や汚れあり", "傷や汚れあり", "全体的に状態が悪い"],{include_blank: '選択してください'},class:"input-area"
 
         %div.shipment-block
           %div.shipment-block__fee
@@ -83,7 +85,7 @@
               %div.essential-label 必須
             %span.price-block__name__yenn-mark ¥
             %div.price-block__form
-              = f.number_field '#',min:300,max:1000000,class:"input-area__number",placeholder:"0"
+              = f.number_field :price, min:300,max:1000000,class:"input-area__number",placeholder:"0"
 
         %div.btn-block
           = f.submit '出品する',class:"btn-block__submit"

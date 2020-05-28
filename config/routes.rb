@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'users/card'
 
   # buyアクションを追加 matsumoto
-  resources :products, only: [:show, :new] do
+  resources :products, only: [:show, :new, :create] do
     member do
       get "buy"
     end
