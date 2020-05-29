@@ -24,7 +24,7 @@
               ブランド
         %ul.Nav__Right
           %li.Nav__Right__left
-            = link_to root_path do 
+            = link_to new_user_session_path do 
               ログイン
           %li.Nav__Right__right
             = link_to root_path do 
@@ -164,10 +164,10 @@
           = image_tag "logo/AnyConv.App_Store_Badge.png", alt: "AppStore", class: "Apple"
         = link_to root_path, class:"Right" do
           = image_tag "logo/google-play-badge.png", alt: "GooglePlay"
-  %div.footer
+  %Footer
     %ul.contents
       %li.content
-        %h2.content__head FURIMAについて
+        %h2 FURIMAについて
         %ul
           %li
             = link_to root_path do  
@@ -176,35 +176,34 @@
             = link_to root_path do
               プライバシーポリシー
           %li
-            = link_to root_path do 
+            = link_to root_path do
               FURIMA利用規約
       %li.content
-        %h2.content__head FURIMAに見る
+        %h2 FURIMAに見る
         %ul
           %li
-            = link_to root_path do 
+            = link_to root_path do
               カテゴリー一覧
           %li
-            = link_to root_path do  
+            = link_to root_path do
               ブランドー一覧
       %li.content
-        %h2.content__head ヘルプ＆ガイド
+        %h2 ヘルプ＆ガイド
         %ul
           %li
             = link_to root_path do
               FURIMAガイド
           %li
-            = link_to root_path do  
+            = link_to root_path do
               FURIMAロゴ利用ガイドライン
           %li
-            = link_to root_path do  
+            = link_to root_path do 
               お知らせ
     %div.footer__logo
       = link_to root_path, class:"Logo" do
         = image_tag "logo/logo-white.png", alt: "LogoWhite"
     %p ©︎  FURIMA
-  %a(href="#")
-    %div.purchaseBtn
-      = link_to root_path , class:"TopButton" do
-        %span 出品する  
-        = image_tag "icon/icon_camera.png", alt: "出品アイコン"
+  %div.purchaseBtn
+    = link_to root_path , class:"TopButton" do
+      %span 出品する  
+      = image_tag "icon/icon_camera.png", alt: "出品アイコン"

@@ -422,12 +422,11 @@ header{
   } 
 }
 
-.footer{
+Footer{
   background-color: black;
   color:#fff;
   padding: 60px 0;
   text-align: center;
-  height:180px;
   .contents{
     max-width: 840px;
     margin: 0 auto;
@@ -437,7 +436,7 @@ header{
       flex-direction: column;
       width: calc(1 / 3 * 100%);
       margin: 0 2% 0 0;
-      &__head{
+      h2{
         margin:0 0 20px;
         font-size: 16px;
         font-weight: bold;
@@ -447,7 +446,7 @@ header{
         li {
           display: list-item;
           a {
-            color: $WhiteColor;
+            color:white;
             text-decoration: none;
             font-size: 12px;
             line-height: 32px;
@@ -466,7 +465,6 @@ header{
       img{
         vertical-align: bottom;
         width: 100%;
-        // background-color: ;
       }
     }
     p {
@@ -474,6 +472,7 @@ header{
     }
   }
 }
+
 .purchaseBtn{
   a{
     text-decoration: none;
