@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_05_23_060627) do
     t.string "shipping_place", null: false
     t.integer "shipping_period", null: false
     t.integer "user_id"
-    t.integer "category"
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_05_23_060627) do
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.integer "date_of_birth", null: false
+    t.date "date_of_birth", null: false
     t.string "ship_family_name", null: false
     t.string "ship_first_name", null: false
     t.string "ship_family_name_kana", null: false

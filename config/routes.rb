@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   get 'users/signout'
   get 'users/card'
 
-  resources :products, only: [:show, :buy, :new]
+  # buyアクションを追加 matsumoto
+  resources :products, only: [:show, :new, :create] do
+    member do
+      get "buy"
+    end
+  end
 
 end 
