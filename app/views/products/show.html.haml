@@ -146,6 +146,9 @@
                 %button.commentBtn
                   %i.fa 
                     コメントする
+                %div.Edit__Delete__Btn_box
+                  %button.Product__Edit__Btn--left  編集する
+                  %button.Product__Delete__Btn--right  削除する
           %ul.links
             %li.flont1
               = link_to root_path do 
@@ -163,15 +166,6 @@
             = link_to root_path do
               %span 
                 メンズをもっと見る
-  %div.appanner
-    %div.inner
-      %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
-      %p.inner__text 今すぐ無料ダウンロード！
-      %div.inner__icon
-        = link_to root_path, class:"Left" do
-          = image_tag "logo/AnyConv.App_Store_Badge.png", alt: "AppStore", class: "Apple"
-        = link_to root_path, class:"Right" do
-          = image_tag "logo/google-play-badge.png", alt: "GooglePlay"
   %Footer
     %ul.contents
       %li.content
