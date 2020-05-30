@@ -357,7 +357,7 @@ header{
 
 .Edit__Delete__Btn_box {
   display: flex;
-  margin-top: 15px;
+  margin-top: 20px;
   justify-content: space-around;
   .Product__Edit__Btn--left {
     font-size: 18px;
@@ -369,17 +369,19 @@ header{
     font-size: 18px;
     border-radius: 100px;
     cursor: pointer;
+    margin-left: 20px;
   }
   .Product__Delete__Btn--right {
     font-size: 18px;
     line-height: 48px;
-    background: tomato;
+    background: lighten(tomato, 5%);
     border: 1px solid red;
     color: #fff;
     width: 30%;
     font-size: 18px;
     border-radius: 100px;
     cursor: pointer;
+    margin-right: 20px;
   }
 }
 
