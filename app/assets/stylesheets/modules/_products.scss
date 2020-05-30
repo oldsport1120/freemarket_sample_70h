@@ -345,12 +345,43 @@ header{
   width: 60%;
   font-size: 18px;
   border-radius: 100px;
+  cursor: pointer;
   .fa{
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
+  }
+}
+
+.Edit__Delete__Btn_box {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-around;
+  .Product__Edit__Btn--left {
+    font-size: 18px;
+    line-height: 48px;
+    background: #3CCACE;
+    border: 1px solid #3CCACE;
+    color: #fff;
+    width: 30%;
+    font-size: 18px;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  .Product__Delete__Btn--right {
+    font-size: 18px;
+    line-height: 48px;
+    background: lighten(tomato, 5%);
+    border: 1px solid red;
+    color: #fff;
+    width: 30%;
+    font-size: 18px;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-right: 20px;
   }
 }
 

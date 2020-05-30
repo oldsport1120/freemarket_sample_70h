@@ -18,7 +18,7 @@
           いいね！一覧
           = icon 'fas', 'chevron-right'
       %li
-        = link_to '#', class: 'side-bar__list--item' do
+        = link_to '/products/new', class: 'side-bar__list--item' do
           出品する
           = icon 'fas', 'chevron-right'
       %li
@@ -70,7 +70,7 @@
           発送元・お届け先住所変更
           = icon 'fas', 'chevron-right'
       %li
-        = link_to '#', class: 'side-bar__list--item' do
+        = link_to '/users/card', class: 'side-bar__list--item' do
           支払い方法
           = icon 'fas', 'chevron-right'
       %li
@@ -86,6 +86,7 @@
           電話番号の確認
           = icon 'fas', 'chevron-right'
       %li
-        = link_to '#', class: 'side-bar__list--item' do
+        = link_to "/users/sign_out", method: :delete, class: 'side-bar__list--item' do
           ログアウト
           = icon 'fas', 'chevron-right'
+        

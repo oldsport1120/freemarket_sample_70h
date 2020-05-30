@@ -23,12 +23,20 @@
             = link_to root_path do 
               ブランド
         %ul.Nav__Right
-          %li.Nav__Right__left
-            = link_to new_user_session_path do 
-              ログイン
-          %li.Nav__Right__right
-            = link_to root_path do 
-              新規会員登録
+          - if user_signed_in?
+            %li.Nav__Right__left
+              = link_to users_index_path do 
+                マイページ
+            %li.Nav__Right__right
+              = link_to destroy_user_session_path method: :delete do 
+                ログアウト
+          - else
+            %li.Nav__Right--left
+              = link_to new_user_session_path do 
+                ログイン
+            %li.Nav__Right--right
+              = link_to new_user_registration_path do 
+                新規会員登録
   %nav.breadCrumbs
     %ul
       %li
@@ -138,6 +146,9 @@
                 %button.commentBtn
                   %i.fa 
                     コメントする
+                %div.Edit__Delete__Btn_box
+                  %button.Product__Edit__Btn--left  編集する
+                  %button.Product__Delete__Btn--right  削除する
           %ul.links
             %li.flont1
               = link_to root_path do 
@@ -155,15 +166,6 @@
             = link_to root_path do
               %span 
                 メンズをもっと見る
-  %div.appanner
-    %div.inner
-      %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
-      %p.inner__text 今すぐ無料ダウンロード！
-      %div.inner__icon
-        = link_to root_path, class:"Left" do
-          = image_tag "logo/AnyConv.App_Store_Badge.png", alt: "AppStore", class: "Apple"
-        = link_to root_path, class:"Right" do
-          = image_tag "logo/google-play-badge.png", alt: "GooglePlay"
   %Footer
     %ul.contents
       %li.content
@@ -204,6 +206,11 @@
         = image_tag "logo/logo-white.png", alt: "LogoWhite"
     %p ©︎  FURIMA
   %div.purchaseBtn
-    = link_to root_path , class:"TopButton" do
-      %span 出品する  
-      = image_tag "icon/icon_camera.png", alt: "出品アイコン"
+    - if user_signed_in?
+      = link_to new_product_path , class:"TopButton" do
+        %span 出品する  
+        = image_tag "icon/icon_camera.png", alt: "出品アイコン"
+    - else
+      = link_to new_user_session_path , class:"TopButton" do
+        %span 出品する  
+        = image_tag "icon/icon_camera.png", alt: "出品アイコン"
