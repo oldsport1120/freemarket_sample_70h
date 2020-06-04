@@ -1,0 +1,13 @@
+%div.CategoryPics__Pic
+  = link_to root_path , class:"Pic1" do
+    %div.Pic
+      = image_tag "/uploads/bird_chabo.png", alt: "Bird", class: "Bird"
+    %div.CategoryPic__Text
+      %h3
+        = product.name
+      %div.Text
+        %ul
+          %li
+            = product.price
+          %li ★0
+        %p  （税込）

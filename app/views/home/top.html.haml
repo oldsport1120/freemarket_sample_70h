@@ -113,40 +113,9 @@
         %div.CategoryNew  
           = link_to root_path , class:"CategoryInfo" do
             %h3  新規投稿商品
-        %div.CategoryPics
-          %div.CategoryPics__Pic
-            = link_to root_path , class:"Pic1" do
-              %div.Pic
-                = image_tag "/uploads/bird_chabo.png", alt: "Bird", class: "Bird"
-              %div.CategoryPic__Text
-                %h3  Product3
-                %div.Text
-                  %ul
-                    %li 30000円
-                    %li ★0
-                  %p  （税込）
-          %div.CategoryPics__Pic
-            = link_to root_path , class:"Pic1" do
-              %div.Pic 
-                = image_tag "/uploads/okami.png", alt: "Okami", class: "Okami"
-              %div.CategoryPic__Text
-                %h3  Product3
-                %div.Text
-                  %ul
-                    %li 30000円
-                    %li ★0
-                  %p  （税込）
-          %div.CategoryPics__Pic
-            = link_to root_path , class:"Pic1" do
-              %div.Pic
-                = image_tag "/uploads/kawauso_juggling.png", alt: "Kawauso", class: "Kawauso"
-              %div.CategoryPic__Text
-                %h3  Product3
-                %div.Text
-                  %ul
-                    %li 30000円
-                    %li ★0
-                  %p  （税込）
+        - @prodcts.last(3).each do |product|
+          =  render partial:'products/product'
+
     %div.BrandWrapper
       %h2.BrandTitle  ピックアップブランド
       %div.BrandContainer
