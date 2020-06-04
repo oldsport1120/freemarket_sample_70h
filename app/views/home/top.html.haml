@@ -113,8 +113,9 @@
         %div.CategoryNew  
           = link_to root_path , class:"CategoryInfo" do
             %h3  新規投稿商品
-        - @prodcts.last(3).each do |product|
-          =  render partial:'products/product'
+        %div.CategoryPics
+          - @prodcts.last(3).each do |product|
+            =  render partial:'products/product'
 
     %div.BrandWrapper
       %h2.BrandTitle  ピックアップブランド
@@ -123,39 +124,9 @@
           = link_to root_path , class:"BrandInfo" do
             %h3.BrandNew  アーカイブ
         %div.BrandPics
-          %div.BrandPics__Pic
-            = link_to root_path , class:"BrandInfo__Text" do
-              %div.Pic
-                = image_tag "/uploads/bird_chabo.png", alt: "Bird", class: "Bird"
-              %div.BrandPic__Text
-                %h3  Product3
-                %div.Text 
-                  %ul
-                    %li 30000円
-                    %li ★0
-                  %p  （税込）
-          %div.BrandPics__Pic
-            = link_to root_path , class:"BrandInfo__Text" do
-              %div.Pic
-                = image_tag "/uploads/bird_chabo.png", alt: "Bird", class: "Bird"
-              %div.BrandPic__Text
-                %h3  Product3
-                %div.Text 
-                  %ul
-                    %li 30000円
-                    %li ★0
-                  %p  （税込）
-          %div.BrandPics__Pic
-            = link_to root_path , class:"BrandInfo__Text" do
-              %div.Pic
-                = image_tag "/uploads/bird_chabo.png", alt: "Bird", class: "Bird"
-              %div.BrandPic__Text
-                %h3  Product3
-                %div.Text 
-                  %ul
-                    %li 30000円
-                    %li ★0
-                  %p  （税込）  
+          - @prodcts.last(3).each do |product|
+            =  render partial:'products/product'
+
   %div.DownloadWrapper
     %div.Container
       %h2.DownLoadMessage だれでもかんたん、人生を変えるフリマアプリ
