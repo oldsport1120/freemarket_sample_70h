@@ -3,12 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .wrapper{
-  display: flex;
+  height: 100%;
   .show-users-wrapper {
     width: 65%;
     background-color: #f5f5f5;
-    height: 100%;
-    justify-content: right;
+    height: 100vh;
+    float: right;
+    position: relative;
   
     &__center {
       background-color: #f5f5f5;
@@ -21,7 +22,11 @@
   
     .card-wrapper{
       padding: 20px;
-      height: 457px;
+      height: 500px;
+      position: absolute;
+      left: 15%;
+      top: 15%;
+      background-color: white;
       &__title{
         text-align: center;
         font-weight: bold;
