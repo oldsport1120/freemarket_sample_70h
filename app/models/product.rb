@@ -11,5 +11,5 @@ class Product < ApplicationRecord
 
   validates :products_name, presence: true, length: { maximum: 40 }
   validates :descreption, presence: true, length: { maximum: 1000 }
-  validates :price, :product_condition, :shipment_fee, :shipping_place, presence: true
+  validates :price, :product_condition, :shipment_fee, :shipping_place, :shipping_period, presence: true
 end
