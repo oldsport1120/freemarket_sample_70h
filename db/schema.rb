@@ -35,6 +35,9 @@ ActiveRecord::Schema.define(version: 2020_05_23_060627) do
     t.integer "shipping_period", null: false
     t.integer "user_id"
     t.integer "category_id"
+    t.integer "seller_id", null: false
+    t.integer "buyer_id"
+    t.integer "sale_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
