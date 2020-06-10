@@ -1,4 +1,4 @@
-class Category < ApplicationRecord::Base
+class Category < ApplicationRecord
   has_ancestry
 
 
