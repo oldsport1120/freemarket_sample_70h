@@ -6,8 +6,9 @@ class Product < ApplicationRecord
   has_many :pictures, dependent: :destroy
   accepts_nested_attributes_for :pictures
 
-  belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
-  belongs_to :buyer, class_name: 'User', foreign_key: 'buyer_id'
+  belongs_to :user
+  # belongs_to :seller, class_name: "User"
+  # belongs_to :buyer, class_name: "User"
 
   validates :products_name, presence: true, length: { maximum: 40 }
   validates :descreption, presence: true, length: { maximum: 1000 }
