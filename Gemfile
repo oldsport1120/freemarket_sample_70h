@@ -91,3 +91,5 @@ gem 'active_hash'
 gem 'ancestry'
 
 gem 'jquery-rails'
+
+gem 'pry-rails'
