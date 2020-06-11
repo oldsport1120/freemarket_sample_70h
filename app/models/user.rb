@@ -56,6 +56,9 @@ class User < ApplicationRecord
   # validates :password,      presence: { message: 'パスワードは７文字以上で入力してください' }  
   # validates :email, format: { with: [a-zA-Z0-9].+@.+[a-zA-Z0-9].+..+[a-zA-Z0-9] }
   
+  # has_many: products, dependent: :destroy    Ito
+  has_many :buyer_products, class_name: 'Product', foreign_key: 'buyer_id', dependent: :destroy
+  has_many :seller_Products, class_name: 'Product', foreign_key: 'seller_id', dependent: :destroy
 
 end
 

@@ -17,17 +17,24 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    if @product.save
-      redirect_to root_path
+    if params[:pictures].present?
+      @product = Product.new(product_params)
+      if @product.save
+        params[:pictures][:picture].each do |picture|
+          @product.pictures.create(picture: picture)
+        end
+          redirect_to root_path
+      else
+        redirect_to new_product_path
+      end
     else
-      render :new
+      redirect_to new_product_path
     end
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:products_name, :descreption, :price, :brand, :product_condition, :shipment_fee, :shipping_place, :shipping_period, :user_id, :category_id,pictures_attributes: [:picture])
+    params.require(:product).permit(:products_name, :descreption, :price, :brand, :product_condition, :shipment_fee, :shipping_place, :shipping_period, :user_id, :category_id, :sale_status, :seller_id, :buyer_id, pictures_attributes: [:picture]).merge(seller_id: current_user.id)
   end
 end

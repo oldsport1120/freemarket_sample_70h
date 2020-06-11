@@ -5,18 +5,24 @@
 
   %div.main
     = form_for @product do |f|
-      %div.main__block
-        %div.picture-block
-          %div.picture-block__label
-            %div.name 出品画像
-            %div.essential-label 必須
-          %p.picture-block__explain
-          = f.fields_for :pictures do |picture|
-            %div.picture-block__form
-              = picture.label :picture,class:"picture-block__form__image" do
-                %p.picture-block__form__image__info クリックして画像をアップロード
-                = picture.file_field :picture,class:"picture-block__form__image__tag"
-
+      .main__block
+        .title
+          %h1 商品の情報を入力
+        .item-form-image
+          .item-image
+            .item-image-label
+              %div.name 出品画像
+              %div.essential-label
+                必須
+            %p 最大１０枚までアップロードできます
+            #previews
+            .dropzone
+              %label.item-label
+                .dropzone-text
+                  クリックして画像をアップロード
+                = f.fields_for :pictures do |picture|
+                  = picture.file_field :picture, multiple: true, name: "pictures[picture][]", id: "upload-image", class:"upload-image"
+      
         %div.destinction-block
           %div.destinction-block__name
             %div.destinction-block__name__label
@@ -66,7 +72,7 @@
             %div.shipment-block__place__label
               %div.name 発送元の地域
               %div.essential-label 必須
-            %div.shipment-block__place__form
+            %div.shipment-block__place__formapplica
               = f.collection_select :shipping_place, Prefecture.all, :id, :name, {prompt: "選択してください"},class:"input-area"
 
           %div.shipment-block__period
