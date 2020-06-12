@@ -24,5 +24,10 @@ Rails.application.routes.draw do
       get "buy"
     end
   end
+  
+
+  resources :products do
+    resources :comments, only: :create
+  end
 
 end 

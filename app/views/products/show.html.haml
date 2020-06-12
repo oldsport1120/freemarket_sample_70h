@@ -138,14 +138,18 @@
             %div.commentBox
               %ul.commentContents
               %form(action="#")
-                %textarea.comment_body
+                %div.CommentContainer
+                  - if user_signed_in?
+                    = form_with model: [@product, @comment], local: true do |form|
+                      = form.text_field :text, class:"comment_body",placeholder:"この商品にコメント・質問する"
+                      = form.submit 'コメントする',class:"commentBtn"
+                  - else
+                    = form_with model: [@product, @comment], local: true do |form|
+                      = form.text_field :text, class:"comment_body",placeholder:"※※※ コメントの投稿には新規登録/ログインが必要です"
                 %p.noticeMsg
                   相手のことを考え丁寧なコメントを心がけましょう。
                   %br
                   不快な言葉遣いなどは利用制限や退会処分となることがあります。
-                %button.commentBtn
-                  %i.fa 
-                    コメントする
                 %div.Edit__Delete__Btn_box
                   - if user_signed_in? && current_user.id == @product.user_id
                     = link_to new_product_path , class:"Product__Edit__Btn--left" do
