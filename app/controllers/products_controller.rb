@@ -37,10 +37,12 @@ class ProductsController < ApplicationController
   # destroy アクション nonaka
   def destroy
     product = Product.find(params[:id])
-    product.destroy
-    redirect_to root_path
+    if product.destroy
+      redirect_to users_index_path, notice: "商品の削除が完了しました"
+    else
+      redirect_to users_index_path, alert: "商品の削除ができませんでした"
+    end
   end
-
 
   private
 
