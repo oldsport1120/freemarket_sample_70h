@@ -141,11 +141,17 @@
                 %div.CommentContainer
                   - if user_signed_in?
                     = form_with model: [@product, @comment], local: true do |form|
-                      = form.text_field :text, class:"comment_body",placeholder:"この商品にコメント・質問する"
+                      = form.text_area :text, class:"comment_body",placeholder:"この商品にコメント・質問する"
                       = form.submit 'コメントする',class:"commentBtn"
                   - else
                     = form_with model: [@product, @comment], local: true do |form|
-                      = form.text_field :text, class:"comment_body",placeholder:"※※※ コメントの投稿には新規登録/ログインが必要です"
+                      = form.text_area :text, class:"comment_body",placeholder:"※※※ コメントの投稿には新規登録/ログインが必要です"
+                %div.CommentLists
+                  - if @comments
+                    - @comments.each do |comment| 
+                      %strong
+                        = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                        = comment.text
                 %p.noticeMsg
                   相手のことを考え丁寧なコメントを心がけましょう。
                   %br
