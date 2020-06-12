@@ -3,7 +3,11 @@ class ProductsController < ApplicationController
   def buy
   end
   
+  # 商品出品後のデータを反映させる 実験中 Nonaka
   def show
+    # @product = Product.find(1) 
+    @product = Product.find(params[:id])
+    # 仮データ投入
   end
 
   def index
@@ -31,6 +35,14 @@ class ProductsController < ApplicationController
       redirect_to new_product_path
     end
   end
+  
+  # destroy 記述中nonaka
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    redirect_to root_path
+  end
+
 
   private
 
