@@ -371,7 +371,7 @@ header{
     cursor: pointer;
     margin-left: 20px;
   }
-  .Product__Delete__Btn--right {
+  .Product__Edit__Btn--right {
     font-size: 18px;
     line-height: 48px;
     background: lighten(tomato, 5%);
@@ -383,6 +383,13 @@ header{
     cursor: pointer;
     margin-right: 20px;
   }
+}
+
+.DeletePreparation {
+  width: 300px;
+  height: 100px;
+  background-color: tomato;
+//  記述途中nonaka
 }
 
 .links{
