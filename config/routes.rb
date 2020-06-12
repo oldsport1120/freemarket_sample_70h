@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   get 'users/card'
 
   # buyアクションを追加 matsumoto
-  resources :products, only: [:show, :new, :create] do
+  # destroyアクションを追加 nonaka
+  resources :products, only: [:show, :new, :create, :destroy] do
     member do
       get "buy"
     end

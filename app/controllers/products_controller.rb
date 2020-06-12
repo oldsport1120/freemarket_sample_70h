@@ -3,7 +3,9 @@ class ProductsController < ApplicationController
   def buy
   end
   
+  # 商品出品後のデータを反映させる Nonaka
   def show
+    @product = Product.find(params[:id])
   end
 
   def index
@@ -29,6 +31,16 @@ class ProductsController < ApplicationController
       end
     else
       redirect_to new_product_path
+    end
+  end
+  
+  # destroy アクション nonaka
+  def destroy
+    product = Product.find(params[:id])
+    if product.destroy
+      redirect_to users_index_path, notice: "商品の削除が完了しました"
+    else
+      redirect_to users_index_path, alert: "商品の削除ができませんでした"
     end
   end
 
