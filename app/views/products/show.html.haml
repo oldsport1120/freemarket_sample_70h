@@ -147,13 +147,11 @@
                   %i.fa 
                     コメントする
                 %div.Edit__Delete__Btn_box
-                  - if user_signed_in?
+                  - if user_signed_in? && current_user.id == @product.user_id
                     = link_to new_product_path , class:"Product__Edit__Btn--left" do
                       %span 編集する
-                    = link_to product_path(@product.id) , class:"Product__Edit__Btn--left", method: :delete do
+                    = link_to product_path(@product.id) , class:"Product__Edit__Btn--right", method: :delete do
                       削除する
-                %div.DeletePreparation 
-                  = @product.user_id 
           %ul.links
             %li.flont1
               = link_to root_path do 
