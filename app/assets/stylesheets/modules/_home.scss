@@ -515,7 +515,9 @@ header {
     }
   }
 }
-
+.ProductPics__Pic:hover{
+  opacity:0.6;
+}
 
 .BrandWrapper {
   background-color: $GrayColor;
