@@ -113,19 +113,18 @@
         %div.CategoryNew  
           = link_to root_path , class:"CategoryInfo" do
             %h3  新規投稿商品
-        %div.CategoryPics
+        %div.ProductPics
           - @products.each do |product|
-            =  render partial:'product'
-
+            =  render 'product',product: product
     %div.BrandWrapper
       %h2.BrandTitle  ピックアップブランド
       %div.BrandContainer
         %div.BrandNew  
           = link_to root_path , class:"BrandInfo" do
             %h3.BrandNew  アーカイブ
-        %div.BrandPics
+        %div.ProductPics
           - @products.each do |product|
-            =  render 'product',product: product
+            =  render 'product', product: product
 
   %div.DownloadWrapper
     %div.Container

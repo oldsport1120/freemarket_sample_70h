@@ -1,11 +1,11 @@
-%div.CategoryPics__Pic
+%div.ProductPics__Pic
   = link_to root_path , class:"Pic1" do
     %div.Pic
-      = image_tag prodcut.pictures.picture.url, alt: "Bird", class: "Bird"
+      = image_tag (product.pictures[0].picture.url), class: "Bird"
     %div.CategoryPic__Text
-      %h3= product.name
+      %h3= product.products_name
       %div.Text
         %ul
           %li= "#{product.price}円"
           %li ★0
-        %p  （税込）
+        %p (税込)

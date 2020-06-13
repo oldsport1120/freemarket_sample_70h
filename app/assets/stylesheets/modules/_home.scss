@@ -444,71 +444,71 @@ header {
         }
       }
     }
-    .CategoryPics {
-      width: 780px;
-      margin: 26px auto;
-      display: flex;
-      justify-content: space-around;
-      .CategoryPics__Pic {
+  }
+}
+.ProductPics {
+  width: 780px;
+  margin: 26px auto;
+  display: flex;
+  justify-content: space-around;
+  &__Pic {
+    width: 220px;
+    display: inline-block;
+    //float: left;
+    a {
+      background-color: $WhiteColor;
+      display: inline-block;
+      text-decoration: none;
+      position: relative;
+      .Pic {
         width: 220px;
-        display: inline-block;
-        float: left;
-        a {
-          background-color: $WhiteColor;
-          display: inline-block;
-          text-decoration: none;
-          position: relative;
-          .Pic {
-            width: 220px;
-            height: 150px;
-            position: relative;
-            overflow: hidden;
-            margin: 0;
-            z-index: auto;
-            display: block;
-            img {
-              position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              width: 100%;
-              z-index: auto;
-              height: 150px;
-              object-fit: cover;
-              vertical-align: bottom;
+        height: 150px;
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        z-index: auto;
+        display: block;
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          z-index: auto;
+          height: 150px;
+          object-fit: cover;
+          vertical-align: bottom;
+        }
+      }
+      .CategoryPic__Text {
+        background-color: $WhiteColor;
+        color: $TextColor;
+        padding: 16px;
+        h3 {
+          overflow: hidden;
+          line-height: 1.5;
+          font-size: 16px;
+          text-align: left;
+        }
+        .Text {
+          font-size: 16px;
+          ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            li {
+              display: list-item;
             }
           }
-          .CategoryPic__Text {
-            background-color: $WhiteColor;
-            color: $TextColor;
-            padding: 16px;
-            h3 {
-              overflow: hidden;
-              line-height: 1.5;
-              font-size: 16px;
-              text-align: left;
-            }
-            .Text {
-              font-size: 16px;
-              ul {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                li {
-                  display: list-item;
-                }
-              }
-              p {
-                font-size: 10px;
-                text-align: left;
-                display: block;
-                margin-block-start: 1em;
-                margin-block-end: 1em;
-                margin-inline-start: 0px;
-                margin-inline-end: 0px;
-              }
-            }
+          p {
+            font-size: 10px;
+            text-align: left;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
           }
         }
       }
@@ -540,76 +540,6 @@ header {
         color: $Btn_BG_Color;
         h3 {
           font-weight: bold;
-        }
-      }
-    }
-    .BrandPics {
-      width: 780px;
-      margin: 26px auto;
-      display: flex;
-      justify-content: space-around;
-      .BrandPics__Pic {
-        width: 220px;
-        display: inline-block;
-        float: left;
-        a {
-          background-color: $WhiteColor;
-          display: inline-block;
-          text-decoration: none;
-          position: relative;
-          .Pic {
-            width: 220px;
-            height: 150px;
-            position: relative;
-            overflow: hidden;
-            margin: 0;
-            z-index: auto;
-            display: block;
-            img {
-              position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              width: 100%;
-              z-index: auto;
-              height: 150px;
-              object-fit: cover;
-              vertical-align: bottom;
-            }
-          }
-          .BrandPic__Text {
-            background-color: $WhiteColor;
-            color: $TextColor;
-            padding: 16px;
-            h3 {
-              font-weight: normal;
-              overflow: hidden;
-              line-height: 1.5;
-              font-size: 16px;
-              text-align: left;
-            }
-            .Text {
-              font-size: 16px;
-              ul {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                li {
-                  display: list-item;
-                }
-              }
-              p {
-                font-size: 10px;
-                text-align: left;
-                display: block;
-                margin-block-start: 1em;
-                margin-block-end: 1em;
-                margin-inline-start: 0px;
-                margin-inline-end: 0px;
-              }
-            }
-          }
         }
       }
     }
