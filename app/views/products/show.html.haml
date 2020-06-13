@@ -145,13 +145,14 @@
                   - else
                     = form_with model: [@product, @comment], url: product_comments_path(@product), local: true do |form|
                       = form.text_area :text, class:"comment_body",placeholder:"※※※ コメントの投稿には新規登録/ログインが必要です"
-                %div.CommentLists
-                  - if @comments
-                    - @comments.each do |comment| 
-                      %p
-                        = comment.user.nickname
-                        = comment.text
-                        = comment.created_at.strftime('%Y/%m/%d')
+            %div.CommentLists
+              - if @comments
+                - @comments.each do |comment| 
+                  %p.comment_text_list
+                    = comment.text
+                  %p.comment_text_name
+                    = comment.user.nickname
+                    = comment.created_at.strftime('%Y/%m/%d')
                 %p.noticeMsg
                   相手のことを考え丁寧なコメントを心がけましょう。
                   %br

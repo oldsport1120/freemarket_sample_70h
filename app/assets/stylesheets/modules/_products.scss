@@ -328,12 +328,25 @@ header{
   }
 }
 
+.comment_text_list {
+  // color: gray;
+  padding: 4px;
+  margin-left: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.comment_text_name {
+  color: gray;
+  text-align: right;
+}
+
 .noticeMsg{
   padding: 8px;
   font-size: 14px;
   background-color: #f8f8f8;
   margin: 10px 0;
-  text-align: left;
+  // text-align: left;
+  text-align: center;
 }
 
 .commentBtn{
@@ -359,6 +372,7 @@ header{
   display: flex;
   margin-top: 20px;
   justify-content: space-around;
+  text-align: center;
   .Product__Edit__Btn--left {
     font-size: 18px;
     line-height: 48px;
