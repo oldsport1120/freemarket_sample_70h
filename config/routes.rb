@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   # buyアクションを追加 matsumoto
   # destroyアクションを追加 nonaka
-  resources :products, only: [:show, :new, :create, :destroy] do
+  resources :products, only: [:show, :new, :create, :destroy, :edit] do
     member do
       get "buy"
     end
