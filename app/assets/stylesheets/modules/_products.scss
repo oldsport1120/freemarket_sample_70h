@@ -372,6 +372,7 @@ header{
   justify-content: space-around;
   text-align: center;
   .Product__Edit__Btn--left {
+    text-decoration: none;
     font-size: 18px;
     line-height: 48px;
     background: #3CCACE;
@@ -384,6 +385,7 @@ header{
     margin-left: 20px;
   }
   .Product__Edit__Btn--right {
+    text-decoration: none;
     font-size: 18px;
     line-height: 48px;
     background: lighten(tomato, 5%);
