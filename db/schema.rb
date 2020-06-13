@@ -41,10 +41,12 @@ ActiveRecord::Schema.define(version: 2020_06_12_175622) do
     t.string "shipment_fee", null: false
     t.string "shipping_place", null: false
     t.integer "shipping_period", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.integer "category_id"
+    t.integer "sale_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -75,4 +77,5 @@ ActiveRecord::Schema.define(version: 2020_06_12_175622) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "products", "users"
 end
