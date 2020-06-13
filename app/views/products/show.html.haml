@@ -148,9 +148,10 @@
                 %div.CommentLists
                   - if @comments
                     - @comments.each do |comment| 
-                      %strong
-                        = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                      %p
+                        = comment.user.nickname
                         = comment.text
+                        = comment.created_at.strftime('%Y/%m/%d')
                 %p.noticeMsg
                   相手のことを考え丁寧なコメントを心がけましょう。
                   %br
