@@ -1,7 +1,7 @@
 %div.ProductPics__Pic
   = link_to root_path , class:"Pic1" do
     %div.Pic
-      = image_tag (product.pictures[0].picture.url), class: "Bird"
+      = image_tag product.pictures[0].picture.url
     %div.CategoryPic__Text
       %h3= product.products_name
       %div.Text
