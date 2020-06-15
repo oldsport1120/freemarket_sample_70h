@@ -1,14 +1,11 @@
 class CommentsController < ApplicationController
   def create
-    comment = Comment.create(comment_params)
-    # redirect_to "/products/#{product_comments_path.id}" 
-    # redirect_to product_comments_path(comment_params)
-    # redirect_to product_comments_path(comment_params)
-    # redirect_to product_path
-    # redirect_to user_url(id: @user.id)
-    # redirect_to product_comments_path(id: product_comments_path.id)
-    # redirect_to product_comments_path(comment_params)
-    # redirect_back
+    comment = Comment.new(comment_params)
+      if comment.save
+        redirect_to users_index_path, notice: "コメントが入力されました"
+      else
+        redirect_to users_index_path, notice: "コメントの入力ができませんでした"
+      end
   end
 
   private
