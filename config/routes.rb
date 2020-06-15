@@ -26,9 +26,4 @@ Rails.application.routes.draw do
     end
   end
   
-
-  # resources :products do
-  #   resources :comments, only: :create
-  # end
-
 end 
