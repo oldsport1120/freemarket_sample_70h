@@ -64,6 +64,9 @@
 |shipping_period|integer|null: false|
 |user_id|integer|foreign_key: true|
 |category_id|integer|foreign_key: true|
+|buyer_id|integer||
+|sale_status|integer|null: false, default: 0|
+
 ### Association
 - has_many: pictures, dependent: :destroy
 - belongs_to: category

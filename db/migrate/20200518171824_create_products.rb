@@ -12,7 +12,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.references :user, index: true, foreign_key:true
       t.integer :category_id, foreign_key:true
       # t.integer :seller_id, null:false
-      # t.integer :buyer_id
+      t.integer :buyer_id
       t.integer :sale_status, null: false, default: 0
 
       t.timestamps
