@@ -22,7 +22,14 @@
                   クリックして画像をアップロード
                 = f.fields_for :pictures do |picture|
                   = picture.file_field :picture, multiple: true, name: "pictures[picture][]", id: "upload-image", class:"upload-image"
-      
+            .preview-box2
+              - @product.pictures.each do |picture|
+                .image-box
+                  = image_tag(@product.pictures[0].picture.url,size: "114*114")
+                  .preview-box__select
+                    = link_to products_path(picture.id), method: :delete, data: { turbolinks: false } do
+                      %p 削除
+
         %div.destinction-block
           %div.destinction-block__name
             %div.destinction-block__name__label
@@ -93,7 +100,7 @@
               = f.number_field :price, min:300,max:1000000,class:"input-area__number",placeholder:"0"
 
         %div.btn-block
-          = f.submit '出品する',class:"btn-block__submit"
+          = f.submit '変更する',class:"btn-block__submit"
           = link_to root_path,class:"btn-block__return"do
             もどる
 
