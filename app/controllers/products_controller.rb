@@ -4,8 +4,11 @@ class ProductsController < ApplicationController
   end
   
   # 商品出品後のデータを反映させる Nonaka
+  # コメントを反映させる Nonaka
   def show
     @product = Product.find(params[:id])
+    @comment = Comment.new
+    @comments = @product.comments.includes(:user)
   end
 
   def index

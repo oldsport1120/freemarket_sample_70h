@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :validatable, password_length: 7..128
          #password_length１行追加中実験成功
   has_many :products, dependent: :destroy
+  has_many :comments 
 
   # 正規表現 半角英数のみ
   # SMALL_LETTERS_REGEX = /\A[a-z0-9]+\z/i
