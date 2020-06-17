@@ -1,0 +1,25 @@
+// Place all the styles related to the categorys controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.header{
+  max-width: 1040px;
+  width: 100%;
+  min-height: 82px;
+  margin: 0 auto;
+  padding: 15px 0 0;
+}
+
+.header-main{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.h1{
+  padding-bottom: 10px;
+  margin-right: 30px;
+  border-radius: 4px;
+  font-size: 100%;
+  font-weight: normal;
+
+}

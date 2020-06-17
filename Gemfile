@@ -89,3 +89,5 @@ gem 'payjp'
 gem 'active_hash'
 
 gem 'ancestry'
+
+gem 'jquery-rails'

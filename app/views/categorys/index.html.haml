@@ -1,0 +1,13 @@
+%header
+  %div.header
+    %div.header-main
+    %h1
+    = form_for categorys_url do |f|
+      .listing-form-box
+        .listing-product-detail__category
+          = f.label 'カテゴリー', class: 'listing-default__label' do
+            %span.listing-default--require 必須
+            .listing-select-wrapper
+              .listing-select-wrapper__box
+                = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'} 
+                %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down

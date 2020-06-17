@@ -17,6 +17,17 @@ Rails.application.routes.draw do
   get 'users/signout'
   get 'users/card'
 
-  resources :products, only: [:show, :buy, :new]
-
+  resources :products, only: [:show, :buy, :new,]
+  
+  #カテゴリー用のルーティング simizu
+  resources :categorys, only: [:index, :show, :new, :edit, :destroy] do
+    collection do # 新規用（new) usr:categorys/newのため
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+    member do # 編集(edit用) usl: categorys/id/editのため
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end 
 end 
