@@ -23,12 +23,20 @@
             = link_to root_path do 
               ブランド
         %ul.Nav__Right
-          %li.Nav__Right__left
-            = link_to root_path do 
-              ログイン
-          %li.Nav__Right__right
-            = link_to root_path do 
-              新規会員登録
+          - if user_signed_in?
+            %li.Nav__Right__left
+              = link_to users_index_path do 
+                マイページ
+            %li.Nav__Right__right
+              = link_to destroy_user_session_path method: :delete do 
+                ログアウト
+          - else
+            %li.Nav__Right--left
+              = link_to new_user_session_path do 
+                ログイン
+            %li.Nav__Right--right
+              = link_to new_user_registration_path do 
+                新規会員登録
   %nav.breadCrumbs
     %ul
       %li
@@ -129,15 +137,32 @@
                       %i.fa
             %div.commentBox
               %ul.commentContents
-              %form(action="#")
-                %textarea.comment_body
+                %div.CommentContainer
+                  - if user_signed_in?
+                    = form_with model: [@product, @comment], url: product_comments_path(@product), local: true do |form|
+                      = form.text_area :text, class:"comment_body",placeholder:"この商品にコメント・質問する"
+                      = form.submit 'コメントする',class:"commentBtn"
+                  - else
+                    = form_with model: [@product, @comment], url: product_comments_path(@product), local: true do |form|
+                      = form.text_area :text, class:"comment_body",placeholder:"※※※ コメントの投稿には新規登録/ログインが必要です"
+            %div.CommentLists
+              - if @comments
+                - @comments.each do |comment| 
+                  %p.comment_text_list
+                    = comment.text
+                  %p.comment_text_name
+                    = comment.user.nickname
+                    = comment.created_at.strftime('%Y/%m/%d')
                 %p.noticeMsg
                   相手のことを考え丁寧なコメントを心がけましょう。
                   %br
                   不快な言葉遣いなどは利用制限や退会処分となることがあります。
-                %button.commentBtn
-                  %i.fa 
-                    コメントする
+                %div.Edit__Delete__Btn_box
+                  - if user_signed_in? && current_user.id == @product.user_id
+                    = link_to new_product_path , class:"Product__Edit__Btn--left" do
+                      %span 編集する
+                    = link_to product_path(@product.id) , class:"Product__Edit__Btn--right", method: :delete do
+                      削除する
           %ul.links
             %li.flont1
               = link_to root_path do 
@@ -155,19 +180,10 @@
             = link_to root_path do
               %span 
                 メンズをもっと見る
-  %div.appanner
-    %div.inner
-      %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
-      %p.inner__text 今すぐ無料ダウンロード！
-      %div.inner__icon
-        = link_to root_path, class:"Left" do
-          = image_tag "logo/AnyConv.App_Store_Badge.png", alt: "AppStore", class: "Apple"
-        = link_to root_path, class:"Right" do
-          = image_tag "logo/google-play-badge.png", alt: "GooglePlay"
-  %div.footer
+  %Footer
     %ul.contents
       %li.content
-        %h2.content__head FURIMAについて
+        %h2 FURIMAについて
         %ul
           %li
             = link_to root_path do  
@@ -176,34 +192,39 @@
             = link_to root_path do
               プライバシーポリシー
           %li
-            = link_to root_path do 
+            = link_to root_path do
               FURIMA利用規約
       %li.content
-        %h2.content__head FURIMAに見る
+        %h2 FURIMAに見る
         %ul
           %li
-            = link_to root_path do 
+            = link_to root_path do
               カテゴリー一覧
           %li
-            = link_to root_path do  
+            = link_to root_path do
               ブランドー一覧
       %li.content
-        %h2.content__head ヘルプ＆ガイド
+        %h2 ヘルプ＆ガイド
         %ul
           %li
             = link_to root_path do
               FURIMAガイド
           %li
-            = link_to root_path do  
+            = link_to root_path do
               FURIMAロゴ利用ガイドライン
           %li
-            = link_to root_path do  
+            = link_to root_path do 
               お知らせ
     %div.footer__logo
       = link_to root_path, class:"Logo" do
         = image_tag "logo/logo-white.png", alt: "LogoWhite"
     %p ©︎  FURIMA
   %div.purchaseBtn
-    = link_to root_path , class:"TopButton" do
-      %span 出品する  
-      = image_tag "icon/icon_camera.png", alt: "出品アイコン"
+    - if user_signed_in?
+      = link_to new_product_path , class:"TopButton" do
+        %span 出品する  
+        = image_tag "icon/icon_camera.png", alt: "出品アイコン"
+    - else
+      = link_to new_user_session_path , class:"TopButton" do
+        %span 出品する  
+        = image_tag "icon/icon_camera.png", alt: "出品アイコン"
