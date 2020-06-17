@@ -18,11 +18,12 @@ Rails.application.routes.draw do
   get 'users/card'
 
   # buyアクションを追加 matsumoto
-  # indexアクションを追加 murakami
-  resources :products, only: [:index,:show, :new, :create] do
+  # destroyアクションを追加 comments/create アクションをネストで追加 nonaka
+  resources :products, only: [:show, :new, :create, :destroy] do
+    resources :comments, only: :create
     member do
       get "buy"
     end
   end
-
+  
 end 
