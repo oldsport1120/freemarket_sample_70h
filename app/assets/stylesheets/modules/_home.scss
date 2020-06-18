@@ -520,7 +520,7 @@ header {
 .ProductPics__Pic:hover{
   opacity:0.6;
 }
-//SoldOut時のラベル
+//SoldOutラベル
 .ProductPics__Pic__soldout__label{
   width: 0;
   height: 0;
@@ -540,6 +540,7 @@ header {
     left: -50px;
   }
 }
+
 .BrandWrapper {
   background-color: $GrayColor;
   padding: 80px 0 0;
