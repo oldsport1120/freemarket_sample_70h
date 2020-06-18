@@ -446,6 +446,7 @@ header {
     }
   }
 }
+//部分テンプレート
 .ProductPics {
   width: 780px;
   margin: 26px auto;
@@ -454,6 +455,7 @@ header {
   &__Pic {
     width: 220px;
     display: inline-block;
+    position: relative;
     //float: left;
     a {
       background-color: $WhiteColor;
@@ -518,7 +520,26 @@ header {
 .ProductPics__Pic:hover{
   opacity:0.6;
 }
-
+//SoldOut時のラベル
+.ProductPics__Pic__soldout__label{
+  width: 0;
+  height: 0;
+  border-top: solid 60px tomato;
+  border-left: solid 60px tomato;
+  border-right: solid 60px transparent;
+  border-bottom: solid 60px transparent;
+  position:relative;
+  position:absolute;
+  top: 0;
+  &__inner{
+    transform: rotate(-45deg);
+    font-size: 25px;
+    color: #fff;
+    position:absolute;
+    top: -35px;
+    left: -50px;
+  }
+}
 .BrandWrapper {
   background-color: $GrayColor;
   padding: 80px 0 0;
