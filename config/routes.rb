@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   end
   
   # トップページ用ルーティング nonaka
-  root "home#top"
-  resources :home, only:[:top]
-
+  # root "home#top"
+  # resources :home, only:[:top]
+  root "products#index"
 
   # マイページ用のルーティング ito
   get 'users/index'
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   # buyアクションを追加 matsumoto
   # destroyアクションを追加 comments/create アクションをネストで追加 nonaka
-  resources :products, only: [:show, :new, :create, :destroy] do
+  resources :products, only: [:index, :show, :new, :create, :destroy] do
     resources :comments, only: :create
     member do
       get "buy"
