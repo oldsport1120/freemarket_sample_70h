@@ -24,10 +24,11 @@ Rails.application.routes.draw do
       get "pay"
     end
   end
-  resources :cards, only: [:new, :create, :show, :destroy] do
+  resources :cards, only: [:index, :new, :create, :show, :destroy] do
     collection do
-      post 'pay', to: 'cards#pay'
+      post 'show', to: 'cards#show'
     end
   end
+  resources :users, only: :show
 
 end 

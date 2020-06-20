@@ -1,0 +1,15 @@
+.wrapper
+  = render "users/side_bar"
+
+  .new-wrapper
+  .new-wrapper__main
+    .new-wrapper__main__create
+      商品の購入が完了しました
+      %br
+      = link_to root_path,class: "link-blue" do
+        トップページに戻る
+
+%footer
+  %div.Footer__Logo
+    = link_to root_path, class:"Logo" do
+      = image_tag "logo/logo-white.png", alt: "LogoWhite"
