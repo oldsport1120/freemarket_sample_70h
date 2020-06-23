@@ -18,11 +18,11 @@ class ProductsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     @product = Product.new(product_params)
       respond_to do |format|
         if @product.save
-            params[:pictures][:picture].each do |picture|
+            params[:product_pictures][:picture].each do |picture|
               @product.pictures.create(picture: picture, product_id: @product.id)
             end
           format.html{redirect_to root_path}

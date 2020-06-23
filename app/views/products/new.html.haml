@@ -21,7 +21,7 @@
               .dropzone-area
                 = picture.label :picture, class: "dropzone-box", for: "upload-image" do
                   .input_area
-                    = picture.file_field :picture, multiple: true, id: "upload-image", class: "upload-image", 'data-image': 0
+                    = picture.file_field :picture, multiple: true, name: 'product_pictures[picture][]', id: "upload-image", class: "upload-image", 'data-image': 0
                   %p ここをクリックしてください
             .dropzone-container
               #preview2
