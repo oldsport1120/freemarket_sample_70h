@@ -9,11 +9,12 @@
     = form_for @product, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
       .upload-box
         .upload-box__head
-          %label.name
-            出品画像
-          %span.essential-label
-            必須
-          %p.discription 最大10枚までアップロードできます
+          .upload-box__head--text
+            %label.name
+              出品画像
+            %span.essential-label
+              必須
+            %p.discription 最大10枚までアップロードできます
 
           = f.fields_for :pictures do |picture|
             .dropzone-container
