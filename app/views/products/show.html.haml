@@ -71,14 +71,14 @@
             %div.itemBox__body
               %ul.itemBox__ul
                 %li.itemBox__li
-                  = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
+                  = image_tag @product.pictures[0].picture.url
                   %ul.img__new
                     %li.image2
-                      = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png" 
+                      = image_tag @product.pictures[1].picture.url
                     %li.image2
-                      = image_tag"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/11/a005.png" 
+                      = image_tag @product.pictures[2].picture.url
                     %li.image2
-                      = image_tag"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/12/a006.png"
+                      = image_tag @product.pictures[3].picture.url
             %div.itemBox__price 
               %span.itemBox__price__span
                 ="#{@product.price}円"
@@ -107,7 +107,8 @@
                           ノーカラージャケット
                     %tr.tr
                       %th.th ブランド
-                      %td.td=@product.brand
+                      %td.td
+                        =@product.brand
                     %tr.tr
                       %th.th 商品サイズ
                       %td.td
