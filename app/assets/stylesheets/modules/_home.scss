@@ -444,78 +444,102 @@ header {
         }
       }
     }
-    .CategoryPics {
-      width: 780px;
-      margin: 26px auto;
-      display: flex;
-      justify-content: space-around;
-      .CategoryPics__Pic {
+  }
+}
+//部分テンプレート
+.ProductPics {
+  width: 780px;
+  margin: 26px auto;
+  display: flex;
+  justify-content: space-around;
+  &__Pic {
+    width: 220px;
+    display: inline-block;
+    position: relative;
+    //float: left;
+    a {
+      background-color: $WhiteColor;
+      display: inline-block;
+      text-decoration: none;
+      position: relative;
+      .Pic {
         width: 220px;
-        display: inline-block;
-        float: left;
-        a {
-          background-color: $WhiteColor;
-          display: inline-block;
-          text-decoration: none;
-          position: relative;
-          .Pic {
-            width: 220px;
-            height: 150px;
-            position: relative;
-            overflow: hidden;
-            margin: 0;
-            z-index: auto;
-            display: block;
-            img {
-              position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              width: 100%;
-              z-index: auto;
-              height: 150px;
-              object-fit: cover;
-              vertical-align: bottom;
+        height: 150px;
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        z-index: auto;
+        display: block;
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          z-index: auto;
+          height: 150px;
+          object-fit: cover;
+          vertical-align: bottom;
+        }
+      }
+      .CategoryPic__Text {
+        background-color: $WhiteColor;
+        color: $TextColor;
+        padding: 16px;
+        h3 {
+          overflow: hidden;
+          line-height: 1.5;
+          font-size: 16px;
+          text-align: left;
+        }
+        .Text {
+          font-size: 16px;
+          ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            li {
+              display: list-item;
             }
           }
-          .CategoryPic__Text {
-            background-color: $WhiteColor;
-            color: $TextColor;
-            padding: 16px;
-            h3 {
-              overflow: hidden;
-              line-height: 1.5;
-              font-size: 16px;
-              text-align: left;
-            }
-            .Text {
-              font-size: 16px;
-              ul {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                li {
-                  display: list-item;
-                }
-              }
-              p {
-                font-size: 10px;
-                text-align: left;
-                display: block;
-                margin-block-start: 1em;
-                margin-block-end: 1em;
-                margin-inline-start: 0px;
-                margin-inline-end: 0px;
-              }
-            }
+          p {
+            font-size: 10px;
+            text-align: left;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
           }
         }
       }
     }
   }
 }
-
+.ProductPics__Pic:hover{
+  opacity:0.6;
+}
+//SoldOutラベル
+.ProductPics__Pic__soldout__label{
+  width: 0;
+  height: 0;
+  border-top: solid 60px tomato;
+  border-left: solid 60px tomato;
+  border-right: solid 60px transparent;
+  border-bottom: solid 60px transparent;
+  position:relative;
+  position:absolute;
+  top: 0;
+  &__inner{
+    transform: rotate(-45deg);
+    font-size: 25px;
+    color: #fff;
+    position:absolute;
+    top: -35px;
+    left: -50px;
+  }
+}
 
 .BrandWrapper {
   background-color: $GrayColor;
@@ -540,76 +564,6 @@ header {
         color: $Btn_BG_Color;
         h3 {
           font-weight: bold;
-        }
-      }
-    }
-    .BrandPics {
-      width: 780px;
-      margin: 26px auto;
-      display: flex;
-      justify-content: space-around;
-      .BrandPics__Pic {
-        width: 220px;
-        display: inline-block;
-        float: left;
-        a {
-          background-color: $WhiteColor;
-          display: inline-block;
-          text-decoration: none;
-          position: relative;
-          .Pic {
-            width: 220px;
-            height: 150px;
-            position: relative;
-            overflow: hidden;
-            margin: 0;
-            z-index: auto;
-            display: block;
-            img {
-              position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              width: 100%;
-              z-index: auto;
-              height: 150px;
-              object-fit: cover;
-              vertical-align: bottom;
-            }
-          }
-          .BrandPic__Text {
-            background-color: $WhiteColor;
-            color: $TextColor;
-            padding: 16px;
-            h3 {
-              font-weight: normal;
-              overflow: hidden;
-              line-height: 1.5;
-              font-size: 16px;
-              text-align: left;
-            }
-            .Text {
-              font-size: 16px;
-              ul {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                li {
-                  display: list-item;
-                }
-              }
-              p {
-                font-size: 10px;
-                text-align: left;
-                display: block;
-                margin-block-start: 1em;
-                margin-block-end: 1em;
-                margin-inline-start: 0px;
-                margin-inline-end: 0px;
-              }
-            }
-          }
         }
       }
     }

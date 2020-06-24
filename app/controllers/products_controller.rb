@@ -13,28 +13,28 @@ class ProductsController < ApplicationController
 
   def index
     @parents = Category.all.order("id ASC").limit(13)
+    @products = Product.all
   end
   
   def new
     @product = Product.new
-    @product.pictures.build
+    @product.pictures.build()
   end
 
   def create
     # binding.pry
-    if params[:pictures].present?
-      @product = Product.new(product_params)
-      if @product.save
-        params[:pictures][:picture].each do |picture|
-          @product.pictures.create(picture: picture)
+    @product = Product.new(product_params)
+      respond_to do |format|
+        if @product.save
+            params[:product_pictures][:picture].each do |picture|
+              @product.pictures.create(picture: picture, product_id: @product.id)
+            end
+          format.html{redirect_to root_path}
+        else
+          @product.pictures.build
+          format.html{render action: 'new'}
         end
-          redirect_to root_path
-      else
-        redirect_to new_product_path
       end
-    else
-      redirect_to new_product_path
-    end
   end
   
   # destroy アクション nonaka
@@ -45,6 +45,10 @@ class ProductsController < ApplicationController
     else
       redirect_to users_index_path, alert: "商品の削除ができませんでした"
     end
+  end
+
+  def edit
+    @product = Product.find(params[:id])
   end
 
   private
