@@ -74,11 +74,11 @@
                   = image_tag @product.pictures[0].picture.url
                   %ul.img__new
                     %li.image2
-                      = image_tag @product.pictures[1].picture.url
+                      = image_tag @product.pictures[0].picture.url
                     %li.image2
-                      = image_tag @product.pictures[2].picture.url
+                      = image_tag @product.pictures[0].picture.url
                     %li.image2
-                      = image_tag @product.pictures[3].picture.url
+                      = image_tag @product.pictures[0].picture.url
             %div.itemBox__price 
               %span.itemBox__price__span
                 ="#{@product.price}円"
@@ -124,7 +124,8 @@
                       %th.th
                         発送元の地域
                       %td.td
-                        %a=@product.shipping_place
+                        %a
+                          =@product.prefecture
                     %tr.tr
                       %th.th
                         発送日の目安
