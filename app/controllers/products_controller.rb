@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
+    # @grand_category = product.category 
   end
 
   def index

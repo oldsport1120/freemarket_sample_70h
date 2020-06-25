@@ -1,4 +1,5 @@
-$(function(){
+$(document).on('turbolinks:load', function() { 
+  
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
     var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
@@ -37,12 +38,13 @@ $(function(){
     var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
     if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
       $.ajax({
-        url: 'get_category_children',
+        url: '/categorys/get_category_children',
         type: 'GET',
         data: { parent_name: parentCategory },
         dataType: 'json'
       })
       .done(function(children){
+        console.log("OK")
         $('#children_wrapper').remove(); //親が変更された時、子以下を削除するする
         $('#grandchildren_wrapper').remove();
         $('#size_wrapper').remove();
@@ -68,7 +70,7 @@ $(function(){
     var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
     if (childId != "---"){ //子カテゴリーが初期値でないことを確認
       $.ajax({
-        url: 'get_category_grandchildren',
+        url: ' /categorys/get_category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'
