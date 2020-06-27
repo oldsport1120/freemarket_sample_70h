@@ -1,25 +1,26 @@
 .wrapper
   = render "users/side_bar"
 
-  .header_title
-    支払い方法
-  .single-container
-    .single-container__center
-      .creditcard_section
-        クレジットカード一覧
-        - if @card.present?
-          .container
-            .creditcard-info
-              %p.creditcard-info__number
-                = "**** **** **** " + @card_info.last4
-              %p.creditcard-info__period 
-              = @exp_month + " / " + @exp_year
-              = button_to "削除する", card_path(@card), method: :delete, class:"creditcard-info__delete"
-        - else
-          .new-card
-            = link_to  new_card_path, class:"new-card-btn" do
-              %i.far.fa-credit-card 
-              クレジットカードを追加する
+  .show_card_wrapper
+    .header_title
+      支払い方法
+    .single-container
+      .single-container__center
+        .creditcard_section
+          クレジットカード一覧
+          - if @card.present?
+            .container
+              .creditcard-info
+                %p.creditcard-info__number
+                  = "**** **** **** " + @card_info.last4
+                %p.creditcard-info__period 
+                = @exp_month + " / " + @exp_year
+                = button_to "削除する", card_path(@card), method: :delete, class:"creditcard-info__delete"
+          - else
+            .new-card
+              = link_to  new_card_path, class:"new-card-btn" do
+                %i.far.fa-credit-card 
+                クレジットカードを追加する
 %footer
   %div.Footer__Logo
     = link_to root_path, class:"Logo" do
