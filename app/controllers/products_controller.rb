@@ -22,19 +22,22 @@ class ProductsController < ApplicationController
   end
 
   def create
-    # binding.pry
-    @product = Product.new(product_params)
-      respond_to do |format|
-        if @product.save
-            params[:product_pictures][:picture].each do |picture|
-              @product.pictures.create(picture: picture, product_id: @product.id)
-            end
-          format.html{redirect_to root_path}
-        else
-          @product.pictures.build
-          format.html{render action: 'new'}
+    if params[:product_pictures].present?
+      @product = Product.new(product_params)
+        respond_to do |format|
+          if @product.save
+              params[:product_pictures][:picture].each do |picture|
+                @product.pictures.create(picture: picture, product_id: @product.id)
+              end
+            format.html{redirect_to root_path}
+          else
+            @product.pictures.build
+            format.html{render action: 'new'}
+          end
         end
-      end
+    else
+      redirect_to new_product_path
+    end
   end
   
   # destroy アクション nonaka
