@@ -91,3 +91,7 @@ gem 'active_hash'
 gem 'ancestry'
 
 gem 'dotenv-rails'
+
+gem 'jquery-rails'
+
+gem 'pry-rails'

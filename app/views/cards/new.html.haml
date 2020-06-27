@@ -4,7 +4,8 @@
   .show-users-wrapper
     .show-users-wrapper__center
       .show-users-wrapper__center__left-content
-        = form_with model: @card, url: cards_path do |f|
+        = form_with model: @card, url: cards_path, id: "card_submit" do |f|
+          -# %script{:src => "https://checkout.pay.jp/", :type => "text/javascript", :class => "card-wrapper__input-text submit-btn", :dataKey => "pk_test_f71965297cf6ca7ff18390fc", :dataPartial => "true", :dataSubmitText => "登録する"}
           .show-users-wrapper__center__right-content
             .card-wrapper
               .card-wrapper__title
@@ -32,8 +33,9 @@
                   必須
               = f.text_field :cvc, name: "cvc", id:"cvc", class:"cvc", type: "text", placeholder: 'カード背面4桁もしくは3桁の番号', class: 'card-wrapper__input-text', maxlength: "16"
               .card-wrapper__submit
-              = submit_tag "追加する", id: "token_submit", class: 'card-wrapper__input-text submit-btn'
-              %script{:src => "https://checkout.pay.jp/", :type => "text/javascript", :class => "card-wrapper__input-text submit-btn", :dataKey => "pk_test_f71965297cf6ca7ff18390fc", :dataPartial => "true", :dataSubmitText => "登録する"}
+              #card_token
+              = f.submit "追加する", id: "token_submit", class: 'card-wrapper__input-text submit-btn'
+
 
 %footer
   %div.Footer__Logo

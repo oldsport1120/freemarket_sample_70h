@@ -25,9 +25,7 @@ Rails.application.routes.draw do
     end
   end
   resources :cards, only: [:index, :new, :create, :show, :destroy] do
-    collection do
-      post 'show', to: 'cards#show'
-    end
+
   end
   resources :users, only: :show
 
