@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'users/signout'
   get 'users/card'
 
+  resources :products, only: [:show, :buy, :new,]
   # buyアクションを追加 matsumoto
   # destroyアクションを追加 comments/create アクションをネストで追加 nonaka
   resources :products, only: [:index, :show, :new, :create, :destroy, :edit] do
@@ -25,5 +26,15 @@ Rails.application.routes.draw do
       get "buy"
     end
   end
-  
+  #カテゴリー用のルーティング simizu
+  resources :categorys, only: [:index, :show, :new, :edit, :destroy] do
+    collection do # 新規用（new) usr:categorys/newのため
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+    member do # 編集(edit用) usl: categorys/id/editのため
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
 end 

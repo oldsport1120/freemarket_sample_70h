@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
+    # @grand_category = product.category 
   end
 
   def index
@@ -59,4 +60,5 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:products_name, :descreption, :price, :brand, :product_condition, :shipment_fee, :shipping_place, :shipping_period, :category_id, :sale_status, pictures_attributes: [:picture]).merge(user_id: current_user.id)
   end
+  
 end
