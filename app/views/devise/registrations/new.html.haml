@@ -64,7 +64,7 @@
         = f.label '生年月日'
         %br/
         %div.Devise__Input
-        = f.date_select :date_of_birth, use_month_numbers: true, start_year: 1940, end_year: (Time.now.year - 5), default: Date.today, autofocus: true
+        != sprintf(f.date_select(:date_of_birth, prompt:"--", autofocus: true, use_month_numbers: true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
       %h2.Devise__Main__Info--2 配送先登録
       .field
         %p.Devise__Field--required 必須
