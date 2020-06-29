@@ -103,16 +103,20 @@
         .creditcard-info__delete:after, .creditcard-info__delete:active:before {
           content: none;/*ボタンを押すと線が消える*/
         }
-  
-        .new-card-btn{
-          text-decoration: none;
-          color: white;
-          margin-top: 30px;
-          border-radius: 0px;
-          background-color: skyblue;
-          border: 0px solid rgb(25, 123, 161);
-  
+        .new-card{
+
+          .__btn{
+            text-decoration: none;
+            color: white;
+            margin-top: 30px;
+            border-radius: 0px;
+            background-color: skyblue;
+            border: 0px solid rgb(25, 123, 161);
+    
+          }
         }
+  
+        
   
   
       }

@@ -18,7 +18,7 @@
                 = button_to "削除する", card_path(@card), method: :delete, class:"creditcard-info__delete"
           - else
             .new-card
-              = link_to  new_card_path, class:"new-card-btn" do
+              = link_to  new_card_path, class:"new-card__btn" do
                 %i.far.fa-credit-card 
                 クレジットカードを追加する
 %footer
