@@ -312,6 +312,26 @@ header{
     } 
   }
 }
+.btn-gradient-simple {
+  text-align: center;
+  width: 150px;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-radius: 3px;
+  font-weight: bold;
+  color: #FFF;
+  background-color:#3CCACE; 
+  transition: .4s;
+  margin: 0 auto;
+  a{
+    color: white;
+    text-decoration: none;
+  }
+}
+
+
+
+
 
 .commentBox{
   padding: 24px;
@@ -512,9 +532,9 @@ Footer{
         width: 100%;
       }
     }
-    p {
-      font-size: 14px;
-    }
+  }
+  p {
+    font-size: 14px;
   }
 }
 

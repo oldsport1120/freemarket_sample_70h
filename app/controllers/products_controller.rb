@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
+    # @grand_category = product.category 
   end
 
   def index
@@ -33,19 +34,22 @@ class ProductsController < ApplicationController
   end
 
   def create
-    # binding.pry
-    @product = Product.new(product_params)
-      respond_to do |format|
-        if @product.save
-            params[:product_pictures][:picture].each do |picture|
-              @product.pictures.create(picture: picture, product_id: @product.id)
-            end
-          format.html{redirect_to root_path}
-        else
-          @product.pictures.build
-          format.html{render action: 'new'}
+    if params[:product_pictures].present?
+      @product = Product.new(product_params)
+        respond_to do |format|
+          if @product.save
+              params[:product_pictures][:picture].each do |picture|
+                @product.pictures.create(picture: picture, product_id: @product.id)
+              end
+            format.html{redirect_to root_path}
+          else
+            @product.pictures.build
+            format.html{render action: 'new'}
+          end
         end
-      end
+    else
+      redirect_to new_product_path
+    end
   end
   
   # destroy アクション nonaka
@@ -68,6 +72,7 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:products_name, :descreption, :price, :brand, :product_condition, :shipment_fee, :shipping_place, :shipping_period, :category_id, :sale_status, pictures_attributes: [:picture]).merge(user_id: current_user.id)
   end
 
+
   def pay
     @products = products.find(params[:id])
     Payjp.api_key = ENV['']
@@ -79,3 +84,6 @@ class ProductsController < ApplicationController
     )
   end
 end
+  
+end
+

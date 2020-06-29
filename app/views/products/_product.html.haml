@@ -1,7 +1,7 @@
 %div.ProductPics__Pic
   = link_to product_path(product.id) , class:"Pic1" do
     %div.Pic
-      = image_tag product.pictures[0].picture.url
+      = image_tag product.pictures[0].picture.url if product.pictures.present?
     %div.CategoryPic__Text
       %h3= product.products_name
       %div.Text
@@ -9,7 +9,7 @@
           %li= "#{product.price}円"
           %li ★0
         %p (税込)
-  -if product.buyer_id.present?
+  -if product.user_id.present?
     %div.ProductPics__Pic__soldout__label
       %div.ProductPics__Pic__soldout__label__inner
         SOLD
