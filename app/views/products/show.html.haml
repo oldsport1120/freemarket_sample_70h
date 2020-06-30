@@ -95,19 +95,14 @@
                     %tr.tr
                       %th.th カテゴリー
                       %td.td
-                        -# - @parents.each do |parent|
-                        -#   - if @product.category_id == parent.id
-                        -#     = link_to "#" do
-                        -#       = parent.parent.parent.name #親カテゴリー
-                        -#       = @product.category.root.name
-                        -#       %br
-                        -#     = link_to "#" do
-                        -#       = parent.parent.name #子カテゴリー
-                        -#       = @product.category.parent.name
-                        -#       %br
-                        -#     = link_to "#" do
-                        -#       = parent.name #孫カテゴリー
-                        -#       = @product.category.name
+                        = link_to root_path do
+                          = @parent_category
+                        %br
+                        = link_to root_path do
+                          = @child_category
+                        %br
+                        = link_to root_path do
+                          = @grandchild_category
                     %tr.tr
                       %th.th ブランド
                       %td.td

@@ -51,8 +51,8 @@
             %div.name カテゴリー
             %div.essential-label 必須
           %div.detail-block-category__form
-            -# = f.text_field '#',class:"input-area"
-
+            = f.select :category, @category_parent_array, {}, {class: 'detail-block-category__form', id: 'parent_category'} 
+            %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         %div.detail-block__bland
           %div.detail-block__bland__label
             %div.name ブランド
