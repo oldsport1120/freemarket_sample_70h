@@ -32,6 +32,14 @@
       width: 300px;
       display: flex;
       justify-content: space-between;
+      .registration{
+        text-decoration: none;
+        color: rgb(50, 185, 238);
+        font-size: 12px;
+        padding-top: 6px;
+        position: relative;
+        font-weight: normal;
+      }
       .light{
         font-size: 12px;
         padding-top: 6px;
@@ -81,15 +89,27 @@
         line-height: 24px;
       }
     }
-    &__pay-btn{
+    .buy-wapper__main__pay-btn{
       display: block;
       margin: 30px auto 0;
       text-align: center;
       color: white;
       padding: 10px;
       width: 300px;
-      background-color: gray;
+      background-color: rgb(50, 185, 238);
       text-decoration: none;
+      border-bottom: solid 4px #627295;
+      border-radius: 3px;
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    }
+    .buy-wapper__main__pay-btn:active {
+      -webkit-transform: translateY(4px);
+      transform: translateY(4px);
+      box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+      border-bottom: none;
     }
     .border{
       border-bottom: 1px solid #eee;

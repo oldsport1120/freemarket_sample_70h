@@ -1,16 +1,32 @@
 class ProductsController < ApplicationController
 
-  def buy
-    unless @product.soldout
-      card = Card.where(user_id: current_user.id)
-      if card.exists?
-        @card     = Card.find_by(user_id: current_user.id)
-        Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-        customer = Payjp::Customer.retrieve(@card.customer_id)
-        @default_card_information = Payjp::Customer.retrieve(@card.customer_id).cards.data[0]
-      end
+  require "payjp"
+  before_action :set_card
+
+  def pay
+    @product = Product.find(params[:product_id])
+    # すでに購入されていないか？
+    if @product.buyer.present? 
+      redirect_back(fallback_location: root_path) 
+    elsif @card.blank?
+      redirect_to controller: "cards", action: "new"
+      flash[:alert] = '購入にはクレジットカード登録が必要です'
     else
-      redirect_to product_path(@product)
+      Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+      # 請求を発行
+      Payjp::Charge.create(
+      amount: 1000,
+      customer: @card.customer_id,
+      currency: 'jpy',
+      )
+      # 売り切れなので、productの情報をアップデートして売り切れにします。
+      if @product.update(buyer_id: current_user.id)
+        flash[:notice] = '購入しました。'
+        redirect_to controller: 'home', action: 'top', id: @product.id
+      else
+        flash[:alert] = '購入に失敗しました。'
+        redirect_to controller: 'products', action: 'show', id: @product.id
+      end
     end
   end
   
@@ -71,19 +87,9 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:products_name, :descreption, :price, :brand, :product_condition, :shipment_fee, :shipping_place, :shipping_period, :category_id, :sale_status, pictures_attributes: [:picture]).merge(user_id: current_user.id)
   end
-
-
-  def pay
-    @products = products.find(params[:id])
-    Payjp.api_key = ENV['']
-    charge = Payjp::Charge.create(
-    amount: 1000,
-    # amount: @products.price, <=最終的にこちらに差し替え
-    card: params['payjp-token'],
-    currency: 'jpy'
-    )
-  end
-end
   
+  def set_card
+    @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+  end
 end
 

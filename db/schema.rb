@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_175622) do
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.string "date_of_birth", null: false
+    t.date "date_of_birth", null: false
     t.string "ship_family_name", null: false
     t.string "ship_first_name", null: false
     t.string "ship_family_name_kana", null: false
@@ -97,7 +97,5 @@ ActiveRecord::Schema.define(version: 2020_06_12_175622) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-
   add_foreign_key "cards", "users"
-
 end

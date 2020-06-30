@@ -6,36 +6,6 @@ class CardsController < ApplicationController
   before_action :set_card
 
 
-  # def buy
-  #   @product = Product.find(params[:product_id])
-  #   # すでに購入されていないか？
-  #   if @product.buyer.present? 
-  #     redirect_back(fallback_location: root_path) 
-  #   elsif @card.blank?
-  #     # カード情報がなければ、買えないから戻す
-  #     redirect_to action: "new"
-  #     flash[:alert] = '購入にはクレジットカード登録が必要です'
-  #   else
-  #     # 購入者もいないし、クレジットカードもあるし、決済処理に移行
-  #     Payjp.api_key = ENV["sk_test_c190e707b548e5e4929eb812"]
-  #     # 請求を発行
-  #     Payjp::Charge.create(
-  #     amount: @product.price,
-  #     customer: @card.customer_id,
-  #     currency: 'jpy',
-  #     )
-  #     # 売り切れなので、productの情報をアップデートして売り切れにします。
-  #     if @product.update(buyer_id: current_user.id)
-  #       flash[:notice] = '購入しました。'
-  #       redirect_to controller: 'products', action: 'show', id: @product.id
-  #     else
-  #       flash[:alert] = '購入に失敗しました。'
-  #       redirect_to controller: 'products', action: 'show', id: @product.id
-  #     end
-  #   end
-  # end
-
-
   def new
     @card = Card.new
     card = Card.where(user_id: current_user.id)
@@ -81,6 +51,24 @@ class CardsController < ApplicationController
       redirect_to action: "index", notice: "削除しました"
     else
       redirect_to action: "index", alert: "削除できませんでした"
+    end
+  end
+
+  def pay
+    if @card.blank?
+      redirect_to action: "new"
+      flash[:alert] = '購入にはクレジットカード登録が必要です'
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+      # 請求を発行
+      Payjp::Charge.create(
+      amount: 1000,
+      customer: @card.customer_id,
+      currency: 'jpy',
+      )
+ 
+      redirect_to root_path, notice: "購入しました"
+
     end
   end
 

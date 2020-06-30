@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'purchase/index'
+  get 'purchase/done'
   # deviseのルーティングが先に読み取られる必要があるので、通常のルーティング追記は下部に追加でお願いします。nonaka
   # ユーザー管理用ルーティング nonaka
   devise_for :users
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
   get 'users/signout'
   get 'users/card'
 
-  resources :products, only: [:show, :buy, :new,]
+  # resources :products, only: [:show, :buy, :new,]
   # buyアクションを追加 matsumoto
   # destroyアクションを追加 comments/create アクションをネストで追加 nonaka
   resources :products, only: [:index, :show, :new, :create, :destroy, :edit] do
@@ -30,6 +32,10 @@ Rails.application.routes.draw do
 
 
   resources :cards, only: [:index, :new, :create, :show, :destroy] do
+    member do
+      get "buy"
+      get "pay"
+    end
 
   end
   resources :users, only: :show
