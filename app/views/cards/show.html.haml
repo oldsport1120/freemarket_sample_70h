@@ -15,7 +15,7 @@
                   = "**** **** **** " + @card_info.last4
                 %p.creditcard-info__period 
                 = @exp_month + " / " + @exp_year
-                = button_to "削除する", card_path(@card), method: :delete, class:"creditcard-info__delete"
+                = button_to "削除する", cards_path(@card), method: :delete, class:"creditcard-info__delete"
           - else
             .new-card
               = link_to  new_card_path, class:"new-card__btn" do
