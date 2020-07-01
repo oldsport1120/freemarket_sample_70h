@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
-  require "payjp"
-  before_action :set_card
+  # require "payjp"
+  # before_action :set_card
 
   def pay
     @product = Product.find(params[:product_id])
@@ -101,8 +101,8 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:products_name, :descreption, :price, :brand, :product_condition, :shipment_fee, :shipping_place, :shipping_period, :category_id, :sale_status, pictures_attributes: [:picture]).merge(user_id: current_user.id)
   end
   
-  def set_card
-    @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
-  end
+  # def set_card
+  #   @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+  # end
 end
 
