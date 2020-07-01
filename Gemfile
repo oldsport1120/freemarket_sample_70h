@@ -93,3 +93,7 @@ gem 'ancestry'
 gem 'jquery-rails'
 
 gem 'pry-rails'
+
+gem 'gon'
+
+gem 'aws-sdk'

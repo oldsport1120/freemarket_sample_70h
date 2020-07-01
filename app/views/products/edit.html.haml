@@ -5,30 +5,35 @@
 
   %div.main
     = form_for @product do |f|
-      .main__block
-        .title
-          %h1 商品の情報を入力
-        .item-form-image
-          .item-image
-            .item-image-label
-              %div.name 出品画像
-              %div.essential-label
-                必須
-            %p 最大１０枚までアップロードできます
-            #previews
-            .dropzone
-              %label.item-label
-                .dropzone-text
-                  クリックして画像をアップロード
-                = f.fields_for :pictures do |picture|
-                  = picture.file_field :picture, multiple: true, name: "pictures[picture][]", id: "upload-image", class:"upload-image"
-            .preview-box2
-              - @product.pictures.each do |picture|
-                .image-box
-                  = image_tag(@product.pictures[0].picture.url,size: "114*114")
-                  .preview-box__select
-                    = link_to products_path(picture.id), method: :delete, data: { turbolinks: false } do
-                      %p 削除
+      .contents__main
+        .contents__main__header
+          商品情報を編集
+        .contents__main__upload
+          .contents__main__image
+            .contents__main__image__head
+              %label.name 出品画像
+              .contents__main__detail__right__name--icon
+                %span.essential-label 必須
+            %label.name 最大10枚までアップロードできます
+            .contents__main__image__box
+              .contents__main__image__box
+                .contents__main__image__box__previews
+                  - if @product.persisted?
+                    - @product.pictures.each_with_index do |picture, i|
+                      .contents__main__image__box__previews__preview{"data-index" => "#{i}"}
+                        .contents__main__image__box__previews__preview__image
+                          = image_tag picture.picture.url, data: { index: i }, class: 'input_images', width: "120", height: '120'
+                          .js-remove.contents__main__image__box__previews__preview__delete
+                            削除
+                  = f.fields_for :pictures, @product.pictures do |picture|
+                    - if @product.persisted?
+                      = picture.check_box :_destroy, include_hidden: false, data:{ index: picture.index },class: 'hidden-destroy'
+                .contents__main__image__box__uploader
+                  %label.contents__main__image__box__uploader__label<>
+                    .js-file_group{"data-index" => "#{@product.pictures.count}"}
+                      = f.file_field :picture, name: "product[pictures_attributes][#{@product.pictures.count}][picture]", id: "product_pictures_attributes_#{@product.pictures.count}_picture", class: 'js-file'
+                    .contents__main__image__box__uploader__text
+                      ここをクリックしてください
 
         %div.destinction-block
           %div.destinction-block__name
