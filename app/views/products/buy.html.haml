@@ -27,7 +27,7 @@
           支払い方法
           - if @card.present?
             .buy-wrapper__main__title__text.registration
-              = link_to card_path, class:"registration" do
+              = link_to cards_path, class:"registration" do
                 登録済みです
           - else
             .buy-wrapper__main__title__text.light.space
