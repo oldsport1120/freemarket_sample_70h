@@ -1,4 +1,706 @@
-.wrapper {
-  display: flex;
-  height: 100%;
+// .wrapper {
+//   display: flex;
+//   height: 100%;
+// }
+
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// ここから paddingやborderの設定を行っても、要素の大きさがwidthやheightで指定したサイズのまま変わらなくするため固定。
+* {
+  box-sizing: border-box;
 }
+// ここまで
+
+// TopPageの変数
+$WhiteColor: #ffffff;
+$GrayColor: #f8f8f8;
+$DarkColor: #272727;
+$TextColor: #333333;
+$Btn_BG_Color: #3ccace;
+$TextShadow: 0 0 5px rgba(0,0,0,0.4);
+// ここまで
+
+// mixin
+@mixin WhiteShadow {
+  color: $WhiteColor;
+  text-shadow: $TextShadow;
+}
+
+// バッジのためのmixin
+@mixin link_pointer {
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+// AppleBadgeのためのmixin
+@mixin Apple {
+  height: 47px;
+  width: 163px;
+  margin-top: 11px;
+  border-radius: 7px;
+}
+
+// Navリンクのmixin
+@mixin NavLink {
+  color: $TextColor;
+  text-decoration: none;
+  line-height: 32px;
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  padding-right: 30px;
+}
+
+// containerを上下中央寄せにするためのmixin
+@mixin ContainerCenter {
+  display: flex;
+  align-items: center;
+}
+
+
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+
+header {
+  background-color: $WhiteColor;
+  padding: 0 60px;
+  .HeaderContainer {
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 15px 0 0;
+    .HeaderMain {
+      position: relative;
+      display: flex;
+      align-items: center;
+      h1 {
+        padding-bottom: 10px;
+        margin-right: 30px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-weight: normal;
+        a {
+          display: block;
+          cursor: pointer;
+          img {
+            width: 140px;
+            vertical-align: bottom;
+          }
+        }
+      }
+      div {
+        margin-left: auto;
+        width: 100%;
+        form {
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+          justify-content: space-between;
+          .NewMessage__InputBox {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            .NewMessage__Input {
+              width: calc(100% - 26px);
+              height: 36px;
+              padding: 0 0 0 5px;
+              width: 100%;
+              display: flex;
+              align-items: center;
+            }
+            .Button {
+              width: 36px;
+              border: 0;
+              cursor: pointer;
+              background-color: $Btn_BG_Color;
+              padding: 8px;
+              height: 36px;
+              div {
+                img {
+                  width: 100%;
+                  vertical-align: bottom;
+                  color:  $WhiteColor;
+                  border: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .HeaderNav {
+      font-size: 14px;
+      display: flex;
+      margin-bottom: 10px;
+      .Nav__Left {
+        position: relative;
+        display: flex;
+        list-style: none;
+        .Nav__Left--left {
+          text-decoration: none;
+          padding: 0;
+          display: flex;
+          line-height: 38px;
+          a {
+            @include NavLink;
+          }
+        }
+        .Nav__Left--right {
+          display: flex;
+          line-height: 38px;
+          padding-left: 16px;
+          a {
+            @include NavLink;
+          }
+        }
+      }
+      .Nav__Right {
+        margin-left: auto;
+        display: flex;
+        list-style: none;
+        .Nav__Right--left {
+          color: $TextColor;
+          line-height: 38px;
+          padding-left: 16px;
+          a {
+            display: flex;
+            align-items: center;
+            color: $TextColor;
+            text-decoration: none;
+            line-height: 32px;
+          }
+        }
+        .Nav__Right--right {
+          color: $TextColor;
+          line-height: 38px;
+          padding: 0 0 0 16px;
+          a {
+            display: flex;
+            align-items: center;
+            color: $TextColor;
+            text-decoration: none;
+            line-height: 32px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.IndexTopWrapper {
+  height: 560px;
+  background-image: image-url('pict/bg-mainVisual-pict_pc.jpg');
+  background-size: cover;
+  background-position: top center;
+  padding: 0 60px;
+  width: 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  @include ContainerCenter;
+  .IndexContainer {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 35px;
+    max-width: 1280px;
+    .AppCatchphrase  {
+      font-size: 60px;
+      @include WhiteShadow;
+      line-height: 1.2;
+    }
+    .TopPhrase {
+      font-size: 18px;
+      @include WhiteShadow;
+      line-height: 1.77778;
+      margin: 16px 0 0 0;
+    }
+    .Container__Btn {
+      margin-top: 24px;
+      padding: 0;
+      display: flex;
+      vertical-align: bottom;
+      a {
+        @include link_pointer;
+        margin-left: 5px;
+        img {
+          width: 180px;
+        }
+        .Apple {
+          @include Apple;
+        }
+      }
+    }
+  }
+}
+
+.IndexInfoWrapper {
+  height: 650px;
+  background-color: $WhiteColor;
+  padding: 60px 20px;
+  .InfoSectionTitle {
+    font-size: 26px;
+    text-align: center;
+    line-height: 1.4;
+    font-weight: bold;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    position: relative;
+    &::after {
+      content: "";
+      width: 70px;
+      height: 4px;
+      background-color: $Btn_BG_Color;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .Info__Ul {
+    text-align: center;
+    display: flex;
+    max-width: 1020px;
+    width: 100%;
+    margin: 0 auto;
+   .Info__List {
+    width: 30%;
+    margin: 16px 5% 0 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .Info__Div {
+      position: relative;
+      margin-bottom: 20px;
+      .Info__Span {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 4%;
+        font-size: 30px;
+        text-align: center;
+        margin: 0 5px 0 0;
+        padding: 10px 20px;
+        background-color: $Btn_BG_Color;
+        color: $WhiteColor;
+      }
+      img {
+        width: 100%;
+        vertical-align: bottom;
+      }
+    }
+    .Info__h3 {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 50px;
+      margin: 0 0 0 2px;
+      span {
+        color: $Btn_BG_Color;
+      }
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin: 16px 0 0;
+    }
+   }
+  }
+}
+
+.AppWrapper {
+  height: 400px;
+  background-image: image-url('pict/bg-topMiddleDl-pict.jpg');
+  background-size: cover;
+  background-position: bottom right;
+  display: flex;
+  align-items: center;
+  @include ContainerCenter;
+  .Container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1040px;
+    text-align: left;
+    .AppMessage {
+      font-size: 27px;
+      font-weight: bold;
+      line-height: 1.4;
+      @include WhiteShadow;
+    }
+    .AppPhrase {
+      font-size: 18px;
+      line-height: 1.5;
+      @include WhiteShadow;
+    }
+    .AppPhrase1 {
+      margin-top: 20px;
+    }
+    .AppPhrase3 {
+      margin-bottom: 30px;
+    }
+    .Container__Btn {
+      margin-top: 24px;
+      padding: 0;
+      display: flex;
+      vertical-align: bottom;
+      a {
+        @include link_pointer;
+        margin-left: 5px;
+        img {
+          width: 180px;
+        }
+        .Apple {
+          @include Apple;
+        }
+      }
+    }
+  }
+}
+
+.FeaturesWrapper {
+  height: 730px;
+  background-color: $WhiteColor;
+  padding: 60px 100px;
+  .FeaturesSectionTitle {
+    font-size: 27px;
+    text-align: center;
+    margin: 0 0 40px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    position: relative;
+    &::after {
+      content: "";
+      width: 70px;
+      height: 4px;
+      background-color: $Btn_BG_Color;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .Features__Ul {
+    max-width: calc(1040px + 20px);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    .Features__List {
+      display: flex;
+      flex-direction: column;
+      width: calc(1 / 3 * 100%);
+      text-align: center;
+      padding: 0 20px;
+      .Features__Div {
+        width: 70%;
+        margin: 0 auto;
+        line-height: 120px;
+        img {
+          width: 100%;
+          vertical-align: bottom;
+        }
+      }
+      .Info__h3  {
+        margin: 38px 0 10px;
+        font-size: 19px;
+        font-weight: bold;
+      }
+      p {
+        margin: 0 0 40px;
+        font-size: 17px;
+        font-weight: 200;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.wrappers {
+  background-color: $GrayColor;
+}
+
+.CategoryWrapper {
+  padding: 80px 0 0;
+  background-color: $GrayColor;
+  height: 100%;
+  .CategoryTitle {
+    text-align: center;
+    font-size: 28px;
+    line-height: 1.4;
+    font-weight: bold;
+  }
+  .CategoryContainer {
+    .CategoryNew {
+      text-align: center;
+      a {
+        font-size: 24px;
+        text-decoration: none;
+        color: $Btn_BG_Color;
+        h3 {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+//部分テンプレート
+.ProductPics {
+  width: 780px;
+  margin: 26px auto;
+  display: flex;
+  justify-content: space-around;
+  &__Pic {
+    width: 220px;
+    display: inline-block;
+    position: relative;
+    //float: left;
+    a {
+      background-color: $WhiteColor;
+      display: inline-block;
+      text-decoration: none;
+      position: relative;
+      .Pic {
+        width: 220px;
+        height: 150px;
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        z-index: auto;
+        display: block;
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          z-index: auto;
+          height: 150px;
+          object-fit: cover;
+          vertical-align: bottom;
+        }
+      }
+      .CategoryPic__Text {
+        background-color: $WhiteColor;
+        color: $TextColor;
+        padding: 16px;
+        h3 {
+          overflow: hidden;
+          line-height: 1.5;
+          font-size: 16px;
+          text-align: left;
+        }
+        .Text {
+          font-size: 16px;
+          ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            li {
+              display: list-item;
+            }
+          }
+          p {
+            font-size: 10px;
+            text-align: left;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+.ProductPics__Pic:hover{
+  opacity:0.6;
+}
+//SoldOutラベル
+.ProductPics__Pic__soldout__label{
+  width: 0;
+  height: 0;
+  border-top: solid 60px tomato;
+  border-left: solid 60px tomato;
+  border-right: solid 60px transparent;
+  border-bottom: solid 60px transparent;
+  position:relative;
+  position:absolute;
+  top: 0;
+  &__inner{
+    transform: rotate(-45deg);
+    font-size: 25px;
+    color: #fff;
+    position:absolute;
+    top: -35px;
+    left: -50px;
+  }
+}
+
+.BrandWrapper {
+  background-color: $GrayColor;
+  padding: 80px 0 0;
+  padding-bottom: 80px;
+  height: 100%;
+  .BrandTitle {
+    text-align: center;
+    font-size: 28px;
+    line-height: 1.4;
+    font-weight: bold;
+  }
+  .BrandContainer {
+    margin: 0;
+    padding: 0;
+    display: block;
+    div {
+      text-align: center;
+      a {
+        font-size: 24px;
+        text-decoration: none;
+        color: $Btn_BG_Color;
+        h3 {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+
+
+.DownloadWrapper {
+  height: 350px;
+  background-image: image-url('pict/bg-appBanner-pict.jpg');
+  background-size: cover;
+  padding: 100px 40px;
+  position: relative;
+  background-position: center;
+  .Container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    .DownLoadMessage {
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+      @include WhiteShadow;
+    }
+    .DownLoadPhrase  {
+      font-size: 35px;
+      @include WhiteShadow;
+    }
+    .Container__Btn {
+      padding: 0;
+      display: flex;
+      vertical-align: bottom;
+      width: 100%;
+      justify-content: center;
+      margin: 20px auto 0;
+      a {
+        @include link_pointer;
+        margin-left: 5px;
+        img {
+          width: 180px;
+        }
+        .Apple {
+          @include Apple;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $DarkColor;
+  padding: 60px 0;
+  color: $WhiteColor;
+  text-align: center;
+  .Container {
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    .List {
+      display: flex;
+      flex-direction: column;
+      width: calc(1 / 3 * 100%);
+      margin: 0 2% 0 0;
+      h2 {
+        margin: 0 0 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      ul {
+        list-style: none;
+        li {
+          display: list-item;
+          a {
+            color: $WhiteColor;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 32px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  .Footer__Logo {
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+    a {
+      cursor: pointer;
+      img {
+        width: 100%;
+        vertical-align: bottom;
+      }
+    }
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+.SellerButton {
+  a {
+    text-decoration: none;
+    background-color: $Btn_BG_Color;
+    border-radius: 4%;
+    height: 116px;
+    width: 120px;
+    padding: 15px;
+    text-align: center;
+    bottom: 32px;
+    right: 32px;
+    position: fixed;
+    span {
+      color: $WhiteColor;
+      font-size: 18px;
+      margin-bottom: 5px;
+      display: block;
+      text-decoration: none;
+    }
+    img {
+      color: $WhiteColor;
+      width: 60%;
+      text-align: center;
+    }
+  }
+}
+
+
+    
+    
+    
+
+
+
