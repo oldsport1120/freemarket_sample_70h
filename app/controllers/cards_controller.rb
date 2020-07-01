@@ -23,7 +23,7 @@ class CardsController < ApplicationController
 
       card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if card.save
-        redirect_to card_path(card)
+        redirect_to cards_path(card)
       else
         redirect_to new_card_path
       end
@@ -48,9 +48,9 @@ class CardsController < ApplicationController
     customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete # PAY.JPの顧客情報を削除
     if @card.destroy # App上でもクレジットカードを削除
-      redirect_to action: "index", notice: "削除しました"
+      redirect_to action: "show", notice: "削除しました"
     else
-      redirect_to action: "index", alert: "削除できませんでした"
+      redirect_to action: "show", alert: "削除できませんでした"
     end
   end
 
