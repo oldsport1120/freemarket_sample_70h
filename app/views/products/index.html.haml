@@ -36,11 +36,11 @@
             %li.Nav__Right--right
               = link_to new_user_registration_path do 
                 新規会員登録
-  %div.TopWrapper
-    %div.Container
+  %div.IndexTopWrapper
+    %div.IndexContainer
       %h2.AppCatchphrase 人生を変えるフリマアプリ
-      %p.TopPhrase  FURIMAはだれでもかんたんに出品・購入できる
-      %p.TopPhrase  フリマアプリです
+      %p.TopPhrase FURIMAはだれでもかんたんに出品・購入できる
+      %p.TopPhrase フリマアプリです
       %ul.Container__Btn
         %li(class="Container__Btn--Left") 
           = link_to root_path, class:"Left" do
@@ -48,7 +48,7 @@
         %li(class="Container__Btn--Right")
           = link_to root_path, class:"Right" do
             = image_tag "logo/google-play-badge.png", alt: "GooglePlay"
-  %div.InfoWrapper
+  %div.IndexInfoWrapper
     %h2.InfoSectionTitle  FURIMAが選ばれる3つの理由
     %ul.Info__Ul
       %li.Info__List
@@ -125,7 +125,6 @@
         %div.ProductPics
           - @products.first(3).each do |product|
             =  render 'product', product: product
-
   %div.DownloadWrapper
     %div.Container
       %h2.DownLoadMessage だれでもかんたん、人生を変えるフリマアプリ
