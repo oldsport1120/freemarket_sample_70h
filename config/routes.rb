@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   # buyアクションを追加 matsumoto
   # destroyアクションを追加 comments/create アクションをネストで追加 nonaka
-  resources :products, only: [:index, :show, :new, :create, :destroy, :edit] do
+  resources :products, only: [:index, :show, :new, :create, :destroy, :edit, :update] do
     resources :comments, only: :create
     member do
       get "buy"

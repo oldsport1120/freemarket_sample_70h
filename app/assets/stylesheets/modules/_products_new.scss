@@ -380,55 +380,141 @@ body{
       margin-bottom: 5px;
       line-height: 20px;
     }
-    &__box{
-      width: 100%;
-      margin-top: 5px;
-      display: grid;
-      grid-template-rows: repeat(1, 169px);
-      grid-template-columns: repeat(5, 125px);
-      &__previews {
-        width: 620px;
-        height: 162px;
-        max-width: 620px;
-        grid-gap: 5px;
-        display: flex;
-        // display: none;
-        &__preview {
-          &__image {
-            .input_images {
-              vertical-align: bottom;
-            }
-          }
-          &__delete {
-            width: 120px;
-            height: 40px;
-            color: #0099E8;
-            background-color: #F5F5F5;
-            text-align: center;
-            line-height: 40px;
-            border: 1px solid #EEEEEE;
-          }
+    // &__box{
+    //   width: 100%;
+    //   margin-top: 5px;
+    //   display: grid;
+    //   grid-template-rows: repeat(1, 169px);
+    //   grid-template-columns: repeat(5, 125px);
+    //   &__previews {
+    //     width: 620px;
+    //     height: 162px;
+    //     max-width: 620px;
+    //     grid-gap: 5px;
+    //     display: flex;
+    //     // display: none;
+    //     &__preview {
+    //       &__image {
+    //         .input_images {
+    //           vertical-align: bottom;
+    //         }
+    //       }
+    //       &__delete {
+    //         width: 120px;
+    //         height: 40px;
+    //         color: #0099E8;
+    //         background-color: #F5F5F5;
+    //         text-align: center;
+    //         line-height: 40px;
+    //         border: 1px solid #EEEEEE;
+    //       }
+    //     }
+    //   }
+    //   &__uploader {
+    //     border: 1px dashed #ccc;
+    //     background-color: #F5F5F5;
+    //     width: 100%;
+    //     height: 160px;
+    //     .js-file_group {
+    //       display: none;
+    //       opacity: 0;
+    //     }
+    //     &__text {
+    //       display: flex;
+    //       justify-content: center;
+    //       align-items: center;
+    //       font-size: 16px;
+    //       width: 100%;
+    //       height: 100%;
+    //     }
+    //   }
+    // }
+  }
+}
+
+.post__drop__box__container{
+  display: block;
+  margin: 16px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  //プレビュー表示欄のCSS
+  .prev-content {
+    display: flex;
+    .preview-box {
+      height: 162px;
+      width: 112px;
+      margin: 0 15px 10px 0;
+      .upper-box {
+        height: 112px;
+        width: 100%;
+        img{
+          width: 112px;
+          height: 112px;
         }
       }
-      &__uploader {
-        border: 1px dashed #ccc;
-        background-color: #F5F5F5;
-        width: 100%;
-        height: 160px;
-        .js-file_group {
-          display: none;
-          opacity: 0;
+      .lower-box {
+        display: flex;
+        text-align: center;
+        .update-box {
+          color: #00b0ff;
+          width: 50%;
+          height: 50px;
+          line-height: 50px;
+          border: 1px solid #eee;
+          background: #f5f5f5;
+          cursor: pointer;
         }
-        &__text {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 16px;
-          width: 100%;
-          height: 100%;
+        .delete-box {
+          color: #00b0ff;
+          width: 50%;
+          height: 50px;
+          line-height: 50px;
+          border: 1px solid #eee;
+          background: #f5f5f5;
+          cursor: pointer;
         }
       }
     }
   }
-}
 
+  //投稿クリックエリアのCSS
+  .label-content{
+    margin-bottom: 10px;
+    width: 620px;
+    .label-box {
+      display: block;
+      border: 1px dashed #ccc;
+      position: relative;
+      background: #f5f5f5;
+      width: 100%;
+      height: 162px;
+      cursor: pointer;
+      &__text-visible {
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        right: 16px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: bold;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        pointer-events: none;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    }
+  }
+
+  //file_fieldのcss
+  .hidden-content {
+    .hidden-field {
+      display: none;
+    }
+    .hidden-checkbox {
+      display: none;
+    }
+  }
+}

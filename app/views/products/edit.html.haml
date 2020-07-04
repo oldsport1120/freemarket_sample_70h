@@ -15,25 +15,55 @@
               .contents__main__detail__right__name--icon
                 %span.essential-label 必須
             %label.name 最大5枚までアップロードできます
-            .contents__main__image__box
-              .contents__main__image__box
-                .contents__main__image__box__previews
-                  - if @product.persisted?
-                    - @product.pictures.each_with_index do |picture, i|
-                      .contents__main__image__box__previews__preview{"data-index" => "#{i}"}
-                        .contents__main__image__box__previews__preview__image
-                          = image_tag picture.picture.url, data: { index: i }, class: 'input_images', width: "120", height: '120'
-                          .js-remove.contents__main__image__box__previews__preview__delete
-                            削除
-                  = f.fields_for :pictures, @product.pictures do |picture|
-                    - if @product.persisted?
-                      = picture.check_box :_destroy, include_hidden: false, data:{ index: picture.index },class: 'hidden-destroy'
-                .contents__main__image__box__uploader
-                  %label.contents__main__image__box__uploader__label<>
-                    .js-file_group{"data-index" => "#{@product.pictures.count}"}
-                      = f.file_field :picture, name: "product[pictures_attributes][#{@product.pictures.count}][picture]", id: "product_pictures_attributes_#{@product.pictures.count}_picture", class: 'js-file'
-                    .contents__main__image__box__uploader__text
-                      ここをクリックしてください
+
+            .post__drop__box__container
+              .prev-content
+
+                //JSで挿入したhtmlと同じ形　each文でのプレビュー表示
+                - @product.pictures.each do |picture|
+                  .preview-box
+                    .upper-box
+                      = image_tag picture.picture.url, width: "112", height: "112", alt: "preview"
+                    .lower-box
+                      -# .update-box
+                      -#   %label.edit-btn 編集
+                      .delete-box
+                        .delete-btn
+                          %span 削除
+              .label-content
+
+                //プレビューの数に合わせてforオプションを指定
+                = f.label :"pictures_attributes_#{@product.pictures.length}_picture", class: "label-box", id: "label-box--#{@product.pictures.length}" do
+                  %pre.label-box__text-visible クリックしてファイルをアップロード
+              .hidden-content
+                = f.fields_for :picture do |i|
+
+                  //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
+                  = i.file_field :picture, class: "hidden-field"
+                  = i.check_box:_destroy, class: "hidden-checkbox"
+
+                  //5つのfile_fieldを準備するに当たって、足りない分を表示
+                - @product.pictures.length.upto(4) do |i|
+                  %input{name: "product[pictures_attributes][#{i}][picture]", id: "product_pictures_attributes_#{i}_picture", class:"hidden-field", type:"file"}
+            -# .contents__main__image__box
+            -#   .contents__main__image__box
+            -#     .contents__main__image__box__previews
+            -#       - if @product.persisted?
+            -#         - @product.pictures.each_with_index do |picture, i|
+            -#           .contents__main__image__box__previews__preview{"data-index" => "#{i}"}
+            -#             .contents__main__image__box__previews__preview__image
+            -#               = image_tag picture.picture.url, data: { index: i }, class: 'input_images', width: "120", height: '120'
+            -#               .js-remove.contents__main__image__box__previews__preview__delete
+            -#                 削除
+            -#       = f.fields_for :pictures, @product.pictures do |picture|
+            -#         - if @product.persisted?
+            -#           = picture.check_box :_destroy, include_hidden: false, data:{ index: picture.index },class: 'hidden-destroy'
+            -#     .contents__main__image__box__uploader
+            -#       %label.contents__main__image__box__uploader__label<>
+            -#         .js-file_group{"data-index" => "#{@product.pictures.count}"}
+            -#           = f.file_field :picture, name: "product[pictures_attributes][#{@product.pictures.count}][picture]", id: "product_pictures_attributes_#{@product.pictures.count}_picture", class: 'js-file'
+            -#         .contents__main__image__box__uploader__text
+            -#           ここをクリックしてください
 
         %div.destinction-block
           %div.destinction-block__name
