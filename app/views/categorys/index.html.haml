@@ -1,0 +1,29 @@
+%header
+  %div.top-header
+    %div.top-main
+      %h1.head
+        = link_to root_path, class:"HeaderLogo" do
+          = image_tag "logo/logo.png", alt: "FURIMALogo", class: "FURIMALogo"
+    %div.HeaderNav
+      %ul.Nav__Left
+        %li.Nav__Left--left
+          = link_to  categorys_path, class:"Nav__Left-a" do 
+            カテゴリー
+        %li.Nav__Left--right
+          = link_to root_path, class:"Nav__Left-a" do 
+            ブランド
+%h2.heder-form カテゴリー一覧
+= form_for categorys_url do |f|
+  .listing-form-box 
+    .listing-product-detail__category
+      = f.label 'カテゴリー', class: 'listing-default__label' do
+        %span.listing-default--require 必須
+        .listing-select-wrapper
+          .listing-select-wrapper__box
+            = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'} 
+            %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+%footer           
+  %div.footer__logo
+    = link_to root_path, class:"Logo" do
+      = image_tag "logo/logo-white.png", alt: "LogoWhite"
+  %p ©︎  FURIMA

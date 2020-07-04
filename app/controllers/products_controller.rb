@@ -1,6 +1,33 @@
 class ProductsController < ApplicationController
 
-  def buy
+  # require "payjp"
+  # before_action :set_card
+
+  def pay
+    @product = Product.find(params[:product_id])
+    # すでに購入されていないか？
+    if @product.buyer.present? 
+      redirect_back(fallback_location: root_path) 
+    elsif @card.blank?
+      redirect_to controller: "cards", action: "new"
+      flash[:alert] = '購入にはクレジットカード登録が必要です'
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+      # 請求を発行
+      Payjp::Charge.create(
+      amount: 1000,
+      customer: @card.customer_id,
+      currency: 'jpy',
+      )
+      # 売り切れなので、productの情報をアップデートして売り切れにします。
+      if @product.update(buyer_id: current_user.id)
+        flash[:notice] = '購入しました。'
+        redirect_to controller: 'home', action: 'top', id: @product.id
+      else
+        flash[:alert] = '購入に失敗しました。'
+        redirect_to controller: 'products', action: 'show', id: @product.id
+      end
+    end
   end
   
   # 商品出品後のデータを反映させる Nonaka
@@ -9,6 +36,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
+    # @grand_category = product.category 
   end
 
   def index
@@ -18,21 +46,36 @@ class ProductsController < ApplicationController
   
   def new
     @product = Product.new
-    @product.pictures.build
+    @product.pictures.build()
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+       @category_parent_array << parent.name
+    end
+  end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+   
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
-    # binding.pry
-    if params[:pictures].present?
+    if params[:product_pictures].present?
       @product = Product.new(product_params)
-      if @product.save
-        params[:pictures][:picture].each do |picture|
-          @product.pictures.create(picture: picture)
+        respond_to do |format|
+          if @product.save
+              params[:product_pictures][:picture].each do |picture|
+                @product.pictures.create(picture: picture, product_id: @product.id)
+              end
+            format.html{redirect_to root_path}
+          else
+            @product.pictures.build
+            format.html{render action: 'new'}
+          end
         end
-          redirect_to root_path
-      else
-        redirect_to new_product_path
-      end
     else
       redirect_to new_product_path
     end
@@ -48,9 +91,18 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
   private
 
   def product_params
     params.require(:product).permit(:products_name, :descreption, :price, :brand, :product_condition, :shipment_fee, :shipping_place, :shipping_period, :category_id, :sale_status, pictures_attributes: [:picture]).merge(user_id: current_user.id)
   end
+  
+  # def set_card
+  #   @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+  # end
 end
+

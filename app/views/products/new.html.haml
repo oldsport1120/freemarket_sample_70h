@@ -4,111 +4,118 @@
       = image_tag"logo/logo.png",class:"HeaderLogo"
 
   %div.main
-    = form_for @product do |f|
-      .main__block
-        .title
-          %h1 商品の情報を入力
-        .item-form-image
-          .item-image
-            .item-image-label
-              %div.name 出品画像
-              %div.essential-label
-                必須
-            %p 最大１０枚までアップロードできます
-            #previews
-            .dropzone
-              %label.item-label
-                .dropzone-text
-                  クリックして画像をアップロード
-                = f.fields_for :pictures do |picture|
-                  = picture.file_field :picture, multiple: true, name: "pictures[picture][]", id: "upload-image", class:"upload-image"
+    %h2.sell-form__header
+      商品情報を入力
+    = form_for @product, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
+      .upload-box
+        .upload-box__head
+          .upload-box__head--text
+            %label.name
+              出品画像
+            %span.essential-label
+              必須
+            %p.discription 最大10枚までアップロードできます
+
+          = f.fields_for :pictures do |picture|
+            .dropzone-container
+              #preview
+              .dropzone-area
+                = picture.label :picture, class: "dropzone-box", for: "upload-image" do
+                  .input_area
+                    = picture.file_field :picture, multiple: true, name: 'product_pictures[picture][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                  %p ここをクリックしてください
+            .dropzone-container
+              #preview2
+              .dropzone-area2
+                = picture.label :picture, class: "dropzone-box", for: "upload-image" do
+                  %p ここをクリックしてください
       
-        %div.destinction-block
-          %div.destinction-block__name
-            %div.destinction-block__name__label
-              %div.name 商品名
-              %div.essential-label 必須
-            %div.destinction-block__form
-              = f.text_field :products_name, class:"input-area",placeholder:"40文字まで"
+      %div.destinction-block
+        %div.destinction-block__name
+          %div.destinction-block__name__label
+            %div.name 商品名
+            %div.essential-label 必須
+          %div.destinction-block__form
+            = f.text_field :products_name, class:"input-area",placeholder:"40文字まで"
 
-          %div.destinction-block__destinction
-            %div.destinction-block__destinction__label
-              %div.name 商品の説明
-              %div.essential-label 必須
-            %div.destinction-block__destinction__form
-              = f.text_area :descreption, class:"destinction-block__destinction__form__area",placeholder:"商品の説明（必須）（色、素材、重さ、定価、注意点　など）"
+        %div.destinction-block__destinction
+          %div.destinction-block__destinction__label
+            %div.name 商品の説明
+            %div.essential-label 必須
+          %div.destinction-block__destinction__form
+            = f.text_area :descreption, class:"destinction-block__destinction__form__area",placeholder:"商品の説明（必須）（色、素材、重さ、定価、注意点　など）"
 
-        %div.detail-block
-          %div.detail-block__category
-            %div.detail-block__category__label
-              %div.name カテゴリー
-              %div.essential-label 必須
-            %div.detail-block-category__form
-              -# = f.text_field '#',class:"input-area"
+      %div.detail-block
+        %div.detail-block__category
+          %div.detail-block__category__label
+            %div.name カテゴリー
+            %div.essential-label 必須
+          %div.detail-block-category__form
+            = f.select :category, @category_parent_array, {}, {class: 'detail-block-category__form', id: 'parent_category'} 
+            %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        %div.detail-block__bland
+          %div.detail-block__bland__label
+            %div.name ブランド
+            %div.non-essential-label 任意
+          %div.detail-block__bland__form
+            = f.text_field :brand,class:"input-area"
 
-          %div.detail-block__bland
-            %div.detail-block__bland__label
-              %div.name ブランド
-              %div.non-essential-label 任意
-            %div.detail-block__bland__form
-              = f.text_field :brand,class:"input-area"
+        %div.detail-block-product_condition
+          %div.detail-block__product-condition__label
+            %div.name 商品の状態
+            %div.essential-label 必須
+          %div.detail-block__product-condition__form
+            = f.select :product_condition,["新品、未使用", "未使用に近い", "目立った傷や汚れなし", "やや傷や汚れあり", "傷や汚れあり", "全体的に状態が悪い"],{include_blank: '選択してください'},class:"input-area"
 
-          %div.detail-block-product_condition
-            %div.detail-block__product-condition__label
-              %div.name 商品の状態
-              %div.essential-label 必須
-            %div.detail-block__product-condition__form
-              = f.select :product_condition,["新品、未使用", "未使用に近い", "目立った傷や汚れなし", "やや傷や汚れあり", "傷や汚れあり", "全体的に状態が悪い"],{include_blank: '選択してください'},class:"input-area"
+      %div.shipment-block
+        %div.shipment-block__fee
+          %div.shipment-block__fee__label
+            %div.name 配送料の負担
+            %div.essential-label 必須
+          %div.shipment-block__fee__form
+            = f.select :shipment_fee, ["送料込み(出品者負担)", "着払い(購入者負担)"], {include_blank: '選択してください'},class:"input-area"
 
-        %div.shipment-block
-          %div.shipment-block__fee
-            %div.shipment-block__fee__label
-              %div.name 配送料の負担
-              %div.essential-label 必須
-            %div.shipment-block__fee__form
-              = f.select :shipment_fee, ["送料込み(出品者負担)", "着払い(購入者負担)"], {include_blank: '選択してください'},class:"input-area"
+        %div.shipment-block__place
+          %div.shipment-block__place__label
+            %div.name 発送元の地域
+            %div.essential-label 必須
+          %div.shipment-block__place__formapplica
+            = f.collection_select :shipping_place, Prefecture.all, :id, :name, {prompt: "選択してください"},class:"input-area"
 
-          %div.shipment-block__place
-            %div.shipment-block__place__label
-              %div.name 発送元の地域
-              %div.essential-label 必須
-            %div.shipment-block__place__formapplica
-              = f.collection_select :shipping_place, Prefecture.all, :id, :name, {prompt: "選択してください"},class:"input-area"
+        %div.shipment-block__period
+          %div.shipment-block__period__label
+            %div.name 発送までの日数
+            %div.essential-label 必須
+          %div.shipment-block__period__form
+            = f.select :shipping_period, ["1~2日で発送", "2~3日で発送", "4~7日で発送"], {include_blank: '選択してください'},class:"input-area"
 
-          %div.shipment-block__period
-            %div.shipment-block__period__label
-              %div.name 発送までの日数
-              %div.essential-label 必須
-            %div.shipment-block__period__form
-              = f.select :shipping_period, ["1~2日で発送", "2~3日で発送", "4~7日で発送"], {include_blank: '選択してください'},class:"input-area"
+      %div.price-block
+        %p.price-block__text 価格（¥300〜9,999,999）
+        %div.price-block__name
+          %div.price-block__name__label
+            %div.name 価格
+            %div.essential-label 必須
+          %span.price-block__name__yenn-mark ¥
+          %div.price-block__form
+            = f.number_field :price, min:300,max:1000000,class:"input-area__number",placeholder:"0"
 
-        %div.price-block
-          %p.price-block__text 価格（¥300〜9,999,999）
-          %div.price-block__name
-            %div.price-block__name__label
-              %div.name 価格
-              %div.essential-label 必須
-            %span.price-block__name__yenn-mark ¥
-            %div.price-block__form
-              = f.number_field :price, min:300,max:1000000,class:"input-area__number",placeholder:"0"
+      %div.btn-block
+        = f.submit '出品する',class:"btn-block__submit", disable_with: "Save", value:"出品する"
+        = link_to root_path,class:"btn-block__return"do
+          もどる
 
-        %div.btn-block
-          = f.submit '出品する',class:"btn-block__submit"
-          = link_to root_path,class:"btn-block__return"do
-            もどる
-
-  %div.footer
-    %ul.footer__list
-      %li
-        = link_to '#',class:"footer__list__link" do
-          プライバシーポリシー
-      %li
-        = link_to '#',class:"footer__list__link" do
-          利用規約
-      %li
-        = link_to '#',class:"footer__list__link" do
-          特定商取引に関する表記
-    %div      
-    = link_to '#' do
-      = image_tag"logo/logo-white.png",class:"footer__Logo"
+%div.footer
+  %ul.footer__list
+    %li
+      = link_to '#',class:"footer__list__link" do
+        プライバシーポリシー
+    %li
+      = link_to '#',class:"footer__list__link" do
+        利用規約
+    %li
+      = link_to '#',class:"footer__list__link" do
+        特定商取引に関する表記
+  %div      
+  = link_to '#' do
+    = image_tag"logo/logo-white.png",class:"footer__Logo"
 

@@ -31,3 +31,5 @@ public/uploads/*
 
 # .DS_Storeを.gitignoreに追加。nonaka
 .DS_Store
+
+/.env
