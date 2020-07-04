@@ -357,85 +357,75 @@ body{
   }
 }
 
-.contents {
-  background-color: rgb(245, 245, 245);
-  height: 100%;
-  width: 100%;
-  .clearfix::after {
-    content: "";
-    clear: both;
-    display: block;
+.contents__main{
+  width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+  &__header{
+    text-align: center;
+    font-size: 22px;
+    height: 97px;
+    line-height: 97px;
   }
-  &__main{
-    width: 700px;
-    margin: 0 auto;
-    background-color: #fff;
-    &__header{
-      text-align: center;
-      font-size: 22px;
-      height: 97px;
-      line-height: 97px;
+  &__image {
+    border-top: 1px solid #eee;
+    padding: 40px;
+    font-size: 13px;
+    height: 100%;
+    box-sizing: content-box;
+    &__head{
+      font-size: 16px;
+      display: flex;
+      font-weight: bold;
+      margin-bottom: 5px;
+      line-height: 20px;
     }
-    &__image {
-      border-top: 1px solid #eee;
-      padding: 40px;
-      font-size: 13px;
-      height: 100%;
-      box-sizing: content-box;
-      &__head{
-        font-size: 16px;
+    &__box{
+      width: 100%;
+      margin-top: 5px;
+      display: grid;
+      grid-template-rows: repeat(1, 169px);
+      grid-template-columns: repeat(5, 125px);
+      &__previews {
+        width: 620px;
+        height: 162px;
+        max-width: 620px;
+        grid-gap: 5px;
         display: flex;
-        font-weight: bold;
-        margin-bottom: 5px;
-        line-height: 20px;
-      }
-      &__box{
-        width: 100%;
-        margin-top: 5px;
-        display: flex;
-        grid-template-rows: repeat(1, 169px);
-        grid-template-columns: repeat(5, 125px);
-        &__previews {
-          width: 620px;
-          height: 162px;
-          max-width: 620px;
-          grid-gap: 5px;
-          display: flex;
-          // display: none;
-          &__preview {
-            &__image {
-              .input_images {
-                vertical-align: bottom;
-              }
+        // display: none;
+        &__preview {
+          &__image {
+            .input_images {
+              vertical-align: bottom;
             }
-            &__delete {
-              width: 120px;
-              height: 40px;
-              color: #0099E8;
-              background-color: #F5F5F5;
-              text-align: center;
-              line-height: 40px;
-              border: 1px solid #EEEEEE;
-            }
+          }
+          &__delete {
+            width: 120px;
+            height: 40px;
+            color: #0099E8;
+            background-color: #F5F5F5;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid #EEEEEE;
           }
         }
-        &__uploader {
-          border: 1px dashed #ccc;
-          background-color: #F5F5F5;
+      }
+      &__uploader {
+        border: 1px dashed #ccc;
+        background-color: #F5F5F5;
+        width: 100%;
+        height: 160px;
+        .js-file_group {
+          display: none;
+          opacity: 0;
+        }
+        &__text {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 16px;
           width: 100%;
-          height: 160px;
-          .js-file_group {
-            display: none;
-            opacity: 0;
-          }
-          &__text {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 16px;
-            width: 100%;
-            height: 100%;
-          }
+          height: 100%;
         }
       }
     }
