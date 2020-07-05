@@ -73,12 +73,10 @@
                 %li.itemBox__li
                   = image_tag @product.pictures[0].picture.url if @product.pictures.present?
                   %ul.img__new
-                    %li.image2
-                      = image_tag @product.pictures[0].picture.url if @product.pictures.present?
-                    %li.image2
-                      = image_tag @product.pictures[0].picture.url if @product.pictures.present?
-                    %li.image2
-                      = image_tag @product.pictures[0].picture.url if @product.pictures.present?
+                    - @product.pictures.each_with_index do |picture, index|
+                      - if picture.present?
+                        %li.image2
+                          = image_tag picture.picture_url
             %div.itemBox__price 
               %span.itemBox__price__span
                 ="#{@product.price}円"
@@ -98,13 +96,13 @@
                       %th.th カテゴリー
                       %td.td
                         = link_to root_path do
-                          = @parent_category
+                          =@parent_category
                         %br
                         = link_to root_path do
-                          = @child_category
+                          =@child_category
                         %br
                         = link_to root_path do
-                          = @grandchild_category
+                          =@grandchild_category
                     %tr.tr
                       %th.th ブランド
                       %td.td
