@@ -47,10 +47,11 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.pictures.build()
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-       @category_parent_array << parent.name
-    end
+    # binding.pry
+    @category_parent_array = Category.where(ancestry: nil)
+    # Category.where(ancestry: nil).each do |parent|
+    #    @category_parent_array << parent.name
+    # end
   end
 
   def get_category_children
