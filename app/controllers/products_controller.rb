@@ -57,11 +57,11 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.update(product_params)
-      redirect_to root_path
-    else
-      redirect_to action: 'edit'
-    end
+    # if @product.update(product_params)
+    #   redirect_to root_path
+    # else
+    #   redirect_to action: 'edit'
+    # end
     # if product_params[:pictures_attributes].nil?
     #   flash.now[:alert] = '更新できませんでした 【画像を１枚以上入れてください】'
     #   render :edit
@@ -81,6 +81,16 @@ class ProductsController < ApplicationController
     #     render :edit
     #   end
     # end
+    if @product.update(product_params)
+      if  params[:pictures].present?
+        params[:pictures][:picture].each do |picture|
+          @product.pictures.create(picture: picture)
+      end
+    end
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   # def update_done
