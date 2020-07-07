@@ -1,7 +1,5 @@
 class ProductsController < ApplicationController
   before_action :set_products,             only:[:show,:edit,:update]
-  # before_action :show_all_instance,        only:[:show,:edit]
-  # before_action :product_update_params,    only:[:update]
 
   def buy
   end
@@ -39,7 +37,7 @@ class ProductsController < ApplicationController
           end
         end
     else
-      redirect_to new_product_path
+      redirect_to new_product_path, alert: "商品の出品ができませんでした"
     end
   end
   
@@ -57,46 +55,12 @@ class ProductsController < ApplicationController
   end
 
   def update
-    binding.pry
-    if @product.update(update_params)
-      redirect_to root_path
+    if params[:product][:pictures_attributes] && @product.update(update_params)
+        redirect_to root_path, notice: "商品の編集が完了しました"
     else
-      redirect_to action: 'edit'
+      redirect_to edit_product_path, alert: "商品の編集ができませんでした"
     end
-    # if product_params[:pictures_attributes].nil?
-    #   flash.now[:alert] = '更新できませんでした 【画像を１枚以上入れてください】'
-    #   render :edit
-    # else
-    #   exit_ids = []
-    #   product_params[:pictures_attributes].each do |a,b|
-    #     exit_ids << product_params[:pictures_attributes].dig(:"#{a}",:id).to_i
-    #   end
-    #   ids = Picture.where(product_id: params[:id]).map{|picture| picture.id }
-    #   delete__db = ids - exit_ids
-    #   Picture.where(id:delete__db).destroy_all
-    #   @product.touch
-    #   if @product.update(product_params)
-    #     redirect_to  root_path, notice: "商品情報の編集が完了しました"
-    #   else
-    #     flash.now[:alert] = '更新できませんでした'
-    #     render :edit
-    #   end
-    # end
-    # if @product.update(product_params)
-    #   if  params[:pictures].present?
-    #     params[:pictures][:picture].each do |picture|
-    #       @product.pictures.create(picture: picture)
-    #   end
-    # end
-    #   redirect_to root_path
-    # else
-    #   render :edit
-    # end
   end
-
-  # def update_done
-  #   @product_update = Product.order("updated_at DESC").first
-  # end
 
   private
 
@@ -112,9 +76,4 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
   
-  # def show_all_instance
-  #   @user = User.find(@product.user_id)
-  #   @pictures = Picture.where(product_id: params[:id])
-  #   @pictures_first = Picture.where(product_id: params[:id]).first
-  # end
 end

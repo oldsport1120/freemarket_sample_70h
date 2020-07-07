@@ -327,36 +327,6 @@ body{
   }
 }
 
-// .preview-box{
-//   width: 118px;
-//   margin: 20px 23px 0 0;
-//   border: 1px solid #eee;
-//   display: flex;
-//   .preview-box__img-box{
-//     // display: flex;
-//     .image{
-//       height: 118px;
-//       width: 118px;
-//       object-fit: cover;
-//     }
-//   }
-//   .preview-box__select{
-//     font-size: 14px;
-//     background: #f5f5f5;
-//     line-height: 44px;
-//     text-align: center;
-//     color: #0099e8;
-//     text-decoration: none;
-//     .preview-box__select--delete{
-//       cursor: pointer;
-//     }
-//     .preview-box__select--delete2{
-//       margin: 0 auto;
-//       cursor: pointer;
-//     }
-//   }
-// }
-
 .contents__main{
   width: 700px;
   margin: 0 auto;
@@ -380,55 +350,6 @@ body{
       margin-bottom: 5px;
       line-height: 20px;
     }
-    // &__box{
-    //   width: 100%;
-    //   margin-top: 5px;
-    //   display: grid;
-    //   grid-template-rows: repeat(1, 169px);
-    //   grid-template-columns: repeat(5, 125px);
-    //   &__previews {
-    //     width: 620px;
-    //     height: 162px;
-    //     max-width: 620px;
-    //     grid-gap: 5px;
-    //     display: flex;
-    //     // display: none;
-    //     &__preview {
-    //       &__image {
-    //         .input_images {
-    //           vertical-align: bottom;
-    //         }
-    //       }
-    //       &__delete {
-    //         width: 120px;
-    //         height: 40px;
-    //         color: #0099E8;
-    //         background-color: #F5F5F5;
-    //         text-align: center;
-    //         line-height: 40px;
-    //         border: 1px solid #EEEEEE;
-    //       }
-    //     }
-    //   }
-    //   &__uploader {
-    //     border: 1px dashed #ccc;
-    //     background-color: #F5F5F5;
-    //     width: 100%;
-    //     height: 160px;
-    //     .js-file_group {
-    //       display: none;
-    //       opacity: 0;
-    //     }
-    //     &__text {
-    //       display: flex;
-    //       justify-content: center;
-    //       align-items: center;
-    //       font-size: 16px;
-    //       width: 100%;
-    //       height: 100%;
-    //     }
-    //   }
-    // }
   }
 }
 
@@ -511,10 +432,10 @@ body{
   //file_fieldのcss
   .hidden-content {
     .hidden-field {
-      // display: none;
+      display: none;
     }
     .hidden-checkbox {
-      // display: none;
+      display: none;
     }
   }
 }
