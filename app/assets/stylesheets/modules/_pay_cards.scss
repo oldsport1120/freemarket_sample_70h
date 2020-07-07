@@ -1,0 +1,103 @@
+// Place all the styles related to the cards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.wrapper{
+  height: 100%;
+  .show-users-wrapper {
+    width: 65%;
+    background-color: #f5f5f5;
+    height: 100vh;
+    float: right;
+    position: relative;
+  
+    &__center {
+      background-color: #f5f5f5;
+      width: 100%;
+      height: calc(100% - 50%);
+      margin-top: 50px;
+    }
+  
+  
+  
+    .card-wrapper{
+      padding: 20px;
+      height: 500px;
+      position: absolute;
+      left: 15%;
+      top: 15%;
+      background-color: white;
+      &__title{
+        text-align: center;
+        font-weight: bold;
+      }
+      &__content-title{
+        margin-top: 20px;
+        .require{
+          padding: 3px;
+          color: white;
+          font-size: 12px;
+          border-radius: 4px;
+          background-color: lightgrey;
+        }
+      }
+      &__input-text{
+        height: 44px;
+        line-height: 44px;
+        font-size: 16px;
+        padding: 0 16px;
+        width: 460px;
+        margin-top: 10px;
+        border-radius: 4px;
+      }
+      .input-half{
+        width: 217px;
+        margin-right: 10px;
+      }
+      .submit-btn{
+        color: white;
+        margin-top: 30px;
+        border-radius: 0px;
+        background-color: rgb(101, 190, 245);
+        border: 0px solid #000;
+      }
+      .disabled{
+        background-color: #f0f0f0;
+      }
+      img{
+        margin-top: 20px;
+        margin-left: 130px;
+        width: 200px;
+      }
+    }
+  }
+}
+
+
+footer {
+  clear: both;
+  background-color: $DarkColor;
+  padding: 60px 0;
+  color: $WhiteColor;
+  text-align: center;
+  .Container {
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+  }
+  .Footer__Logo {
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+    a {
+      cursor: pointer;
+      img {
+        width: 100%;
+        vertical-align: bottom;
+      }
+    }
+  }
+  p {
+    font-size: 14px;
+  }
+}

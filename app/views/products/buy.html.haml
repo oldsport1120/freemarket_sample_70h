@@ -13,21 +13,26 @@
         .buy-wrapper__main__contents__right
           商品名
           %br
-          ¥30,000(税込)送料込み
+          ¥1,000(税込)送料込み
           %br
       .border
       .buy-wrapper__main__title
         .buy-wrapper__main__title__text
           支払い金額
         .buy-wrapper__main__title__text
-          ¥30,000
+          ¥1,000
       .border
       .buy-wrapper__main__title
         .buy-wrapper__main__title__text
           支払い方法
-          .buy-wrapper__main__title__text.light.space
-            = link_to root_path, class:"Pay" do
-              登録してください
+          - if @card.present?
+            .buy-wrapper__main__title__text.registration
+              = link_to cards_path, class:"registration" do
+                登録済みです
+          - else
+            .buy-wrapper__main__title__text.light.space
+              = link_to new_cards_path, class:"Pay" do
+                登録してください
       .border
       .buy-wrapper__main__title
         .buy-wrapper__main__title__text
@@ -37,8 +42,7 @@
               登録してください
       .border
       .buy-wapper__main__pay-btn
-        = link_to root_path, class: "buy-wrapper__main__pay-btn" do
-          購入する
+        = link_to "登録クレジットカードで購入する", controller: 'cards', action: 'pay', method: :post, class: "pay"
   .buy-wrapper__footer
     .buy-wrapper__footer__text
       = link_to root_path, class:"Policy" do

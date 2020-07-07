@@ -51,8 +51,7 @@
             %div.name カテゴリー
             %div.essential-label 必須
           %div.detail-block-category__form
-            -# = f.text_field '#',class:"input-area"
-
+            = f.collection_select :category_id, @category_parent_array,:id,:name, {include_blank: "---"},class:"input-area"
         %div.detail-block__bland
           %div.detail-block__bland__label
             %div.name ブランド

@@ -17,19 +17,19 @@ class User < ApplicationRecord
   # null規制
   validates :nickname, :email,                                  presence: true
   # validates :family_name, :first_name,                          presence: true
-  validates :family_name, presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/}
-  validates :first_name, presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/}
+  # validates :family_name, presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/}
+  # validates :first_name, presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/}
   # validates :family_name_kana, :first_name_kana,                presence: true
-  validates :family_name_kana, presence: true, format: {with: /\A[ぁ-んー－]+\z/}
-  validates :first_name_kana, presence: true, format: {with: /\A[ぁ-んー－]+\z/}
+  # validates :family_name_kana, presence: true, format: {with: /\A[ぁ-んー－]+\z/}
+  # validates :first_name_kana, presence: true, format: {with: /\A[ぁ-んー－]+\z/}
   validates :date_of_birth,                                     presence: true
 
   # validatesをかける nonaka
   # shipments用のバリデーション
   validates :ship_family_name, :ship_first_name,                 presence: true
   # validates :ship_family_name_kana, :ship_first_name_kana,       presence: true
-  validates :ship_family_name_kana,  presence: true, format: {with: /\A[ぁ-んー－]+\z/}
-  validates :ship_first_name_kana,  presence: true, format: {with: /\A[ぁ-んー－]+\z/}
+  # validates :ship_family_name_kana,  presence: true, format: {with: /\A[ぁ-んー－]+\z/}
+  # validates :ship_first_name_kana,  presence: true, format: {with: /\A[ぁ-んー－]+\z/}
   # validates :zip_code, format: { with: SMALL_LETTERS_REGEX },  presence: true
   # zip_codeの数字７桁とハイフンはOK
   validates :zip_code, presence: true, format: {with: /\A[0-9-]{,7}\z/}
@@ -41,7 +41,7 @@ class User < ApplicationRecord
   # その他validation nonaka
   validates :email,                                            uniqueness: true
   # .com .jp などがないとメールを入力できないように これは効いているように思える
-  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  # validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
 
 
   # 文字数 nonaka
@@ -57,9 +57,12 @@ class User < ApplicationRecord
   # validates :password,      presence: { message: 'パスワードは７文字以上で入力してください' }  
   # validates :email, format: { with: [a-zA-Z0-9].+@.+[a-zA-Z0-9].+..+[a-zA-Z0-9] }
   
-  # 以下検討中　ユーザーと購入・出品の紐付け　ito
+  has_one :card
+
+  # 以下検討中 ユーザーと購入・出品の紐付け ito
   # has_many :buyer_products, class_name: 'Product', foreign_key: 'buyer_id', dependent: :destroy
   # has_many :seller_Products, class_name: 'Product', foreign_key: 'seller_id', dependent: :destroy
+
 
 end
 

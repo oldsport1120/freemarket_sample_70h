@@ -1,0 +1,43 @@
+.wrapper
+  = render "users/side_bar"
+
+  .show-users-wrapper
+    .show-users-wrapper__center
+      .show-users-wrapper__center__left-content
+        = form_with model: @card, url: cards_path, id: "card_submit" do |f|
+          -# %script{:src => "https://checkout.pay.jp/", :type => "text/javascript", :class => "card-wrapper__input-text submit-btn", :dataKey => "pk_test_f71965297cf6ca7ff18390fc", :dataPartial => "true", :dataSubmitText => "登録する"}
+          .show-users-wrapper__center__right-content
+            .card-wrapper
+              .card-wrapper__title
+                クレジットカード情報登録
+              .card-wrapper__content-title
+                カード番号
+                %span{class:"require"}
+                  必須
+              = f.text_field :card_number, name: "card_number", id:"card_number", type: "text", placeholder: '半角数字のみ', class: 'card-wrapper__input-text creditcard-info', maxlength: "16"
+              .card-wrapper__content-title
+                有効期限
+                %span{class:"require"}
+                  必須
+              - month = [["月",""]]
+              - for num in 1..12
+                - month << num
+              = f.select :exp_month, month, {}, class: 'card-wrapper__input-text input-half', name: "exp_month", id:"exp_month"
+              - year = [["年",""]]
+              - for num in 0..20
+                - year << 2040-num
+              = f.select :exp_year, year, {}, class: 'card-wrapper__input-text input-half', name: "exp_year", id:"exp_year"
+              .card-wrapper__content-title
+                セキュリティーコード
+                %span{class:"require"}
+                  必須
+              = f.text_field :cvc, name: "cvc", id:"cvc", class:"cvc", type: "text", placeholder: 'カード背面4桁もしくは3桁の番号', class: 'card-wrapper__input-text', maxlength: "16"
+              .card-wrapper__submit
+              #card_token
+              = f.submit "追加する", id: "token_submit", class: 'card-wrapper__input-text submit-btn'
+
+
+%footer
+  %div.Footer__Logo
+    = link_to root_path, class:"Logo" do
+      = image_tag "logo/logo-white.png", alt: "LogoWhite"

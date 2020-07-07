@@ -15,7 +15,7 @@
       %div.HeaderNav
         %ul.Nav__Left
           %li.Nav__Left--left
-            = link_to root_path do 
+            = link_to categorys_path(@product) do
               カテゴリー
             %div.treedisplayNone
               %ul.brandsPulldowndisplayNone
@@ -71,14 +71,14 @@
             %div.itemBox__body
               %ul.itemBox__ul
                 %li.itemBox__li
-                  = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
+                  = image_tag @product.pictures[0].picture.url if @product.pictures.present?
                   %ul.img__new
                     %li.image2
-                      = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png" 
+                      = image_tag @product.pictures[0].picture.url if @product.pictures.present?
                     %li.image2
-                      = image_tag"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/11/a005.png" 
+                      = image_tag @product.pictures[0].picture.url if @product.pictures.present?
                     %li.image2
-                      = image_tag"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/12/a006.png"
+                      = image_tag @product.pictures[0].picture.url if @product.pictures.present?
             %div.itemBox__price 
               %span.itemBox__price__span  ¥20000
               %div.item__price__Detail
@@ -95,14 +95,14 @@
                     %tr.tr
                       %th.th カテゴリー
                       %td.td
-                        = link_to root_path do 
-                          メンズ
+                        = link_to root_path do
+                          = @parent_category
                         %br
-                        = link_to root_path do  
-                          ジャケット/アウター
+                        = link_to root_path do
+                          = @child_category
                         %br
-                        = link_to root_path do 
-                          ノーカラージャケット
+                        = link_to root_path do
+                          = @grandchild_category
                     %tr.tr
                       %th.th ブランド
                       %td.td
@@ -119,7 +119,8 @@
                       %th.th
                         発送元の地域
                       %td.td
-                        %a(href="#") 青森県
+                        %a
+                          -# = @product.prefecture
                     %tr.tr
                       %th.th
                         発送日の目安
@@ -128,13 +129,16 @@
               %div.optionalArea
                 %ul.Area1
                   %li.optionalgoodBtn 
-                    お気に入り  ０
+                    お気に入り  
                     %i.fa 
                 %ul.Area2
                   %li.optionalBtn 
                     = link_to root_path do
                       不適切な商品の通報
                       %i.fa
+              %ul.btn-gradient-simple
+                =link_to buy_product_path do
+                  購入
             %div.commentBox
               %ul.commentContents
                 %div.CommentContainer

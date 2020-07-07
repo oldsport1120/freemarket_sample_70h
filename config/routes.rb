@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # deviseのルーティングが先に読み取られる必要があるので、通常のルーティング追記は下部に追加でお願いします。nonaka
   # ユーザー管理用ルーティング nonaka
   devise_for :users
@@ -17,13 +18,38 @@ Rails.application.routes.draw do
   get 'users/signout'
   get 'users/card'
 
+  # resources :products, only: [:show, :buy, :new,]
   # buyアクションを追加 matsumoto
   # destroyアクションを追加 comments/create アクションをネストで追加 nonaka
   resources :products, only: [:index, :show, :new, :create, :destroy, :edit, :update] do
     resources :comments, only: :create
     member do
       get "buy"
+      get "pay"
     end
   end
-  
+
+
+  resource :cards, only: [:index, :new, :create, :show, :destroy] do
+    member do
+      get "buy"
+      get "pay"
+    end
+
+  end
+  resources :users, only: :show
+
+
+  #カテゴリー用のルーティング simizu
+  resources :categorys, only: [:index, :show, :new, :edit, :destroy] do
+    collection do # 新規用（new) usr:categorys/newのため
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+    member do # 編集(edit用) usl: categorys/id/editのため
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
+
 end 

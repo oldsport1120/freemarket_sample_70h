@@ -8,4 +8,6 @@ class UsersController < ApplicationController
   def card
   end
   
+  def pay
+  end
 end
