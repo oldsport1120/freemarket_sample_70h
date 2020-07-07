@@ -57,11 +57,12 @@ class ProductsController < ApplicationController
   end
 
   def update
-    # if @product.update(product_params)
-    #   redirect_to root_path
-    # else
-    #   redirect_to action: 'edit'
-    # end
+    binding.pry
+    if @product.update(update_params)
+      redirect_to root_path
+    else
+      redirect_to action: 'edit'
+    end
     # if product_params[:pictures_attributes].nil?
     #   flash.now[:alert] = '更新できませんでした 【画像を１枚以上入れてください】'
     #   render :edit
@@ -81,16 +82,16 @@ class ProductsController < ApplicationController
     #     render :edit
     #   end
     # end
-    if @product.update(product_params)
-      if  params[:pictures].present?
-        params[:pictures][:picture].each do |picture|
-          @product.pictures.create(picture: picture)
-      end
-    end
-      redirect_to root_path
-    else
-      render :edit
-    end
+    # if @product.update(product_params)
+    #   if  params[:pictures].present?
+    #     params[:pictures][:picture].each do |picture|
+    #       @product.pictures.create(picture: picture)
+    #   end
+    # end
+    #   redirect_to root_path
+    # else
+    #   render :edit
+    # end
   end
 
   # def update_done
@@ -100,12 +101,12 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:products_name, :descreption, :price, :brand, :product_condition, :shipment_fee, :shipping_place, :shipping_period, :category_id, :sale_status, pictures_attributes: [:picture, :id, :_destroy]).merge(user_id: current_user.id)
+    params.require(:product).permit(:products_name, :descreption, :price, :brand, :product_condition, :shipment_fee, :shipping_place, :shipping_period, :category_id, :sale_status, pictures_attributes: [:picture]).merge(user_id: current_user.id)
   end
 
-  # def update_params
-  #   params.require(:product).permit(:products_name, :descreption, :price, :brand, :product_condition, :shipment_fee, :shipping_place, :shipping_period, :category_id, :sale_status).merge(user_id: current_user.id)
-  # end
+  def update_params
+    params.require(:product).permit(:products_name, :descreption, :price, :brand, :product_condition, :shipment_fee, :shipping_place, :shipping_period, :category_id, :sale_status, pictures_attributes: [:picture, :id, :_destroy]).merge(user_id: current_user.id)
+  end
 
   def set_products
     @product = Product.find(params[:id])

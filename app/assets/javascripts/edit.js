@@ -249,6 +249,7 @@ $(document).on('turbolinks:load', function(){
       setLabel(count);
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       $(`#preview-box__${id}`).remove();
+      $(`#product_picture__destroy`).prop("checked", true);
 
       //新規登録時と編集時の場合分け==========================================================
 
