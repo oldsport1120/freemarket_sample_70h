@@ -3,7 +3,7 @@ class CardsController < ApplicationController
   # before_action :authenticate_user!
   
   require "payjp"
-  # before_action :set_card
+  before_action :set_card
 
 
   def new
@@ -73,7 +73,7 @@ class CardsController < ApplicationController
   end
 
   private
-  # def set_card
-  #   @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
-  # end
+  def set_card
+    @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+  end
 end
