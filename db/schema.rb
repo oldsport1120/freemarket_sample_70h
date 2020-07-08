@@ -62,11 +62,15 @@ ActiveRecord::Schema.define(version: 2020_06_12_175622) do
     t.string "product_condition", null: false
     t.string "shipment_fee", null: false
     t.string "shipping_place", null: false
-    t.integer "shipping_period", null: false
-    t.integer "user_id"
+
+    t.string "shipping_period", null: false
+    t.bigint "user_id"
     t.integer "category_id"
+    t.integer "buyer_id"
+    t.integer "sale_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
