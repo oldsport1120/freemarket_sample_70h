@@ -35,9 +35,9 @@ class CardsController < ApplicationController
     if card.blank?
       redirect_to action: "new"
     else
-    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    @card_info = customer.cards.retrieve(customer.default_card)
+      Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @card_info = customer.cards.retrieve(customer.default_card)
       @exp_month = @card_info.exp_month.to_s
       @exp_year = @card_info.exp_year.to_s.slice(2,3)
     end
