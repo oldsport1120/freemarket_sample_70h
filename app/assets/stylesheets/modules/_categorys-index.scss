@@ -72,23 +72,48 @@
   font-weight: bold;
   margin-bottom: 80px;
 }
-.listing-form-box {
-  height: 500px;
-  width: 100%;
-  padding: 0px 30px;
-  background-color: #f8f8f8;
-}
 
-.listing-default--require{
- background-color: red;
- color: white;
+.categories{
+  width: 100％;
 }
+.parents{
+  font-size: 30px;
+  list-style: none;
+  text-align: center;
+  a{
+    text-decoration: none;
+    list-style: none;
+    color:black;
+  } 
+}
+.categories__children{
+  background-color: #f8f8f8;;
+  a{
+    text-decoration: none;
+    list-style: none;
+    color: #3ccace;
 
-.listing-select-wrapper__box--select{
-  width: 450px;
-  height: 50px;
-  padding: 3px 0;
-  margin-bottom: 30px;
+  } 
+}
+.childern{
+  text-align: center;
+  font-size: 20px;
+  margin: 20px auto;
+  a{
+    text-decoration: none;
+    list-style: none;
+    color: black;
+  } 
+}
+.categories__grandchildren{
+  a{
+    text-decoration: none;
+    list-style: none;
+    color: #3ccace;
+  } 
+}
+.categories__grandchildren li{
+  text-align: center;
 }
 
 .footer{

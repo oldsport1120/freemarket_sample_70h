@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
   # コメントを反映させる Nonaka
   def show
     @product = Product.find(params[:id])
+    # binding.pry
+    @category =Category.where(ancestry: nil)
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
     # @grand_category = product.category 
@@ -19,9 +21,12 @@ class ProductsController < ApplicationController
   
   def new
     @product = Product.new
-    @product.pictures.build()
-    # binding.pry
-    @category_parent_array = Category.where(ancestry: nil)
+    @product.pictures.new
+    # @category_parent_array = Category.where(ancestry: nil)
+    if params[:parent_name]
+      @category_parent_array = Category.where('ancestry = ?', "#{params[:parent_name]}")
+      # binding.pry
+    end
     # Category.where(ancestry: nil).each do |parent|
     #    @category_parent_array << parent.name
     # end
@@ -29,6 +34,7 @@ class ProductsController < ApplicationController
 
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    binding.pry
   end
 
    

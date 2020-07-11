@@ -13,15 +13,17 @@
           = link_to root_path, class:"Nav__Left-a" do 
             ブランド
 %h2.heder-form カテゴリー一覧
-= form_for categorys_url do |f|
-  .listing-form-box 
-    .listing-product-detail__category
-      = f.label 'カテゴリー', class: 'listing-default__label' do
-        %span.listing-default--require 必須
-        .listing-select-wrapper
-          .listing-select-wrapper__box
-            = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'} 
-            %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+%ul.categories
+- @parents.each do |parent|
+  %li.parents= link_to "#{parent.name}", category_path(parent)
+
+  %ul.categories__children
+    - parent.children.each do |child|
+      %li.childern= link_to "#{child.name}", category_path(child)
+
+      %ul.categories__grandchildren
+        - child.children.each do |grandchild|
+          %li= link_to "#{grandchild.name}", category_path(grandchild)
 %footer           
   %div.footer__logo
     = link_to root_path, class:"Logo" do

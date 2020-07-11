@@ -1,0 +1,13 @@
+.category_wrapper
+  .category_links
+    - @category_links.each do |category|
+      = link_to category.name, category_path(category)
+.products-container
+  .products-index
+    .title
+      = "#{@category.name}の商品一覧"
+      .title__border
+    - if @products
+      %ul.lists
+        = render "products/product", products: @products
+    = paginate @products
