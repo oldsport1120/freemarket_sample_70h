@@ -61,8 +61,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_175622) do
     t.string "brand"
     t.string "product_condition", null: false
     t.string "shipment_fee", null: false
-    t.string "shipping_place", null: false
-
+    t.integer "prefecture", null: false
     t.string "shipping_period", null: false
     t.bigint "user_id"
     t.integer "category_id"
@@ -102,4 +101,5 @@ ActiveRecord::Schema.define(version: 2020_06_12_175622) do
   end
 
   add_foreign_key "cards", "users"
+  add_foreign_key "products", "users"
 end

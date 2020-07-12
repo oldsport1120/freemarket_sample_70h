@@ -80,7 +80,7 @@
             %div.name 発送元の地域
             %div.essential-label 必須
           %div.shipment-block__place__formapplica
-            = f.collection_select :shipping_place, Prefecture.all, :id, :name, {prompt: "選択してください"},class:"input-area"
+            = f.collection_select :prefecture, Prefecture.all, :id, :name, {prompt: "選択してください"},class:"input-area"
 
         %div.shipment-block__period
           %div.shipment-block__period__label
