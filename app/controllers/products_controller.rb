@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_products,             only:[:show,:edit,:update]
 
   # require "payjp"
   # before_action :set_card
@@ -78,7 +79,7 @@ class ProductsController < ApplicationController
           end
         end
     else
-      redirect_to new_product_path
+      redirect_to new_product_path, alert: "商品の出品ができませんでした"
     end
   end
   
@@ -93,7 +94,14 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+  end
+
+  def update
+    if params[:product][:pictures_attributes] && @product.update(update_params)
+        redirect_to root_path, notice: "商品の編集が完了しました"
+    else
+      redirect_to edit_product_path, alert: "商品の編集ができませんでした"
+    end
   end
 
   private
@@ -101,6 +109,15 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:products_name, :descreption, :price, :brand, :product_condition, :shipment_fee, :shipping_place, :shipping_period, :category_id, :sale_status, pictures_attributes: [:picture]).merge(user_id: current_user.id)
   end
+
+  def update_params
+    params.require(:product).permit(:products_name, :descreption, :price, :brand, :product_condition, :shipment_fee, :shipping_place, :shipping_period, :category_id, :sale_status, pictures_attributes: [:picture, :id, :_destroy]).merge(user_id: current_user.id)
+  end
+
+  def set_products
+    @product = Product.find(params[:id])
+  end
+  
   
   # def set_card
   #   @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
