@@ -93,16 +93,16 @@
                       %th.th  出品者
                       %td.td hoge
                     %tr.tr
-                      %th.th カテゴリー
+                      %th.th カテゴリー 
                       %td.td
-                        = link_to root_path do
-                          = @parent_category
+                        = link_to'#' do
+                          = @product.category.root.name
                         %br
-                        = link_to root_path do
-                          = @child_category
+                        =link_to'#' do
+                          = @product.category.parent.name
                         %br
-                        = link_to root_path do
-                          = @grandchild_category
+                        = link_to'#' do
+                          = @product.category.name
                     %tr.tr
                       %th.th ブランド
                       %td.td
