@@ -59,7 +59,7 @@
           ノーカラージャケット
         %i.fa
       %li.last
-        %p product2
+        %p=@product.products_name
   %div.main
     %div.showMain
       %div.contentLeft
@@ -99,7 +99,7 @@
                           = @product.category.root.name
                         %br
                         =link_to'#' do
-                          = @product.category.parent.name
+                          = @product.category.parent
                         %br
                         = link_to'#' do
                           = @product.category.name
@@ -123,7 +123,7 @@
                         発送元の地域
                       %td.td
                         %a
-                          =@product.prefecture
+                          =@product.prefecture.name
                     %tr.tr
                       %th.th
                         発送日の目安
@@ -186,7 +186,7 @@
           %div.relatedItems
             = link_to root_path do
               %span 
-                メンズをもっと見る
+                ="#{@product.category.root.name}をもっと見る"
   %Footer
     %ul.contents
       %li.content
