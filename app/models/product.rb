@@ -3,14 +3,15 @@ class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   
-  has_many :pictures, dependent: :destroy
-  accepts_nested_attributes_for :pictures
+  has_many :pictures, inverse_of: :product, dependent: :destroy
+  accepts_nested_attributes_for :pictures, allow_destroy: true
 
   belongs_to :user
   belongs_to :category
   # belongs_to :seller, class_name: "User"
   # belongs_to :buyer, class_name: "User"
   has_many :comments
+  
 
   validates :products_name, presence: true, length: { maximum: 40 }
   validates :descreption, presence: true, length: { maximum: 1000 }

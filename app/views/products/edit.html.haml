@@ -4,31 +4,44 @@
       = image_tag"logo/logo.png",class:"HeaderLogo"
 
   %div.main
-    = form_for @product do |f|
-      .main__block
-        .title
-          %h1 商品の情報を入力
-        .item-form-image
-          .item-image
-            .item-image-label
-              %div.name 出品画像
-              %div.essential-label
-                必須
-            %p 最大１０枚までアップロードできます
-            #previews
-            .dropzone
-              %label.item-label
-                .dropzone-text
-                  クリックして画像をアップロード
-                = f.fields_for :pictures do |picture|
-                  = picture.file_field :picture, multiple: true, name: "pictures[picture][]", id: "upload-image", class:"upload-image"
-            .preview-box2
-              - @product.pictures.each do |picture|
-                .image-box
-                  = image_tag(@product.pictures[0].picture.url,size: "114*114")
-                  .preview-box__select
-                    = link_to products_path(picture.id), method: :delete, data: { turbolinks: false } do
-                      %p 削除
+    = form_with model:@product, local:true do |f|
+      .contents__main
+        .contents__main__header
+          商品情報を編集
+        .contents__main__upload
+          .contents__main__image
+            .contents__main__image__head
+              %label.name 出品画像
+              .contents__main__detail__right__name--icon
+                %span.essential-label 必須
+            %label.name 最大5枚までアップロードできます
+
+            .post__drop__box__container
+              .prev-content
+                //JSで挿入したhtmlと同じ形 each文でのプレビュー表示
+                - @product.pictures.each do |picture|
+                  .preview-box
+                    .upper-box
+                      = image_tag picture.picture.url, width: "112", height: "112", alt: "preview"
+                    .lower-box
+                      .update-box
+                        %label.edit-btn 編集
+                      .delete-box
+                        .delete-btn
+                          %span 削除
+              .label-content
+                //プレビューの数に合わせてforオプションを指定
+                = f.label :"pictures_attributes_#{@product.pictures.length}_picture", class: "label-box", id: "label-box--#{@product.pictures.length}" do
+                  %pre.label-box__text-visible クリックしてファイルをアップロード
+              .hidden-content
+                = f.fields_for :pictures do |i|
+                  //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
+                  = i.file_field :picture, class: "hidden-field"
+                  = i.check_box :_destroy, class: "hidden-checkbox"
+
+                  //5つのfile_fieldを準備するに当たって、足りない分を表示
+                - @product.pictures.length.upto(4) do |i|
+                  %input{name: "product[pictures_attributes][#{i}][picture]", id: "product_pictures_attributes_#{i}_picture", class:"hidden-field", type:"file"}
 
         %div.destinction-block
           %div.destinction-block__name
