@@ -60,7 +60,7 @@
 |brand|string||
 |product_conditon|string|null: false|
 |shipment_fee|string|null: false|
-|shipping_place|string|null: false|
+|prefecture|integer|null: false|
 |shipping_period|string|null: false|
 |user_id|integer|foreign_key: true|
 |category_id|integer|foreign_key: true|

@@ -59,7 +59,7 @@
           ノーカラージャケット
         %i.fa
       %li.last
-        %p product2
+        %p=@product.products_name
   %div.main
     %div.showMain
       %div.contentLeft
@@ -67,31 +67,31 @@
         %div.topcontent
           %div.itemBox
             %h2.itemBox__name
-              product2
+              =@product.products_name
             %div.itemBox__body
               %ul.itemBox__ul
                 %li.itemBox__li
                   = image_tag @product.pictures[0].picture.url if @product.pictures.present?
                   %ul.img__new
-                    %li.image2
-                      = image_tag @product.pictures[0].picture.url if @product.pictures.present?
-                    %li.image2
-                      = image_tag @product.pictures[0].picture.url if @product.pictures.present?
-                    %li.image2
-                      = image_tag @product.pictures[0].picture.url if @product.pictures.present?
+                    - @product.pictures.each_with_index do |picture, index|
+                      - if picture.present?
+                        %li.image2
+                          = image_tag picture.picture_url
             %div.itemBox__price 
-              %span.itemBox__price__span  ¥20000
+              %span.itemBox__price__span
+                ="#{@product.price}円"
               %div.item__price__Detail
                 %span（税込）
                 %span 送料込み
             %div.itemDetail
-              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+              =@product.descreption
               %div.table
                 %table.table__table
                   %tbody
                     %tr.tr
                       %th.th  出品者
-                      %td.td hoge
+                      %td.td
+                        =@product.user.nickname
                     %tr.tr
                       %th.th カテゴリー 
                       %td.td
@@ -99,33 +99,36 @@
                           = @product.category.root.name
                         %br
                         =link_to'#' do
-                          = @product.category.parent.name
+                          = @product.category.parent
                         %br
                         = link_to'#' do
                           = @product.category.name
                     %tr.tr
                       %th.th ブランド
                       %td.td
+                        =@product.brand
                     %tr.tr
                       %th.th 商品サイズ
                       %td.td
                     %tr.tr
                       %th.th 商品の状態
-                      %td.td   新品/未使用
+                      %td.td
+                        =@product.product_condition
                     %tr.tr
                       %th.th 配送料の負担
-                      %td.td 着払い（購入者負担）
+                      %td.td
+                        =@product.shipment_fee
                     %tr.tr
                       %th.th
                         発送元の地域
                       %td.td
                         %a
-                          -# = @product.prefecture
+                          =@product.prefecture.name
                     %tr.tr
                       %th.th
                         発送日の目安
                       %td.td
-                        1-2日で発送
+                        =@product.shipping_period
               %div.optionalArea
                 %ul.Area1
                   %li.optionalgoodBtn 
@@ -183,7 +186,7 @@
           %div.relatedItems
             = link_to root_path do
               %span 
-                メンズをもっと見る
+                ="#{@product.category.root.name}をもっと見る"
   %Footer
     %ul.contents
       %li.content
