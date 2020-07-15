@@ -232,12 +232,12 @@ header{
     &__Detail{
       font-size: 16px;
     }
-    .itemDetail{
-      line-height: 1.5;
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
   }
+}
+.itemDetail{
+  line-height: 1.5;
+  font-size: 18px;
+  margin-bottom: 30px;
 }
 
 .table{
@@ -419,16 +419,20 @@ header{
 }
 
 .links{
-  list-style: none;
+  display: block;
+  content: "";
+  clear:both;
   a{
     text-decoration: none;
     color: #3CCACE;
   }
   .flont1{
     display: flex;
+    float:left;
   }
   .flont2{
     display: flex;
+    float:right;
     .fa{
       display: inline-block;
       font: normal normal normal 14px/1 FontAwesome;
@@ -439,7 +443,7 @@ header{
   }
 }
 .relatedItems{
-  margin: 0;
+  margin: 24px 0 8px;
   padding: 0;
   a{
     display: block;
