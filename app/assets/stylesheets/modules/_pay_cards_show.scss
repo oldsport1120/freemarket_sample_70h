@@ -1,9 +1,11 @@
 
 .cardsshow{
   height: 100%;
+  display: flex;
 
   .show_card_wrapper{
     width: 500px;
+    background-color: #f5f5f5;
 
     .header_title {
       margin-top: 100px;
@@ -11,6 +13,7 @@
       width: 400px;
       background-color: rgb(160, 212, 245);
       color: black;
+      
       height: 50px;
       font-size: 20px;
       text-align: center;
