@@ -22,7 +22,6 @@ class Category < ApplicationRecord
 
       # 孫カテゴリーの場合
     else
-      binding.pry
       return self.products
   end
   end

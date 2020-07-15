@@ -3,25 +3,20 @@ class CategorysController < ApplicationController
 
   def index
     @parents = Category.where(ancestry: nil)
-    # #セレクトボックスの初期値設定
-    # @category_parent_array = ["---"]
-    # Category.where(ancestry: nil).each do |parent|
-    #    @category_parent_array << parent.name
   end
 
   def show
     @products = @category.set_products
-    
-    # @products = @products.where(buyer_id: nil).order("created_at DESC").page(params[:page]).per(9)
+    @products = @products.where(category_id: nil).order("created_at DESC").page(params[:page]).per(9)
   end
 
    # 以下全て、formatはjsonのみ
    # 親カテゴリーが選択された後に動くアクション
-   def get_category_children
+  def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
     @category_children = Category.find("#{params[:parent_id]}").children
   end
-
+ 
    # 子カテゴリーが選択された後に動くアクション
   def get_category_grandchildren
     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
@@ -39,4 +34,3 @@ def set_category
 end
 
 end
-
