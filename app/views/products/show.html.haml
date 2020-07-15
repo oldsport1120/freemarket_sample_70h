@@ -46,17 +46,17 @@
         %i.fa
       %li
         = link_to root_path do 
-          メンズ
+          = @product.category.root.name
       %li
         %i.fa
       %li 
         = link_to root_path do 
-          ジャケット/アウター
+          = @product.category.parent.name
       %li
         %i.fa
       %li 
         = link_to root_path do 
-          ノーカラージャケット
+          = @product.category.name
         %i.fa
       %li.last
         %p=@product.products_name
@@ -85,153 +85,145 @@
                 %span 送料込み
             %div.itemDetail
               =@product.descreption
-              %div.table
-                %table.table__table
-                  %tbody
-                    %tr.tr
-                      %th.th  出品者
-                      %td.td
-                        =@product.user.nickname
-                    %tr.tr
-                      %th.th カテゴリー 
-                      %td.td
-                        = link_to'#' do
-                          = @product.category.root.name
-                        %br
-                        =link_to'#' do
-                          = @product.category.parent
-                        %br
-                        = link_to'#' do
-                          = @product.category.name
-                    %tr.tr
-                      %th.th ブランド
-                      %td.td
-                        =@product.brand
-                    %tr.tr
-                      %th.th 商品サイズ
-                      %td.td
-                    %tr.tr
-                      %th.th 商品の状態
-                      %td.td
-                        =@product.product_condition
-                    %tr.tr
-                      %th.th 配送料の負担
-                      %td.td
-                        =@product.shipment_fee
-                    %tr.tr
-                      %th.th
-                        発送元の地域
-                      %td.td
-                        %a
-                          =@product.prefecture.name
-                    %tr.tr
-                      %th.th
-                        発送日の目安
-                      %td.td
-                        =@product.shipping_period
-              %div.optionalArea
-                %ul.Area1
-                  %li.optionalgoodBtn 
-                    お気に入り  
-                    %i.fa 
-                %ul.Area2
-                  %li.optionalBtn 
-                    = link_to root_path do
-                      不適切な商品の通報
-                      %i.fa
-              %ul.btn-gradient-simple
-                =link_to buy_product_path do
-                  購入
-            %div.commentBox
-              %ul.commentContents
-                %div.CommentContainer
-                  - if user_signed_in?
-                    = form_with model: [@product, @comment], url: product_comments_path(@product), local: true do |form|
-                      = form.text_area :text, class:"comment_body",placeholder:"この商品にコメント・質問する"
-                      = form.submit 'コメントする',class:"commentBtn"
-                  - else
-                    = form_with model: [@product, @comment], url: product_comments_path(@product), local: true do |form|
-                      = form.text_area :text, class:"comment_body",placeholder:"※※※ コメントの投稿には新規登録/ログインが必要です"
-            %div.CommentLists
-              - if @comments
-                - @comments.each do |comment| 
-                  %p.comment_text_list
-                    = comment.text
-                  %p.comment_text_name
-                    = comment.user.nickname
-                    = comment.created_at.strftime('%Y/%m/%d')
-                %p.noticeMsg
-                  相手のことを考え丁寧なコメントを心がけましょう。
-                  %br
-                  不快な言葉遣いなどは利用制限や退会処分となることがあります。
-                %div.Edit__Delete__Btn_box
-                  - if user_signed_in? && current_user.id == @product.user_id
-                    = link_to edit_product_path(@product.id) , class:"Product__Edit__Btn--left" do
-                      %span 編集する
-                    = link_to product_path(@product.id) , class:"Product__Edit__Btn--right", method: :delete do
-                      削除する
-          %ul.links
-            %li.flont1
-              = link_to root_path do 
-                %i.fa
-                %i.font:before
-                %span
-                  前の商品
-            %li.flont2
-              = link_to root_path do
-                %i.fa
-                %i.font:after
-                %span 
-                  後ろの商品
-          %div.relatedItems
-            = link_to root_path do
-              %span 
-                ="#{@product.category.root.name}をもっと見る"
-  %Footer
-    %ul.contents
-      %li.content
-        %h2 FURIMAについて
-        %ul
-          %li
-            = link_to root_path do  
-              会社概要（運営会社）
-          %li
-            = link_to root_path do
-              プライバシーポリシー
-          %li
-            = link_to root_path do
-              FURIMA利用規約
-      %li.content
-        %h2 FURIMAに見る
-        %ul
-          %li
-            = link_to root_path do
-              カテゴリー一覧
-          %li
-            = link_to root_path do
-              ブランドー一覧
-      %li.content
-        %h2 ヘルプ＆ガイド
-        %ul
-          %li
-            = link_to root_path do
-              FURIMAガイド
-          %li
-            = link_to root_path do
-              FURIMAロゴ利用ガイドライン
-          %li
+            %div.table
+              %table.table__table
+                %tbody
+                  %tr.tr
+                    %th.th  出品者
+                    %td.td
+                      =@product.user.nickname
+                  %tr.tr
+                    %th.th カテゴリー 
+                    %td.td
+                      = link_to'#' do
+                        = @product.category.root.name
+                      %br
+                      =link_to'#' do
+                        = @product.category.parent.name
+                      %br
+                      = link_to'#' do
+                        = @product.category.name
+                  %tr.tr
+                    %th.th ブランド
+                    %td.td=@product.brand
+                  %tr.tr
+                    %th.th 商品の状態
+                    %td.td=@product.product_condition
+                  %tr.tr
+                    %th.th 配送料の負担
+                    %td.td=@product.shipment_fee
+                  %tr.tr
+                    %th.th
+                      発送元の地域
+                    %td.td
+                      %a=@product.prefecture.name
+                  %tr.tr
+                    %th.th
+                      発送日の目安
+                    %td.td=@product.shipping_period
+            %div.optionalArea
+              %ul.Area1
+                %li.optionalgoodBtn 
+                  お気に入り  
+                  %i.fa 
+              %ul.Area2
+                %li.optionalBtn 
+                  = link_to root_path do
+                    不適切な商品の通報
+                    %i.fa
+            %ul.btn-gradient-simple
+              =link_to buy_product_path do
+                購入
+          %div.commentBox
+            %ul.commentContents
+              %div.CommentContainer
+                - if user_signed_in?
+                  = form_with model: [@product, @comment], url: product_comments_path(@product), local: true do |form|
+                    = form.text_area :text, class:"comment_body",placeholder:"この商品にコメント・質問する"
+                    = form.submit 'コメントする',class:"commentBtn"
+                - else
+                  = form_with model: [@product, @comment], url: product_comments_path(@product), local: true do |form|
+                    = form.text_area :text, class:"comment_body",placeholder:"※※※ コメントの投稿には新規登録/ログインが必要です"
+          %div.CommentLists
+            - if @comments
+              - @comments.each do |comment| 
+                %p.comment_text_list
+                  = comment.text
+                %p.comment_text_name
+                  = comment.user.nickname
+                  = comment.created_at.strftime('%Y/%m/%d')
+              %p.noticeMsg
+                相手のことを考え丁寧なコメントを心がけましょう。
+                %br
+                不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              %div.Edit__Delete__Btn_box
+                - if user_signed_in? && current_user.id == @product.user_id
+                  = link_to edit_product_path(@product.id) , class:"Product__Edit__Btn--left" do
+                    %span 編集する
+                  = link_to product_path(@product.id) , class:"Product__Edit__Btn--right", method: :delete do
+                    削除する
+        %ul.links
+          %li.flont1
             = link_to root_path do 
-              お知らせ
-    %div.footer__logo
-      = link_to root_path, class:"Logo" do
-        = image_tag "logo/logo-white.png", alt: "LogoWhite"
-    %p ©︎  FURIMA
-  %div.purchaseBtn
-    - if user_signed_in?
-      = link_to new_product_path , class:"TopButton" do
-        %span 出品する  
-        = image_tag "icon/icon_camera.png", alt: "出品アイコン"
-    - else
-      = link_to new_user_session_path , class:"TopButton" do
-        %span 出品する  
-        = image_tag "icon/icon_camera.png", alt: "出品アイコン"
+              %i.fa
+              %i.font:before
+              %span
+                前の商品
+          %li.flont2
+            = link_to root_path do
+              %i.fa
+              %i.font:after
+              %span 
+                後ろの商品
+        %div.relatedItems
+          = link_to root_path do
+            %span 
+              ="#{@product.category.name}をもっと見る"
+%Footer
+  %ul.contents
+    %li.content
+      %h2 FURIMAについて
+      %ul
+        %li
+          = link_to root_path do  
+            会社概要（運営会社）
+        %li
+          = link_to root_path do
+            プライバシーポリシー
+        %li
+          = link_to root_path do
+            FURIMA利用規約
+    %li.content
+      %h2 FURIMAに見る
+      %ul
+        %li
+          = link_to root_path do
+            カテゴリー一覧
+        %li
+          = link_to root_path do
+            ブランドー一覧
+    %li.content
+      %h2 ヘルプ＆ガイド
+      %ul
+        %li
+          = link_to root_path do
+            FURIMAガイド
+        %li
+          = link_to root_path do
+            FURIMAロゴ利用ガイドライン
+        %li
+          = link_to root_path do 
+            お知らせ
+  %div.footer__logo
+    = link_to root_path, class:"Logo" do
+      = image_tag "logo/logo-white.png", alt: "LogoWhite"
+  %p ©︎  FURIMA
+%div.purchaseBtn
+  - if user_signed_in?
+    = link_to new_product_path , class:"TopButton" do
+      %span 出品する  
+      = image_tag "icon/icon_camera.png", alt: "出品アイコン"
+  - else
+    = link_to new_user_session_path , class:"TopButton" do
+      %span 出品する  
+      = image_tag "icon/icon_camera.png", alt: "出品アイコン"
