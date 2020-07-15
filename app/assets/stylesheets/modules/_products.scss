@@ -187,7 +187,6 @@ header{
                   display: flex;
                   flex-direction: column;
                   width: 560px;
-                  align-items: center;
                   margin: 0 auto;
                   img{
                     object-fit: cover;
@@ -199,8 +198,10 @@ header{
                     display: flex;
                     justify-content: center;
                     margin-top: 10px;
+                    
                     .image2{
                       margin: 0 10px 0 0;
+                      width:25%;
                     }
                     .image2> img{
                       object-fit: cover;

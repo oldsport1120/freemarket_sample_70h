@@ -46,17 +46,17 @@
         %i.fa
       %li
         = link_to root_path do 
-          メンズ
+          = @product.category.root.name
       %li
         %i.fa
       %li 
         = link_to root_path do 
-          ジャケット/アウター
+          = @product.category.parent.name
       %li
         %i.fa
       %li 
         = link_to root_path do 
-          ノーカラージャケット
+          = @product.category.name
         %i.fa
       %li.last
         %p=@product.products_name
@@ -99,16 +99,13 @@
                         = @product.category.root.name
                       %br
                       =link_to'#' do
-                        = @product.category.parent
+                        = @product.category.parent.name
                       %br
                       = link_to'#' do
                         = @product.category.name
                   %tr.tr
                     %th.th ブランド
                     %td.td=@product.brand
-                  %tr.tr
-                    %th.th 商品サイズ
-                    %td.td
                   %tr.tr
                     %th.th 商品の状態
                     %td.td=@product.product_condition
@@ -181,7 +178,7 @@
         %div.relatedItems
           = link_to root_path do
             %span 
-              ="#{@product.category.root.name}をもっと見る"
+              ="#{@product.category.name}をもっと見る"
 %Footer
   %ul.contents
     %li.content
