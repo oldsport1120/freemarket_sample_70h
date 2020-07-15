@@ -152,5 +152,5 @@ $(document).on('turbolinks:load', function(){
     }
   })
 });
-turbolinksを先に読み込む
+// turbolinksを先に読み込む
 
