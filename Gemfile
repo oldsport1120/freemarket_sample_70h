@@ -96,4 +96,4 @@ gem 'jquery-rails'
 
 gem 'pry-rails'
 
-# gem 'jquery-turbolinks'
+gem 'jquery-turbolinks'
