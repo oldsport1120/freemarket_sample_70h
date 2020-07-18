@@ -110,6 +110,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def buy
+    @product = Product.find(params[:id])
+    #@address = Product.where(id: current_user.id)
+  end
+
   private
 
   def product_params

@@ -9,18 +9,18 @@
           購入内容の確認
       .border
       .buy-wrapper__main__contents
-        = image_tag "pict/product3.png", class: "buy-wrapper__main__contents__left"
+        = image_tag @product.pictures[0].picture.url, class: "buy-wrapper__main__contents__left"
         .buy-wrapper__main__contents__right
-          商品名
+          =@product.products_name
           %br
-          ¥1,000(税込)送料込み
+          ="#{@product.price}円(税込)送料込み"
           %br
       .border
       .buy-wrapper__main__title
         .buy-wrapper__main__title__text
           支払い金額
         .buy-wrapper__main__title__text
-          ¥1,000
+          ="¥#{@product.price}"
       .border
       .buy-wrapper__main__title
         .buy-wrapper__main__title__text
