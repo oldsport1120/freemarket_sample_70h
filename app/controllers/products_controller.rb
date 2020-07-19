@@ -21,6 +21,8 @@ class ProductsController < ApplicationController
       currency: 'jpy',
       )
       # 売り切れなので、productの情報をアップデートして売り切れにします。
+      @product_purchaser= Product.find(params[:id])
+      @product_purchaser.update(buyer_id: current_user.id)
       if @product.update(buyer_id: current_user.id)
         flash[:notice] = '購入しました。'
         redirect_to controller: 'home', action: 'top', id: @product.id
