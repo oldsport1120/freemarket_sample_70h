@@ -23,23 +23,30 @@
           ="¥#{@product.price}"
       .border
       .buy-wrapper__main__title
+        支払い方法
         .buy-wrapper__main__title__text
-          支払い方法
-          - if @card.present?
-            .buy-wrapper__main__title__text.registration
-              = link_to cards_path, class:"registration" do
-                登録済みです
-          - else
+          - if @card.blank?
             .buy-wrapper__main__title__text.light.space
               = link_to new_cards_path, class:"Pay" do
                 登録してください
+          - else
+            .buy-wrapper__main__title__text.registration
+              .containerB
+                .creditcard-infoB
+                  %p.creditcard-info__numberB
+                    = "**** **** ****"  + @card_info.last4
+                  %p.creditcard-info__periodB
+                  = @exp_month + "/" + @exp_year
+            
       .border
       .buy-wrapper__main__title
+        配送先
         .buy-wrapper__main__title__text
-          配送先
           .buy-wrapper__main__title__text.light.width
-            = link_to root_path, class:"ShippingAddress" do
-              登録してください
+            = @users.zip_code
+            = @users.prefecture
+            = @users.city
+            = @users.street
       .border
       .buy-wapper__main__pay-btn
         = link_to "登録クレジットカードで購入する", controller: 'cards', action: 'pay', method: :post, class: "pay"

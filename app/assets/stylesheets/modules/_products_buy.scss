@@ -32,9 +32,13 @@
       width: 300px;
       display: flex;
       justify-content: space-between;
+      &__text{
+        display: flex;
+        justify-content: space-between;
+      }
       .registration{
         text-decoration: none;
-        color: rgb(50, 185, 238);
+        color: black;
         font-size: 12px;
         padding-top: 6px;
         position: relative;

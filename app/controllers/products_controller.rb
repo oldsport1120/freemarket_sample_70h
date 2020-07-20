@@ -1,8 +1,19 @@
 class ProductsController < ApplicationController
-  before_action :set_products,             only:[:show,:edit,:update]
+  before_action :set_products,            only:[:show,:edit,:update,:buy]
 
-  # require "payjp"
+  require "payjp"
   # before_action :set_card
+
+  def buy
+    @users = current_user
+    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+    @card = current_user.card
+    customer = Payjp::Customer.retrieve(@card.customer_id) 
+    @card_info = customer.cards.retrieve(customer.default_card)
+    @exp_month = @card_info.exp_month.to_s
+    @exp_year = @card_info.exp_year.to_s.slice(2,3)
+  end
+
 
   def pay
     @product = Product.find(params[:product_id])
@@ -16,7 +27,7 @@ class ProductsController < ApplicationController
       Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
       # 請求を発行
       Payjp::Charge.create(
-      amount: 1000,
+      amount: @products.price,
       customer: @card.customer_id,
       currency: 'jpy',
       )
@@ -110,10 +121,10 @@ class ProductsController < ApplicationController
     end
   end
 
-  def buy
-    @product = Product.find(params[:id])
-    #@address = Product.where(id: current_user.id)
-  end
+  # def buy
+  #   @product = Product.find(params[:id])
+  #   #@address = Product.where(id: current_user.id)
+  # end
 
   private
 
