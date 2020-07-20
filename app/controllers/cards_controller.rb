@@ -62,7 +62,7 @@ class CardsController < ApplicationController
       Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
       # 請求を発行
       Payjp::Charge.create(
-      amount: 1000,
+      amount: @products.price,
       customer: @card.customer_id,
       currency: 'jpy',
       )
