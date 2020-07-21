@@ -16,9 +16,10 @@ class ProductsController < ApplicationController
 
 
   def pay
-    @product = Product.find(params[:product_id])
+    @product = Product.find(params[:id])
     # すでに購入されていないか？
-    if @product.buyer.present? 
+    @card = current_user.card
+    if @product.buyer_id.present? 
       redirect_back(fallback_location: root_path) 
     elsif @card.blank?
       redirect_to controller: "cards", action: "new"
@@ -27,7 +28,7 @@ class ProductsController < ApplicationController
       Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
       # 請求を発行
       Payjp::Charge.create(
-      amount: @products.price,
+      amount: @product.price,
       customer: @card.customer_id,
       currency: 'jpy',
       )
@@ -36,7 +37,8 @@ class ProductsController < ApplicationController
       @product_purchaser.update(buyer_id: current_user.id)
       if @product.update(buyer_id: current_user.id)
         flash[:notice] = '購入しました。'
-        redirect_to controller: 'home', action: 'top', id: @product.id
+        # redirect_to controller: 'home', action: 'top', id: @product.id
+        redirect_to root_path
       else
         flash[:alert] = '購入に失敗しました。'
         redirect_to controller: 'products', action: 'show', id: @product.id

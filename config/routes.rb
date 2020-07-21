@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :comments, only: :create
     member do
       get "buy"
-      get "pay"
+      post "pay"
     end
   end
 

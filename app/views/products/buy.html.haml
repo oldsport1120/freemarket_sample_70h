@@ -49,7 +49,9 @@
             = @users.street
       .border
       .buy-wapper__main__pay-btn
-        = link_to "登録クレジットカードで購入する", controller: 'cards', action: 'pay', method: :post, class: "pay"
+        = link_to pay_product_path(@product) , method: :post do
+          登録クレジットカードで購入する
+        -# = link_to "登録クレジットカードで購入する", controller: 'cards', action: 'pay', method: :post, class: "pay"
   .buy-wrapper__footer
     .buy-wrapper__footer__text
       = link_to root_path, class:"Policy" do
