@@ -4,7 +4,7 @@ class CardsController < ApplicationController
   
   require "payjp"
   before_action :set_card
-  before_action :set_products, expect: [:new]
+  # before_action :set_products, expect: [:new]
 
 
   def new
@@ -77,7 +77,7 @@ class CardsController < ApplicationController
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
   end
 
-  def set_products
-    @products = Product.find(params[:id])
-  end
+  # def set_products
+  #   @products = Product.find(params[:id])
+  # end
 end
